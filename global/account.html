@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    	<link rel="stylesheet" href="../style/global.css">
+    	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+ 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    </head>
+
+    <body>
+		<div class="header">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<a class="navbar-brand" href="header.html">E-Game</a>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+					<i class="fas fa-align-justify"></i>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navBar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<form class="form-inline">
+								<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
+								<button class="btn btn-success" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</form>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="catalogue.html">Catalogue
+								<i class="fas fa-book"></i>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">Utilisateur
+								<i class="fas fa-user"></i>
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="log.html">Se connecter</a>
+								<a class="dropdown-item" href="sign.html">Créer un compte</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div class="title-log">
+			<h1>Mes informations</h1>
+		</div>
+
+		<div class="container con-account">
+			<form class="form-account" action="#" novalidate>
+				<div class="row r-1">
+					<div class="col-md-6 colo-20">
+						<div class="form-group">
+							<label for="civility">Ma civilité :</label>
+							<div class="civility">
+								<div class="check-item">
+									<label for="defaultCheck">
+										<input type="checkbox" id="defaultCheck"> Mlle
+									</label>
+								</div>
+
+								<div class="check-item">
+									<label for="defaultCheck">
+										<input type="checkbox" id="defaultCheck"> Mme
+									</label>
+								</div>
+
+								<div class="check-item">
+									<label for="defaultCheck">
+										<input type="checkbox" id="defaultCheck"> M
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="pseudo">Mon pseudo :</label>
+							<input type="text" class="form-control pseudo" name="pseudo" id="pseudo" placeholder="Mon pseudo">
+						</div>
+
+						<div class="form-group">
+							<label for="name">Mon nom :</label>
+							<input type="text" class="form-control name" name="name" id="name" placeholder="Mon nom">
+						</div>
+
+						<div class="form-group">
+							<label for="fname">Mon prénom :</label>
+							<input type="text" class="form-control fname" name="fname" id="fname" placeholder="Mon prénom">
+						</div>
+					</div>
+
+					<div class="col-md-6 colo-21">
+						<div class="form-group">
+							<label for="birthday">Ma date de naissance :</label>
+							<div class="birthday">
+								<div>
+									<input type="text" class="form-control birthday" name="birthday" id="birthday" placeholder="Ma date de naissance">
+								</div>
+
+								<div>
+									<i class="fas fa-calendar-alt"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email">Mon adresse mail :</label>
+							<input type="email" class="form-control email" name="email" id="email" placeholder="Mon adresse mail">
+						</div>
+
+						<div class="form-group">
+							<label for="pwd">Mon mot de passe :</label>
+							<input type="password" class="form-control pwd" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
+						</div>
+
+						<div class="form-group">
+							<label for="pwd">Confirmer mon mot de passe :</label>
+							<input type="password" class="form-control vpwd" name="vpwd" id="pwd">
+						</div>
+
+						<div class="buttons">
+							<div class="reset-button invisible">
+								<button type="reset" class="btn btn-primary">Annuler </button>
+							</div>
+
+							<div class="submit-button account-submit invisible">
+								<button type="submit" class="btn btn-primary">Modifier mes informations</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				$(".fa-calendar-alt").click(function() {
+					$("#birthday").datepicker();
+					$("#birthday").datepicker("show");
+				});
+
+				$('.pseudo').on('input', function() {
+					var input=$(this);
+					var no_blank=input.val();
+					if(no_blank)
+					{
+						$('.reset-button').removeClass("invisible").addClass("visible");
+						$('.submit-button').removeClass("invisible").addClass("visible");
+					}
+					else
+					{
+						$('.reset-button').removeClass("visible").addClass("invisible");
+						$('.submit-button').removeClass("visible").addClass("invisible");
+					}
+				});
+			});
+		</script>
+
+    	<!-- 
+    		<div class="footer bg-dark">
+    			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+    		</div>
+    	!-->
+    </body>
+</html>

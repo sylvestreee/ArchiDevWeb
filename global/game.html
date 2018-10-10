@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    	<link rel="stylesheet" href="../style/global.css">
+    	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+ 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    </head>
+
+    <body>
+		<div class="header">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<a class="navbar-brand" href="header.html">E-Game</a>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+					<i class="fas fa-align-justify"></i>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navBar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<form class="form-inline">
+								<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
+								<button class="btn btn-success" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</form>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="catalogue.html">Catalogue
+								<i class="fas fa-book"></i>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">Utilisateur
+								<i class="fas fa-user"></i>
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="log.html">Se connecter</a>
+								<a class="dropdown-item" href="sign.html">Créer un compte</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div class="title-log">
+			<h1>Fiche produit</h1>
+		</div>
+
+		<div class="container con-game">
+			<div class="row align-items-center r-30">
+				<div class="col-md-6 colo-30">
+					<img class="cover" src="../pictures/sm-cover.png" alt="Spider Man"/>
+				</div>
+
+				<div class="col-md-6 colo-31">
+					<div class="row align-items-center r-31">
+						<div class="col-md-6 colo-32">
+							<p>
+								Spider-Man<br>
+								<span class="line">Editeur :</span> Sony<br>
+								<span class="line">Développeur :</span> Insomniac Games<br> 
+							</p>
+						</div>
+
+						<div class="col-md-6 colo-33">
+							<p>
+								<span class="line">Plateforme :</span> Playstation 4<br>
+								<span class="line">Date de sortie :</span> 07/09/18<br> 
+								<span class="line">Note :</span><br>
+							</p>
+						</div>
+					</div>
+					
+
+					<p>
+						<span class="line">Synopsis :</span> New-York a besoin de son plus grand héros : Spider-Man ! 
+						Alors qu'une menace sans précédent s'apprête à frapper sa ville, tiraillé entre sa vie personnelle
+						et son devoir de super-héros, l'homme-araigné va devoir devenir plus fort, sous peine d'en
+						payers les terribles conséquences...
+					</p>
+
+					<p class="price">49€99</p>
+
+					<div class="basket-button">
+						<button type="submit" class="btn btn-primary">Mettre dans le panier</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container con-trailer">
+			<h4>
+				<span class="line">Trailer</span>
+			</h4>
+
+			<video width="720" height="480" controls src="../videos/sm-trailer.mp4" alt="Spider Man">
+		</div>
+
+    	<!-- 
+    		<div class="footer bg-dark">
+    			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+    		</div>
+    	!-->
+    </body>
+</html>
