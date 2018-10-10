@@ -228,3 +228,22 @@ input.valid {
 	display: block;
 	margin: auto;
 }
+
+/*CSS for basket.html*/
+
+.colo-40 {
+	border: 1px solid red;
+}
+
+.colo-41 {
+	border: 1px solid blue;
+}
+
+.colo-43 {
+	border: 1px solid black;
+	text-align: center;
+}
+
+.pay, .delete {
+	padding: 5px 0;
+}
