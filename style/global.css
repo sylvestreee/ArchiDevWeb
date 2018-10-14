@@ -1,3 +1,5 @@
+/*global CSS*/
+
 html {
 	height: 100%;
 	width: 100%;
@@ -13,49 +15,68 @@ body {
 	width: 100%;
 }
 
-/*CSS for header.html*/
+.title {
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+.invisible {
+	display: none;
+}
+
+.visible {
+	display: visible;
+}
+
+.subtitle {
+	text-align: center;
+	border: 1px solid black;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+/*specifc CCS for header and footer*/
 
 .navbar-nav .nav-item {
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-.con-1, .con-2, .con-3 {
+.footer {
+	border: 0.1px solid;
+}
+
+.footer p {
+	text-align :center;
+	color: white;
+}
+
+/*specific CSS for home.html*/
+
+.con-home-1, .con-home-2, .con-home-3 {
 	max-width: 100%;
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
-}
-
-#news {
-	
-	width: 100%;
 }
 
 #news img {
 	width:100%;
 }
 
-.ro-1, .ro-2, .colo-1, .colo-2 {
+.ro-home-1, .ro-home-2, .colo-home-1, .colo-home-2 {
 	height: 100%;
 	width: 100%;
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
 }
 
-.colo-1, .colo-2 {
+.colo-home-1, .colo-home-2 {
 	border: 0.5px solid black;
 }
 
-.title {
-	text-align: center;
-	border: 1px solid black;
-}
-
-.line {
-	text-decoration: underline;
-}
-
-#bestsellers, .ro-2 {
+#bestsellers, .ro-home-2 {
 	background-color: #E0E0E0;
 }
 
@@ -70,23 +91,9 @@ body {
 	margin-right: auto;
 }
 
-.footer {
-	border: 0.1px solid;
-}
+/*specific CSS for log.html and sign.html*/
 
-.footer p {
-	text-align :center;
-	color: white;
-}
-
-/*CSS for log.html and sign.html*/
-
-.title-log {
-	margin-top: 25px;
-	margin-left: 25px;
-}
-
-.log {
+.container-log, .container-sign {
 	margin-left: 10px;
 	margin-top: 25px;
 }
@@ -97,16 +104,8 @@ body {
 }
 
 .missing-show {
-	color:black;
+	color: black;
 	margin-top: 5px;
-}
-
-.warning {
-	display: none;
-}
-
-.warning-show {
-	display: visible;
 }
 
 input.invalid {
@@ -117,7 +116,7 @@ input.valid {
 	border: 4px solid green;
 }
 
-/*CSS for catalogue.html*/
+/*specific CSS for catalogue.html*/
 
 .con-catalogue {
 	max-width: 100%;
@@ -125,13 +124,13 @@ input.valid {
 	margin: 0 0 0 0;
 }
 
-.ro-10 {
+.ro-catalogue-1 {
 	max-width: 100%;
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
 }
 
-.ro-11, .ro-12, .filter {
+.ro-catalogue-2, .ro-catalogue-3, .filter {
 	border: 1px solid black;
 }
 
@@ -141,19 +140,11 @@ input.valid {
 	padding-right: 15px;
 }
 
-.ro-12 {
+.ro-catalogue-3 {
 	margin-top: 5px;
 }
 
-.invisible {
-	display: none;
-}
-
-.visible {
-	display: visible;
-}
-
-/*CSS for rating system*/
+/*specific CSS for rating system*/
 
 .rating-stars ul {
 	list-style-type: none;
@@ -180,7 +171,7 @@ input.valid {
 	border: 0;
 }
 
-/*CSS for account.html*/
+/*specific CSS for account.html*/
 
 .form-account {
 	border: 1px solid black;
@@ -198,9 +189,9 @@ input.valid {
 	margin-left: 10px;
 }
 
-/*CSS for game.html*/
+/*specific CSS for game.html*/
 
-.con-game, .con-trailer {
+.con-game-1, .con-game-2 {
 	border: 1px solid black;
 }
 
@@ -214,35 +205,22 @@ input.valid {
 	margin-right: auto;
 }
 
-.con-game {
+.con-game-1 {
 	margin-top: 25px;
 	padding: 10px;
 }
 
-.con-trailer {
+.con-game-2 {
 	margin-top: 5px;
 	padding: 10px;
 }
 
-.con-trailer video {
+.con-game-2 video {
 	display: block;
 	margin: auto;
 }
 
-/*CSS for basket.html*/
-
-.colo-40 {
-	border: 1px solid red;
-}
-
-.colo-41 {
-	border: 1px solid blue;
-}
-
-.colo-43 {
-	border: 1px solid black;
-	text-align: center;
-}
+/*specific CSS for basket.html*/
 
 .pay, .delete {
 	padding: 5px 0;
