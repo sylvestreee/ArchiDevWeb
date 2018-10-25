@@ -3,18 +3,13 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    	<link rel="stylesheet" href="../style/global.css">
-    	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
- 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-      	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    </head>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  	<link rel="stylesheet" href="../style/global.css">
+  	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  </head>
 
     <body>
 		<!--header start!-->
@@ -82,77 +77,23 @@
 					<i class="fas fa-exclamation-triangle invisible"></i>
 					<span class="missing">Les mots de passe ne correspondent pas</span>
 				</div>
-				
+
 				<div class="submit-button">
 					<button type="submit" class="btn btn-primary">Créer un compte</button>
 				</div>
 			</form>
 		</div>
 
-		<script>
-			$(document).ready(function() {
-				$('.email').on('input', function() {
-					var input=$(this);
-					var re=/^[^\W][a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/;
-					var is_email=re.test(input.val());
-					if(is_email)
-					{
-						input.removeClass("invalid").addClass("valid");
-					}
-					else
-					{
-						input.removeClass("valid").addClass("invalid");
-					}
-				});
-
-				$('.pwd').on('input', function() {
-					var input=$(this);
-					var re=/^(?=.*\d)(?=.*[A-Z]).{6,}$/;
-					var is_pwd=re.test(input.val());
-					if(is_pwd)
-					{
-						input.removeClass("invalid").addClass("valid");
-					}
-					else
-					{
-						input.removeClass("valid").addClass("invalid");
-					}
-				});
-
-				$(".submit-button button").click(function(event) {
-					var form_data=$(".form-sign").serializeArray();
-					var error_free=true;
-					$.each(form_data, function(i, input) {
-						var element=$("."+input.name);
-						var valid=element.hasClass("valid");
-						var error_element=$("span", element.parent());
-						var warning_element=$("i", element.parent());
-						if(!valid) {
-							error_element.removeClass("missing").addClass("missing-show");
-							warning_element.removeClass("warning").addClass("warning-show");
-							error_free=false;
-						}
-						else {
-							error_element.removeClass("missing-show").addClass("missing");
-							warning_element.removeClass("warning-show").addClass("warning");
-						}
-					});
-					if(!error_free) {
-						event.preventDefault();
-					}
-					else {
-						alert('No errors: Form is good');
-					}
-				});
-			});
-		</script>
-
     	<!--footer start!-->
-    	<!--	
-    		<div class="footer bg-dark">
-    			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
-    		</div>
-    	!-->
+  		<div class="footer bg-dark">
+  			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+  		</div>
     	<!--footer end!-->
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	  	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	  	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     </body>
 </html>

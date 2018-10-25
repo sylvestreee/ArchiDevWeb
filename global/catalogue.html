@@ -3,17 +3,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    	<link rel="stylesheet" href="../style/global.css">
-    	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
- 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-      	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  	<link rel="stylesheet" href="../style/global.css">
     </head>
 
     <body>
@@ -37,12 +32,14 @@
 							</form>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="catalogue.html">Catalogue
+							<a class="nav-link" href="catalogue.html">
+								Catalogue
 								<i class="fas fa-book"></i>
 							</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">Utilisateur
+							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+								Utilisateur
 								<i class="fas fa-user"></i>
 							</a>
 							<div class="dropdown-menu">
@@ -55,7 +52,7 @@
 			</nav>
 		</div>
 		<!--header end!-->
-	    
+
 		<div class="title">
 			<h1>Catalogue</h1>
 		</div>
@@ -68,57 +65,64 @@
 
 						<div class="filter-item">
 							<h5>Editeur
-								<i class="fas fa-plus-circle discover-1"></i>
+								<i class="fas fa-plus-circle discover" data-target="editor"></i>
 							</h5>
 
-							<form class="editor invisible">
+							<form class="editor invisible" >
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Sony
+										<input type="checkbox" id="defaultCheck">
+										Sony
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Square Enix
+										<input type="checkbox" id="defaultCheck">
+										Square Enix
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Konami
-									</label>								
+										<input type="checkbox" id="defaultCheck">
+										Konami
+									</label>
 								</div>
 							</form>
 						</div>
 
 						<div class="filter-item">
 							<h5>Développeur
-								<i class="fas fa-plus-circle discover-2"></i>
+								<i class="fas fa-plus-circle discover" data-target="developer"></i>
 							</h5>
 
 							<form class="developer invisible">
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Insomniac Games
+										<input type="checkbox" id="defaultCheck">
+										Insomniac Games
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Eidos Montréal
+										<input type="checkbox" id="defaultCheck">
+										Eidos Montréal
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Konami
+										<input type="checkbox" id="defaultCheck">
+										Konami
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Square Enix
+										<input type="checkbox" id="defaultCheck">
+										Square Enix
 									</label>
 								</div>
 							</form>
@@ -126,69 +130,79 @@
 
 						<div class="filter-item">
 							<h5>Plateforme
-								<i class="fas fa-plus-circle discover-3"></i>
+								<i class="fas fa-plus-circle discover"></i>
 							</h5>
 
 							<form class="plateform invisible">
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> PlayStation 4
+										<input type="checkbox" id="defaultCheck">
+										PlayStation 4
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Xbox One
+										<input type="checkbox" id="defaultCheck">
+										Xbox One
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Nintendo Switch
+										<input type="checkbox" id="defaultCheck">
+										Nintendo Switch
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> PC
+										<input type="checkbox" id="defaultCheck">
+										PC
 									</label>
 								</div>
 							</form>
 						</div>
 
 						<div class="filter-item">
-							<h5>Date de sortie
-									<i class="fas fa-plus-circle discover-4"></i>
+							<h5>
+								Date de sortie
+								<i class="fas fa-plus-circle discover"></i>
 							</h5>
 
 							<form class="released invisible">
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> A venir
+										<input type="checkbox" id="defaultCheck">
+										A venir
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> - 3 mois
+										<input type="checkbox" id="defaultCheck">
+										- 3 mois
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> 3 - 6 mois
+										<input type="checkbox" id="defaultCheck">
+										3 - 6 mois
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> 6 - 12 mois
+										<input type="checkbox" id="defaultCheck">
+										6 - 12 mois
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> + 12 mois
+										<input type="checkbox" id="defaultCheck">
+										+ 12 mois
 									</label>
 								</div>
 							</form>
@@ -196,7 +210,7 @@
 
 						<div class="filter-item">
 							<h5>Note
-								<i class="fas fa-plus-circle discover-5"></i>
+								<i class="fas fa-plus-circle discover"></i>
 							</h5>
 
 							<div class="rating-stars invisible">
@@ -226,7 +240,7 @@
 
 						<div class="filter-item">
 							<h5>Prix
-								<i class="fas fa-plus-circle discover-6"></i>
+								<i class="fas fa-plus-circle discover"></i>
 							</h5>
 
 							<div class="price invisible">
@@ -243,7 +257,7 @@
 				<div class="col-md-10">
 					<div class="container">
 						<!-- 1 !-->
-						<div class="row align-items-center ro-catalogue-2">
+						<div class="row align-items-center ro-catalogue ro-catalogue-2">
 							<div class="col-md-3">
 								<img class="cover" src="../pictures/sm-cover-sm.png" alt="Spider Man"/>
 							</div>
@@ -252,14 +266,14 @@
 								<p>
 									Spider-Man<br>
 									<span class="underline">Editeur :</span> Sony<br>
-									<span class="underline">Développeur :</span> Insomniac Games<br> 
+									<span class="underline">Développeur :</span> Insomniac Games<br>
 								</p>
 							</div>
 
 							<div class="col-md-3">
 								<p>
 									<span class="underline">Plateforme :</span> Playstation 4<br>
-									<span class="underline">Date de sortie :</span> 07/09/18<br> 
+									<span class="underline">Date de sortie :</span> 07/09/18<br>
 									<span class="underline">Note :</span><br>
 								</p>
 							</div>
@@ -269,25 +283,21 @@
 							</div>
 						</div>
 
-						<div class="row align-items-center ro-catalogue-3">
+						<div class="row align-items-center ro-catalogue ro-catalogue-3">
 							<div class="col-md-3">
 								<img class="cover" src="../pictures/tr-cover-sm.jpg" alt="Spider Man"/>
 							</div>
 
 							<div class="col-md-3">
-								<p>
-									Shadow of the Tomb Raider<br>
-									<span class="underline">Editeur :</span> Square Enix<br>
-									<span class="underline">Développeur :</span> Eidos Montréal<br> 
-								</p>
+								<p>Shadow of the Tomb Raider</p>
+								<p><span class="underline">Editeur :</span> Square Enix</p>
+								<p><span class="underline">Développeur :</span> Eidos Montréal</p>
 							</div>
 
 							<div class="col-md-3">
-								<p>
-									<span class="underline">Plateforme :</span> Playstation 4<br>
-									<span class="underline">Date de sortie :</span> 14/09/18<br> 
-									<span class="underline">Note :</span><br>
-								</p>
+								<p><span class="underline">Plateforme :</span> Playstation 4</p>
+								<p><span class="underline">Date de sortie :</span> 14/09/18</p>
+								<p><span class="underline">Note :</span></p>
 							</div>
 
 							<div class="col-md-3">
@@ -295,25 +305,21 @@
 							</div>
 						</div>
 
-						<div class="row align-items-center ro-catalogue-3">
+						<div class="row align-items-center ro-catalogue ro-catalogue-3">
 							<div class="col-md-3">
 								<img class="cover" src="../pictures/pes-cover-sm.png" alt="Spider Man"/>
 							</div>
 
 							<div class="col-md-3">
-								<p>
-									Pro Evolution Soccer 2019<br>
-									<span class="underline">Editeur :</span> Konami<br>
-									<span class="underline">Développeur :</span> Konami<br> 
-								</p>
+								<p>Pro Evolution Soccer 2019</p>
+								<p><span class="underline">Editeur :</span> Konami</p>
+								<p><span class="underline">Développeur :</span> Konami</p>
 							</div>
 
 							<div class="col-md-3">
-								<p>
-									<span class="underline">Plateforme :</span> Playstation 4<br>
-									<span class="underline">Date de sortie :</span> 30/08/18<br> 
-									<span class="underline">Note :</span><br>
-								</p>
+								<p><span class="underline">Plateforme :</span> Playstation 4</p>
+								<p><span class="underline">Date de sortie :</span> 30/08/18</p>
+								<p><span class="underline">Note :</span></p>
 							</div>
 
 							<div class="col-md-3">
@@ -321,7 +327,7 @@
 							</div>
 						</div>
 
-						<div class="row align-items-center ro-catalogue-3">
+						<div class="row align-items-center ro-catalogue ro-catalogue-3">
 							<div class="col-md-3">
 								<img class="cover" src="../pictures/dq-cover-sm.png" alt="Spider Man"/>
 							</div>
@@ -330,14 +336,14 @@
 								<p>
 									Dragon Quest XI : Les Combattants de la destinée<br>
 									<span class="underline">Editeur :</span> Square Enix<br>
-									<span class="underline">Développeur :</span> Square Enix<br> 
+									<span class="underline">Développeur :</span> Square Enix<br>
 								</p>
 							</div>
 
 							<div class="col-md-3">
 								<p>
 									<span class="underline">Plateforme :</span> Playstation 4<br>
-									<span class="underline">Date de sortie :</span> 04/09/18<br> 
+									<span class="underline">Date de sortie :</span> 04/09/18<br>
 									<span class="underline">Note :</span><br>
 								</p>
 							</div>
@@ -350,139 +356,17 @@
 				</div>
 			</div>
 
-			<script>
-				$(document).ready(function() {
-					$('.discover-1').click(function(event) {
-						var valid = $('.editor').hasClass("invisible");
-						if(valid) {
-							$('.discover-1').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-							$('.editor').removeClass("invisible").addClass("visible");
-						}
-						else 
-						{
-							$('.discover-1').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-							$('.editor').removeClass("visible").addClass("invisible");
-						}
-					});
-
-					$('.discover-2').click(function(event) {
-						var valid = $('.developer').hasClass("invisible");
-						if(valid) {
-							$('.discover-2').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-							$('.developer').removeClass("invisible").addClass("visible");
-						}
-						else 
-						{
-							$('.discover-2').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-							$('.developer').removeClass("visible").addClass("invisible");
-						}
-					});
-
-					$('.discover-3').click(function(event) {
-						var valid = $('.plateform').hasClass("invisible");
-						if(valid) {
-							$('.discover-3').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-							$('.plateform').removeClass("invisible").addClass("visible");
-						}
-						else 
-						{
-							$('.discover-3').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-							$('.plateform').removeClass("visible").addClass("invisible");
-						}
-					});
-
-					$('.discover-4').click(function(event) {
-						var valid = $('.released').hasClass("invisible");
-						if(valid) {
-							$('.discover-4').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-							$('.released').removeClass("invisible").addClass("visible");
-						}
-						else 
-						{
-							$('.discover-4').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-							$('.released').removeClass("visible").addClass("invisible");
-						}
-					});
-
-					$("#stars li").on("mouseover", function() {
-						var onStar = parseInt($(this).data("value"), 10);
-						//console.log(onStar);
-						$(this).parent().children('li.star').each(function(e) {
-							if(e < onStar) {
-								//console.log("hey");
-								$(this).addClass("hover");
-							}
-							else {
-								//console.log("hey2");
-								$(this).removeClass("hover");
-							}
-						});
-					}).on("mouseout", function() {
-						$(this).parent().children('li.star').each(function(e) {
-
-							$(this).removeClass("hover");
-						});						
-					});
-
-					$("#stars li").on('click', function() {
-						var onStar = parseInt($(this).data('value'), 10);
-						console.log
-						var stars = $(this).parent().children('li.star');
-						for(i = 0; i < stars.length; i++) {
-							$(stars[i]).removeClass("selected");
-						}
-						for(i = 0; i < onStar; i++) {
-							$(stars[i]).addClass("selected");
-						}
-					});
-
-					$('.discover-5').click(function(event) {
-						var valid = $('.rating-stars').hasClass("invisible");
-						if(valid) {
-							$('.discover-5').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-							$('.rating-stars').removeClass("invisible").addClass("visible");
-						}
-						else 
-						{
-							$('.discover-5').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-							$('.rating-stars').removeClass("visible").addClass("invisible");
-						}
-					});	
-
-					$(function() {
-           				$("#slider-range").slider({
-           					max: 70,
-           					min: 0,
-           					range: true,
-           					values: [0, 70],
-           					slide: function(event, ui) {
-           						$("#range").val("Entre " + ui.values[0] + " et " + ui.values[1] + "€");
-           					}
-           				});
-           				$("#range").val("Entre " + $("#slider-range").slider("values", 0) + " et " + $("#slider-range").slider("values", 1) + "€");
-        			});
-
-        			$('.discover-6').click(function(event) {
-						var valid = $('.price').hasClass("invisible");
-						if(valid) {
-							$('.discover-6').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-							$('.price').removeClass("invisible").addClass("visible");
-						}
-						else 
-						{
-							$('.discover-6').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-							$('.price').removeClass("visible").addClass("invisible");
-						}
-					});
-				});		
-			</script>
-
-		<!--footer start!-->
-    	<!--	
+			<!--footer start!-->
     		<div class="footer bg-dark">
     			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
     		</div>
-    	!-->
     	<!--footer end!-->
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+			<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+			<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+			<script src="../scripts/catalogue.js"></script>
     </body>
 </html>

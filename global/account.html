@@ -7,13 +7,8 @@
 
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+			<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
     	<link rel="stylesheet" href="../style/global.css">
-    	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
- 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-      	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     </head>
 
     <body>
@@ -37,12 +32,14 @@
 							</form>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="catalogue.html">Catalogue
+							<a class="nav-link" href="catalogue.html">
+								Catalogue
 								<i class="fas fa-book"></i>
 							</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">Utilisateur
+							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+								Utilisateur
 								<i class="fas fa-user"></i>
 							</a>
 							<div class="dropdown-menu">
@@ -65,23 +62,27 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
+
 							<label for="civility">Ma civilité :</label>
 							<div class="civility">
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Mlle
+										<input type="checkbox" id="defaultCheck">
+										Mlle
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> Mme
+										<input type="checkbox" id="defaultCheck">
+										Mme
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck"> M
+										<input type="checkbox" id="defaultCheck">
+										M
 									</label>
 								</div>
 							</div>
@@ -112,7 +113,7 @@
 								</div>
 
 								<div>
-									<i class="fas fa-calendar-alt"></i>
+									<i class="fas fa-calendar-alt clickable-icon"></i>
 								</div>
 							</div>
 						</div>
@@ -146,36 +147,19 @@
 			</form>
 		</div>
 
-		<script>
-			$(document).ready(function() {
-				$(".fa-calendar-alt").click(function() {
-					$("#birthday").datepicker();
-					$("#birthday").datepicker("show");
-				});
+  	<!--footer start!-->
 
-				$('.pseudo').on('input', function() {
-					var input=$(this);
-					var no_blank=input.val();
-					if(no_blank)
-					{
-						$('.reset-button').removeClass("invisible").addClass("visible");
-						$('.submit-button').removeClass("invisible").addClass("visible");
-					}
-					else
-					{
-						$('.reset-button').removeClass("visible").addClass("invisible");
-						$('.submit-button').removeClass("visible").addClass("invisible");
-					}
-				});
-			});
-		</script>
+		<div class="footer bg-dark">
+			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+		</div>
 
-    	<!--footer start!-->
-    	<!--	
-    		<div class="footer bg-dark">
-    			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
-    		</div>
-    	!-->
-    	<!--footer end!-->
+  	<!--footer end!-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="../scripts/account.js"></script>
     </body>
 </html>

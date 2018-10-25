@@ -13,6 +13,10 @@ html {
 body {
 	height: 100%;
 	width: 100%;
+	/*footer at the end of the page*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .title {
@@ -35,6 +39,10 @@ body {
 
 .underline {
 	text-decoration: underline;
+}
+
+.clickable-icon {
+	cursor: pointer;
 }
 
 /*specifc CCS for header and footer*/
@@ -91,6 +99,12 @@ body {
 	margin-right: auto;
 }
 
+@media (max-width: 576px) {
+	.cover {
+		max-height: 50vh;
+	}
+}
+
 /*specific CSS for log.html and sign.html*/
 
 .container-log, .container-sign {
@@ -142,6 +156,10 @@ input.valid {
 
 .ro-catalogue-3 {
 	margin-top: 5px;
+}
+
+.ro-catalogue p {
+  margin-bottom: 0;
 }
 
 /*specific CSS for rating system*/
@@ -218,6 +236,10 @@ input.valid {
 .con-game-2 video {
 	display: block;
 	margin: auto;
+}
+
+video {
+	max-width: 100%;
 }
 
 /*specific CSS for basket.html*/
