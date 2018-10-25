@@ -61,55 +61,55 @@
 			<form class="form-account" action="#" novalidate>
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 
 							<label for="civility">Ma civilité :</label>
 							<div class="civility">
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
+										<input type="checkbox" id="defaultCheck" class="field">
 										Mlle
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
+										<input type="checkbox" id="defaultCheck" class="field">
 										Mme
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
+										<input type="checkbox" id="defaultCheck" class="field">
 										M
 									</label>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="pseudo">Mon pseudo :</label>
-							<input type="text" class="form-control pseudo" name="pseudo" id="pseudo" placeholder="Mon pseudo">
+							<input type="text" class="form-control pseudo field" name="pseudo" id="pseudo" placeholder="Mon pseudo">
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="name">Mon nom :</label>
-							<input type="text" class="form-control name" name="name" id="name" placeholder="Mon nom">
+							<input type="text" class="form-control name field" name="name" id="name" placeholder="Mon nom">
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="fname">Mon prénom :</label>
-							<input type="text" class="form-control fname" name="fname" id="fname" placeholder="Mon prénom">
+							<input type="text" class="form-control fname field" name="fname" id="fname" placeholder="Mon prénom">
 						</div>
 					</div>
 
 					<div class="col-md-6">
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="birthday">Ma date de naissance :</label>
 							<div class="birthday">
 								<div>
-									<input type="text" class="form-control birthday" name="birthday" id="birthday" placeholder="Ma date de naissance">
+									<input type="text" class="form-control birthday field" name="birthday" id="birthday" placeholder="Ma date de naissance">
 								</div>
 
 								<div>
@@ -118,27 +118,27 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="email">Mon adresse mail :</label>
-							<input type="email" class="form-control email" name="email" id="email" placeholder="Mon adresse mail">
+							<input type="email" class="form-control email field" name="email" id="email" placeholder="Mon adresse mail">
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="pwd">Mon mot de passe :</label>
-							<input type="password" class="form-control pwd" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
+							<input type="password" class="form-control pwd field" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" data-target="buttons">
 							<label for="vpwd">Confirmer mon mot de passe :</label>
-							<input type="password" class="form-control vpwd" name="vpwd" id="pwd"/>
+							<input type="password" class="form-control vpwd field" name="vpwd" id="pwd"/>
 						</div>
 
-						<div class="buttons">
-							<div class="reset-button invisible">
+						<div class="buttons invisible">
+							<div class="reset-button">
 								<button type="reset" class="btn btn-primary">Annuler </button>
 							</div>
 
-							<div class="submit-button account-submit invisible">
+							<div class="submit-button account-submit">
 								<button type="submit" class="btn btn-primary">Modifier mes informations</button>
 							</div>
 						</div>

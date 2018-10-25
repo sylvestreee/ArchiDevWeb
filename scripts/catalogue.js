@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   // on click listener on all ".discover" elements
-  // open the menu
   $(document).on('click', '.discover', function () {
       var targetClass = $(this).attr("data-target");
       var $target = $("." + targetClass);
@@ -16,7 +15,6 @@ $(document).ready(function() {
         $target.removeClass("visible").addClass("invisible");
       }
   });
-
 
   $("#stars li").on("mouseover", function() {
     var onStar = parseInt($(this).data("value"), 10);
@@ -33,7 +31,6 @@ $(document).ready(function() {
     });
   }).on("mouseout", function() {
     $(this).parent().children('li.star').each(function(e) {
-
       $(this).removeClass("hover");
     });
   });
@@ -50,42 +47,16 @@ $(document).ready(function() {
     }
   });
 
-  $('.discover-5').click(function(event) {
-    var valid = $('.rating-stars').hasClass("invisible");
-    if(valid) {
-      $('.discover-5').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-      $('.rating-stars').removeClass("invisible").addClass("visible");
-    }
-    else
-    {
-      $('.discover-5').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-      $('.rating-stars').removeClass("visible").addClass("invisible");
-    }
-  });
-
   $(function() {
-          $("#slider-range").slider({
-            max: 70,
-            min: 0,
-            range: true,
-            values: [0, 70],
-            slide: function(event, ui) {
-              $("#range").val("Entre " + ui.values[0] + " et " + ui.values[1] + "€");
-            }
-          });
-          $("#range").val("Entre " + $("#slider-range").slider("values", 0) + " et " + $("#slider-range").slider("values", 1) + "€");
-      });
-
-      $('.discover-6').click(function(event) {
-    var valid = $('.price').hasClass("invisible");
-    if(valid) {
-      $('.discover-6').removeClass("fa-plus-circle").addClass("fa-minus-circle");
-      $('.price').removeClass("invisible").addClass("visible");
-    }
-    else
-    {
-      $('.discover-6').removeClass("fa-minus-circle").addClass("fa-plus-circle");
-      $('.price').removeClass("visible").addClass("invisible");
-    }
+    $("#slider-range").slider({
+      max: 70,
+      min: 0,
+      range: true,
+      values: [0, 70],
+      slide: function(event, ui) {
+        $("#range").val("Entre " + ui.values[0] + " et " + ui.values[1] + "€");
+      }
+    });
+    $("#range").val("Entre " + $("#slider-range").slider("values", 0) + " et " + $("#slider-range").slider("values", 1) + "€");
   });
 });
