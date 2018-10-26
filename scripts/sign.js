@@ -1,55 +1,62 @@
 $(document).ready(function() {
-  $('.email').on('input', function() {
-    var input=$(this);
-    var re=/^[^\W][a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/;
-    var is_email=re.test(input.val());
-    if(is_email)
-    {
-      input.removeClass("invalid").addClass("valid");
-    }
-    else
-    {
-      input.removeClass("valid").addClass("invalid");
-    }
-  });
+  $(document).on('input', '.sign', function() {
+    var input = $(this);
+    var no_blank = input.val().length > 0;
+    var warning = $("span", input.parent());
+    var thumbs = $("i", input.parent());
+    var verif=/^[^\W][a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/;
 
-  $('.pwd').on('input', function() {
-    var input=$(this);
-    var re=/^(?=.*\d)(?=.*[A-Z]).{6,}$/;
-    var is_pwd=re.test(input.val());
-    if(is_pwd)
-    {
-      input.removeClass("invalid").addClass("valid");
-    }
-    else
-    {
-      input.removeClass("valid").addClass("invalid");
-    }
-  });
+    //input's not empty
+    if(no_blank) {
 
-  $(".submit-button button").click(function(event) {
-    var form_data=$(".form-sign").serializeArray();
-    var error_free=true;
-    $.each(form_data, function(i, input) {
-      var element=$("."+input.name);
-      var valid=element.hasClass("valid");
-      var error_element=$("span", element.parent());
-      var warning_element=$("i", element.parent());
-      if(!valid) {
-        error_element.removeClass("missing").addClass("missing-show");
-        warning_element.removeClass("warning").addClass("warning-show");
-        error_free=false;
+      //email input
+      console.log("no blank");
+      if(input.hasClass("email")) {
+        if(verif.test(input.val())) {
+          warning.text("Adresse mail indiquée");
+          $('.email').removeClass("invalid").addClass("valid");
+          $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+        }
+        else {
+          warning.text("Veuillez indiquer une adresse mail");
+          $('.email').removeClass("valid").addClass("invalid");
+          $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+        }
       }
-      else {
-        error_element.removeClass("missing-show").addClass("missing");
-        warning_element.removeClass("warning-show").addClass("warning");
+
+      //password input
+      else if(input.hasClass("pwd")) {
+        warning.text("Mot de passe indiqué");
+        $('.pwd').removeClass("invalid").addClass("valid");
+        $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
       }
-    });
-    if(!error_free) {
-      event.preventDefault();
     }
+
+    //input's empty
     else {
-      alert('No errors: Form is good');
+
+      //email input
+      if(input.hasClass("email")) {
+        warning.text("Veuillez indiquer une adresse mail");
+        $('.email').removeClass("valid").addClass("invalid");
+        $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+      }
+
+      //password input
+      else if(input.hasClass("pwd")) {
+        warning.text("Veuillez indiquer votre mot de passe");
+        $('.pwd').removeClass("valid").addClass("invalid");
+        $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+      }
+    }
+
+    if($('.email').hasClass("valid") && $('.pwd').hasClass("valid")) {
+      console.log("hey");
+      $('.log-submit').removeClass("invisible").addClass("visible");
+    }
+
+    else {
+      $('.log-submit').removeClass("visible").addClass("invisible");
     }
   });
 });

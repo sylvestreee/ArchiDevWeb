@@ -59,23 +59,23 @@
 			<form class="form-sign" action="#" novalidate>
 				<div class="form-group">
 					<label for="email">Votre adresse mail :</label>
-					<input type="email" class="form-control email" name="email" id="email">
-					<i class="fas fa-exclamation-triangle invisible"></i>
-					<span class="missing">Veuillez indiquer une adresse mail valide</span>
+					<input type="email" class="form-control email sign invalid" name="email" id="email">
+					<i class="fas fa-thumbs-down"></i>
+					<span>Veuillez indiquer une adresse mail</span>
 				</div>
 
 				<div class="form-group">
 					<label for="pwd">Votre mot de passe :</label>
-					<input type="password" class="form-control pwd" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
-					<i class="fas fa-exclamation-triangle invisible"></i>
-					<span class="missing">Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)</span>
+					<input type="password" class="form-control pwd sign invalid" name="pwd" id="pwd">
+					<i class="fas fa-thumbs-down"></i>
+					<span>Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)</span>
 				</div>
 
 				<div class="form-group">
 					<label for="vpwd">Confirmer votre mot de passe :</label>
-					<input type="password" class="form-control vpwd" name="vpwd" id="pwd">
-					<i class="fas fa-exclamation-triangle invisible"></i>
-					<span class="missing">Les mots de passe ne correspondent pas</span>
+					<input type="password" class="form-control vpwd sign invalid" name="vpwd" id="pwd">
+					<i class="fas fa-thumbs-down"></i>
+					<span>Les mots de passe ne correspondent pas</span>
 				</div>
 
 				<div class="submit-button">
@@ -95,5 +95,6 @@
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	  	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	  	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+			<script src="../scripts/sign.js"></script>
     </body>
 </html>
