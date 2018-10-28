@@ -67,21 +67,21 @@
 							<div class="civility">
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck" class="field">
+										<input type="checkbox" id="defaultCheck" class="check-1 account invalid">
 										Mlle
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck" class="field">
+										<input type="checkbox" id="defaultCheck" class="check-2 account invalid">
 										Mme
 									</label>
 								</div>
 
 								<div class="check-item">
 									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck" class="field">
+										<input type="checkbox" id="defaultCheck" class="check-3 account invalid">
 										M
 									</label>
 								</div>
@@ -90,17 +90,17 @@
 
 						<div class="form-group" data-target="buttons">
 							<label for="pseudo">Mon pseudo :</label>
-							<input type="text" class="form-control pseudo field" name="pseudo" id="pseudo" placeholder="Mon pseudo">
+							<input type="text" class="form-control pseudo account invalid" name="pseudo" id="pseudo" placeholder="Mon pseudo">
 						</div>
 
 						<div class="form-group" data-target="buttons">
 							<label for="name">Mon nom :</label>
-							<input type="text" class="form-control name field" name="name" id="name" placeholder="Mon nom">
+							<input type="text" class="form-control name account invalid" name="name" id="name" placeholder="Mon nom">
 						</div>
 
 						<div class="form-group" data-target="buttons">
 							<label for="fname">Mon prénom :</label>
-							<input type="text" class="form-control fname field" name="fname" id="fname" placeholder="Mon prénom">
+							<input type="text" class="form-control fname account invalid" name="fname" id="fname" placeholder="Mon prénom">
 						</div>
 					</div>
 
@@ -109,7 +109,7 @@
 							<label for="birthday">Ma date de naissance :</label>
 							<div class="birthday">
 								<div>
-									<input type="text" class="form-control birthday field" name="birthday" id="birthday" placeholder="Ma date de naissance">
+									<input type="text" class="form-control birthday-input account invalid" name="birthday" id="birthday" placeholder="Ma date de naissance">
 								</div>
 
 								<div>
@@ -120,25 +120,27 @@
 
 						<div class="form-group" data-target="buttons">
 							<label for="email">Mon adresse mail :</label>
-							<input type="email" class="form-control email field" name="email" id="email" placeholder="Mon adresse mail">
+							<input type="email" class="form-control email account invalid" name="email" id="email" placeholder="Mon adresse mail">
+							<i class="fas fa-thumbs-down invisible"></i>
+							<span class="invisible">Veuillez indiquer une adresse mail</span>
 						</div>
 
 						<div class="form-group" data-target="buttons">
 							<label for="pwd">Mon mot de passe :</label>
-							<input type="password" class="form-control pwd field" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
+							<input type="password" class="form-control pwd account invalid" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
 						</div>
 
 						<div class="form-group" data-target="buttons">
 							<label for="vpwd">Confirmer mon mot de passe :</label>
-							<input type="password" class="form-control vpwd field" name="vpwd" id="pwd"/>
+							<input type="password" class="form-control vpwd account invalid" name="vpwd" id="pwd"/>
 						</div>
 
-						<div class="buttons invisible">
+						<div class="buttons account-buttons invisible">
 							<div class="reset-button">
 								<button type="reset" class="btn btn-primary">Annuler </button>
 							</div>
 
-							<div class="submit-button account-submit">
+							<div class="submit-button">
 								<button type="submit" class="btn btn-primary">Modifier mes informations</button>
 							</div>
 						</div>

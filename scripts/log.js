@@ -49,6 +49,7 @@ $(document).ready(function() {
       }
     }
 
+    //all input valid
     if($('.email').hasClass("valid") && $('.pwd').hasClass("valid")) {
       console.log("hey");
       $('.log-submit').removeClass("invisible").addClass("visible");
