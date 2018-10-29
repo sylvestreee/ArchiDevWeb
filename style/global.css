@@ -190,7 +190,7 @@ body {
 	padding-bottom: 10px;
 }
 
-.account-button div, .civility div, .birthday div, .buttons div {
+.account-button div, .civility div, .birthday *, .buttons div {
 	display: inline-block;
 }
 
