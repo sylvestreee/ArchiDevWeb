@@ -1,10 +1,20 @@
-var nb_input = 0;
+var inputs = [0, 0, 0, 0, 0, 0];
 
 $(document).ready(function() {
   $(".fa-calendar-alt").click(function() {
     $("#birthday").datepicker();
     $("#birthday").datepicker("show");
   });
+
+  function nb_invalid(inputs) {
+    var nb_invalid = 0;
+    for(var i = 0; i < inputs.length; i++) {
+      if(inputs[i] != 0) {
+        nb_invalid++;
+      }
+    }
+    return nb_invalid;
+  }
 
   $(document).on('input', '.account', function() {
     var input = $(this);
@@ -21,104 +31,42 @@ $(document).ready(function() {
       if(input.hasClass("check-1")) {
         $('.check-2').prop('checked',false);
         $('.check-3').prop('checked',false);
-
-        if(input.hasClass("valid")) {
-          input.removeClass("valid").addClass("invalid");
-          if(nb_input != 0) {
-            nb_input--;
-          }
-        }
-        else {
-          input.removeClass("invalid").addClass("valid");
-          if(!$('.check-2').hasClass("valid") && !$('.check-3').hasClass("valid")) {
-            nb_input++;
-          }
-          else {
-            $('.check-2').removeClass("valid").addClass("invalid");
-            $('.check-3').removeClass("valid").addClass("invalid");
-          }
-        }
       }
 
       //check-2
       else if(input.hasClass("check-2")) {
         $('.check-1').prop('checked',false);
         $('.check-3').prop('checked',false);
-
-        if(input.hasClass("valid")) {
-          input.removeClass("valid").addClass("invalid");
-          if(nb_input != 0) {
-            nb_input--;
-          }
-        }
-        else {
-          input.removeClass("invalid").addClass("valid");
-          if(!$('.check-1').hasClass("valid") && !$('.check-3').hasClass("valid")) {
-            nb_input++;
-          }
-          else {
-            $('.check-1').removeClass("valid").addClass("invalid");
-            $('.check-3').removeClass("valid").addClass("invalid");
-          }
-        }
       }
 
       //check-3
       else if(input.hasClass("check-3")) {
         $('.check-1').prop('checked',false);
         $('.check-2').prop('checked',false);
-
-        if(input.hasClass("valid")) {
-          input.removeClass("valid").addClass("invalid");
-          if(nb_input != 0) {
-            nb_input--;
-          }
-        }
-        else {
-          input.removeClass("invalid").addClass("valid");
-          if(!$('.check-1').hasClass("valid") && !$('.check-2').hasClass("valid")) {
-            nb_input++;
-          }
-          else {
-            $('.check-1').removeClass("valid").addClass("invalid");
-            $('.check-2').removeClass("valid").addClass("invalid");
-          }
-        }
       }
     }
+
+    //not checkbox input
     else {
 
       //input's not empty
       if(no_blank) {
 
-        if(input.hasClass("pseudo")) {
-          if(!input.hasClass("valid")) {
-            input.removeClass("invalid").addClass("valid");
-            nb_input++;
-          }
-        }
-
         //name input
-        else if(input.hasClass("name")) {
+        if(input.hasClass("name")) {
 
           //valid
           if(verif_name.test(input.val())) {
-            if(!input.hasClass("valid")) {
-              input.removeClass("invalid").addClass("valid");
-              $("i", $('.name').parent()).removeClass("visible").addClass("invisible");
-              $("span", $('.name').parent()).removeClass("visible").addClass("invisible");
-              nb_input++;
-            }
+            $("i", $('.name').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.name').parent()).removeClass("visible").addClass("invisible");
+            inputs[0] = 0;
           }
 
           //not valid
           else {
-            $('.name').removeClass("valid").addClass("invalid");
             $("i", $('.name').parent()).removeClass("invisible").addClass("visible");
             $("span", $('.name').parent()).removeClass("invisible").addClass("visible");
-            if(nb_input != 0) {
-              nb_input--;
-            }
+            inputs[0] = 1;
           }
         }
 
@@ -127,22 +75,16 @@ $(document).ready(function() {
 
           //valid
           if(verif_name.test(input.val())) {
-            if(!input.hasClass("valid")) {
-              input.removeClass("invalid").addClass("valid");
-              $("i", $('.fname').parent()).removeClass("visible").addClass("invisible");
-              $("span", $('.fname').parent()).removeClass("visible").addClass("invisible");
-              nb_input++;
-            }
+            $("i", $('.fname').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.fname').parent()).removeClass("visible").addClass("invisible");
+            inputs[1] = 0;
           }
 
           //not valid
           else {
-            $('.fname').removeClass("valid").addClass("invalid");
             $("i", $('.fname').parent()).removeClass("invisible").addClass("visible");
             $("span", $('.fname').parent()).removeClass("invisible").addClass("visible");
-            if(nb_input != 0) {
-              nb_input--;
-            }
+            inputs[1] = 1;
           }
         }
 
@@ -151,22 +93,16 @@ $(document).ready(function() {
 
           //valid
           if(verif_email.test(input.val())) {
-            if(!input.hasClass("valid")) {
-              input.removeClass("invalid").addClass("valid");
-              $("i", $('.email').parent()).removeClass("visible").addClass("invisible");
-              $("span", $('.email').parent()).removeClass("visible").addClass("invisible");
-              nb_input++;
-            }
+            $("i", $('.email').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.email').parent()).removeClass("visible").addClass("invisible");
+            inputs[2] = 0;
           }
 
           //not valid
           else {
-            $('.email').removeClass("valid").addClass("invalid");
             $("i", $('.email').parent()).removeClass("invisible").addClass("visible");
             $("span", $('.email').parent()).removeClass("invisible").addClass("visible");
-            if(nb_input != 0) {
-              nb_input--;
-            }
+            inputs[2] = 1;
           }
         }
 
@@ -175,95 +111,117 @@ $(document).ready(function() {
 
           //valid
           if(verif_date.test(input.val())) {
-            if(!input.hasClass("valid")) {
-              input.removeClass("invalid").addClass("valid");
-              $('.thumbs-birthday').removeClass("visible").addClass("invisible");
-              $('.warning-birthday').removeClass("visible").addClass("invisible");
-              nb_input++;
+            $('.thumbs-birthday').removeClass("visible").addClass("invisible");
+            $('.warning-birthday').removeClass("visible").addClass("invisible");
+            inputs[3] = 0;
+          }
+
+          //not valid
+          else {
+            $('.thumbs-birthday').removeClass("invisible").addClass("visible");
+            $('.warning-birthday').removeClass("invisible").addClass("visible");
+            inputs[3] = 1;
+          }
+        }
+/*
+        //password input
+        else if(input.hasClass("pwd")) {
+
+          //valid
+          if(verif_pwd.test(input.val())) {
+            $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+            inputs[1] = 1;
+
+            if(input.val() == $('.vpwd').val()) {
+              $("span", $('.vpwd').parent()).text("Mot de passe confirmé");
+              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+              inputs[2] = 1;
+            }
+            else {
+              $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
+              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+              inputs[2] = 0;
             }
           }
 
           //not valid
           else {
-            $('.birthday-input').removeClass("valid").addClass("invalid");
-            $('.thumbs-birthday').removeClass("invisible").addClass("visible");
-            $('.warning-birthday').removeClass("invisible").addClass("visible");
-            if(nb_input != 0) {
-              nb_input--;
+            warning.text("Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)");
+            $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+            inputs[1] = 0;
+
+            if(input.val() == $('.vpwd').val()) {
+              $("span", $('.vpwd').parent()).text("Le mot de passe choisi est invalide");
+              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+              inputs[2] = 0;
+            }
+            else {
+              $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
+              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+              inputs[2] = 0;
             }
           }
         }
 
-        else {
-          if(!input.hasClass("valid")) {
-            input.removeClass("invalid").addClass("valid");
-            nb_input++;
+        //confirm password input
+        else if(input.hasClass("vpwd")) {
+          if(input.val() == $('.pwd').val()) {
+            if(inputs[1] == 1) {
+              warning.text("Mot de passe confirmé");
+              $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+              inputs[2] = 1;
+            }
+            else {
+              warning.text("Le mot de passe choisi est invalide");
+              $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+              inputs[2] = 0;
+            }
           }
-        }
+          else {
+            warning.text("Les mots de passe ne correspondent pas");
+            $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+            inputs[2] = 0;
+          }
+        }*/
       }
 
       //input's empty
       else {
 
-        //pseudo input
-        if(input.hasClass("pseudo")) {
-          input.removeClass("valid").addClass("invalid");
-          if(nb_input != 0) {
-            nb_input--;
-          }
-        }
-
         //name input
-        else if(input.hasClass("name")) {
-          input.removeClass("valid").addClass("invalid");
+        if(input.hasClass("name")) {
           $("i", $('.name').parent()).removeClass("visible").addClass("invisible");
           $("span", $('.name').parent()).removeClass("visible").addClass("invisible");
-          if(nb_input != 0) {
-            nb_input--;
-          }
+          inputs[0] = 0;
         }
 
         //fname input
         else if(input.hasClass("fname")) {
-          input.removeClass("valid").addClass("invalid");
           $("i", $('.fname').parent()).removeClass("visible").addClass("invisible");
           $("span", $('.fname').parent()).removeClass("visible").addClass("invisible");
-          if(nb_input != 0) {
-            nb_input--;
-          }
+          inputs[1] = 0;
         }
 
         //email input
         else if(input.hasClass("email")) {
-          input.removeClass("valid").addClass("invalid");
           $("i", $('.email').parent()).removeClass("visible").addClass("invisible");
           $("span", $('.email').parent()).removeClass("visible").addClass("invisible");
-          if(nb_input != 0) {
-            nb_input--;
-          }
+          inputs[2] = 0;
         }
 
         //birthday input
         else if(input.hasClass("birthday-input")) {
-          input.removeClass("valid").addClass("invalid");
           $('.thumbs-birthday').removeClass("visible").addClass("invisible");
           $('.warning-birthday').removeClass("visible").addClass("invisible");
-          if(nb_input != 0) {
-            nb_input--;
-          }
-        }
-        else {
-          input.removeClass("valid").addClass("invalid");
-          if(nb_input != 0) {
-            nb_input--;
-          }
+          inputs[3] = 0;
         }
       }
     }
-    console.log(nb_input);
+    //console.log(nb_input);
+    console.log(nb_invalid(inputs));
 
     //at least one input is valid
-    if(nb_input > 0) {
+    if(nb_invalid(inputs) == 0) {
       $('.account-buttons').removeClass("invisible").addClass("visible");
     }
 
