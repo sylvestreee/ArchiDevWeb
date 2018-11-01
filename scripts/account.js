@@ -158,11 +158,9 @@ $(document).ready(function() {
               inputs[4] = 1;
             }
             else {
-              //if($('.vpwd').val().length > 0) {
-                $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
-                $("span", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
-                $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
-              //}
+              $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+              $("span", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+              $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
               inputs[4] = 1;
             }
           }
