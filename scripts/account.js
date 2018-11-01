@@ -1,4 +1,4 @@
-var inputs = [0, 0, 0, 0, 0, 0];
+var inputs = [0, 0, 0, 0, 0];
 
 $(document).ready(function() {
   $(".fa-calendar-alt").click(function() {
@@ -123,42 +123,47 @@ $(document).ready(function() {
             inputs[3] = 1;
           }
         }
-/*
+
         //password input
         else if(input.hasClass("pwd")) {
 
           //valid
           if(verif_pwd.test(input.val())) {
-            $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-            inputs[1] = 1;
+            $("i", $('.pwd').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.pwd').parent()).removeClass("visible").addClass("invisible");
 
             if(input.val() == $('.vpwd').val()) {
-              $("span", $('.vpwd').parent()).text("Mot de passe confirmé");
-              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-              inputs[2] = 1;
+              $("i", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+              $("span", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+              inputs[4] = 0;
             }
             else {
+              $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+              $("span", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
               $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
-              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-              inputs[2] = 0;
+              inputs[4] = 1;
             }
           }
 
           //not valid
           else {
-            warning.text("Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)");
-            $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-            inputs[1] = 0;
+            $("i", $('.pwd').parent()).removeClass("invisible").addClass("visible");
+            $("span", $('.pwd').parent()).removeClass("invisible").addClass("visible");
+            inputs[4] = 1;
 
             if(input.val() == $('.vpwd').val()) {
+              console.log("hey2");
+              $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
               $("span", $('.vpwd').parent()).text("Le mot de passe choisi est invalide");
-              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-              inputs[2] = 0;
+              inputs[4] = 1;
             }
             else {
-              $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
-              $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-              inputs[2] = 0;
+              //if($('.vpwd').val().length > 0) {
+                $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+                $("span", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+                $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
+              //}
+              inputs[4] = 1;
             }
           }
         }
@@ -166,23 +171,25 @@ $(document).ready(function() {
         //confirm password input
         else if(input.hasClass("vpwd")) {
           if(input.val() == $('.pwd').val()) {
-            if(inputs[1] == 1) {
-              warning.text("Mot de passe confirmé");
-              $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-              inputs[2] = 1;
+            if(verif_pwd.test($('.pwd').val())) {
+              $("i", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+              $("span", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+              inputs[4] = 0;
             }
             else {
-              warning.text("Le mot de passe choisi est invalide");
-              $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-              inputs[2] = 0;
+              $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+              $("span", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+              $("span", $('.vpwd').parent()).text("Le mot de passe choisi est invalide");
+              inputs[4] = 1;
             }
           }
           else {
-            warning.text("Les mots de passe ne correspondent pas");
-            $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-            inputs[2] = 0;
+            $("i", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+            $("span", $('.vpwd').parent()).removeClass("invisible").addClass("visible");
+            $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
+            inputs[4] = 1;
           }
-        }*/
+        }
       }
 
       //input's empty
@@ -214,6 +221,31 @@ $(document).ready(function() {
           $('.thumbs-birthday').removeClass("visible").addClass("invisible");
           $('.warning-birthday').removeClass("visible").addClass("invisible");
           inputs[3] = 0;
+        }
+
+        else if(input.hasClass("pwd")) {
+          $("i", $('.pwd').parent()).removeClass("visible").addClass("invisible");
+          $("span", $('.pwd').parent()).removeClass("visible").addClass("invisible");
+          if($('.vpwd').val().length == 0) {
+            inputs[4] = 0;
+            $("i", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
+          }
+          else {
+            inputs[4] = 1;
+          }
+        }
+
+        else if(input.hasClass("vpwd")) {
+          if($('.pwd').val().length == 0) {
+            $("i", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+            $("span", $('.vpwd').parent()).removeClass("visible").addClass("invisible");
+            inputs[4] = 0;
+          }
+          else {
+            inputs[4] = 1;
+          }
         }
       }
     }
