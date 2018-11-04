@@ -1,180 +1,188 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-			<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-    	<link rel="stylesheet" href="../style/global.css">
-    </head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <body>
-		<!--header start!-->
-		<div>
-			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-				<a class="navbar-brand" href="home.html">E-Game</a>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" href="../style/global.css">
+</head>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
-					<i class="fas fa-align-justify"></i>
-				</button>
+<body class="bg-color-2">
+	<!--header start-->
+	<div>
+		<nav class="navbar navbar-expand-sm bg-color navbar-dark">
+			<a class="navbar-brand" href="home.html">One Game One <i class="fas fa-heart"></i></a>
 
-				<div class="collapse navbar-collapse" id="navBar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<form class="form-inline">
-								<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
-								<button class="btn btn-success" type="submit">
-									<i class="fas fa-search"></i>
-								</button>
-							</form>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="catalogue.html">
-								Catalogue
-								<i class="fas fa-book"></i>
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
-								Utilisateur
-								<i class="fas fa-user"></i>
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="log.html">Se connecter</a>
-								<a class="dropdown-item" href="sign.html">Créer un compte</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+				<i class="fas fa-align-justify"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navBar">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<form class="form-inline">
+							<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
+							<button class="btn btn-success" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="catalogue.html">
+							Catalogue
+							<i class="fas fa-book"></i>
+						</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+							Utilisateur
+							<i class="fas fa-user"></i>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="log.html">Se connecter</a>
+							<a class="dropdown-item" href="sign.html">Créer un compte</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!--header end-->
+
+	<div class="title">
+		<h1>Mes informations</h1>
+	</div>
+
+	<div class="container container-account border-smooth">
+		<div class="row row-account">
+			<div class="col-md-6 col-account-1 border-smooth">
+				<form class="form-account" action="#" novalidate>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group" data-target="buttons">
+
+								<label for="civility">Ma civilité :</label>
+								<div class="civility">
+									<div class="check-item">
+										<label for="defaultCheck">
+											<input type="checkbox" id="defaultCheck" class="check-1 account">
+											Mlle
+										</label>
+									</div>
+
+									<div class="check-item">
+										<label for="defaultCheck">
+											<input type="checkbox" id="defaultCheck" class="check-2 account">
+											Mme
+										</label>
+									</div>
+
+									<div class="check-item">
+										<label for="defaultCheck">
+											<input type="checkbox" id="defaultCheck" class="check-3 account">
+											M
+										</label>
+									</div>
+								</div>
 							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-		<!--header end!-->
 
-		<div class="title">
-			<h1>Mes informations</h1>
-		</div>
+							<div class="form-group" data-target="buttons">
+								<label for="pseudo">Mon pseudo :</label>
+								<input type="text" class="form-control pseudo account" name="pseudo" id="pseudo" placeholder="Mon pseudo">
+							</div>
 
-		<div class="container con-account">
-			<form class="form-account" action="#" novalidate>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group" data-target="buttons">
+							<div class="form-group" data-target="buttons">
+								<label for="name">Mon nom :</label>
+								<input type="text" class="form-control name account" name="name" id="name" placeholder="Mon nom">
+								<i class="fas fa-thumbs-down invisible"></i>
+								<span class="invisible">Veuillez indiquer un nom (sans chiffres)</span>
+							</div>
 
-							<label for="civility">Ma civilité :</label>
-							<div class="civility">
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck" class="check-1 account">
-										Mlle
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck" class="check-2 account">
-										Mme
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck" class="check-3 account">
-										M
-									</label>
-								</div>
+							<div class="form-group" data-target="buttons">
+								<label for="fname">Mon prénom :</label>
+								<input type="text" class="form-control fname account" name="fname" id="fname" placeholder="Mon prénom">
+								<i class="fas fa-thumbs-down invisible"></i>
+								<span class="invisible">Veuillez indiquer un prénom (sans chiffres)</span>
 							</div>
 						</div>
 
-						<div class="form-group" data-target="buttons">
-							<label for="pseudo">Mon pseudo :</label>
-							<input type="text" class="form-control pseudo account" name="pseudo" id="pseudo" placeholder="Mon pseudo">
-						</div>
+						<div class="col-md-6">
+							<div class="form-group" data-target="buttons">
+								<label for="birthday">Ma date de naissance :</label>
+								<div class="birthday">
+									<div>
+										<input type="text" class="form-control birthday-input account" name="birthday" id="birthday" placeholder="Ma date de naissance">
+									</div>
 
-						<div class="form-group" data-target="buttons">
-							<label for="name">Mon nom :</label>
-							<input type="text" class="form-control name account" name="name" id="name" placeholder="Mon nom">
-							<i class="fas fa-thumbs-down invisible"></i>
-							<span class="invisible">Veuillez indiquer un nom (sans chiffres)</span>
-						</div>
+									<div>
+										<i class="fas fa-calendar-alt clickable-icon"></i>
+									</div>
+								</div>
 
-						<div class="form-group" data-target="buttons">
-							<label for="fname">Mon prénom :</label>
-							<input type="text" class="form-control fname account" name="fname" id="fname" placeholder="Mon prénom">
-							<i class="fas fa-thumbs-down invisible"></i>
-							<span class="invisible">Veuillez indiquer un prénom (sans chiffres)</span>
+								<div>
+									<i class="fas fa-thumbs-down thumbs-birthday invisible"></i>
+									<span class="warning-birthday invisible">Veuillez indiquer une date (format DD/MM/YYYY)</span>
+								</div>
+							</div>
+
+							<div class="form-group" data-target="buttons">
+								<label for="email">Mon adresse mail :</label>
+								<input type="email" class="form-control email account" name="email" id="email" placeholder="Mon adresse mail">
+								<i class="fas fa-thumbs-down invisible"></i>
+								<span class="invisible">Veuillez indiquer une adresse mail</span>
+							</div>
+
+							<div class="form-group" data-target="buttons">
+								<label for="pwd">Mon mot de passe :</label>
+								<input type="password" class="form-control pwd account invalid" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
+								<i class="fas fa-thumbs-down invisible"></i>
+								<span class="invisible">Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)</span>
+							</div>
+
+							<div class="form-group" data-target="buttons">
+								<label for="vpwd">Confirmer mon mot de passe :</label>
+								<input type="password" class="form-control vpwd account invalid" name="vpwd" id="pwd" />
+								<i class="fas fa-thumbs-down invisible"></i>
+								<span class="invisible">Les mots de passe ne correspondent pas</span>
+							</div>
+
+							<div class="buttons account-buttons invisible">
+								<div class="reset-button">
+									<button type="reset" class="btn btn-primary">Annuler </button>
+								</div>
+
+								<div class="submit-button">
+									<button type="submit" class="btn btn-primary">Modifier mes informations</button>
+								</div>
+							</div>
 						</div>
 					</div>
+				</form>
+			</div>
 
-					<div class="col-md-6">
-						<div class="form-group" data-target="buttons">
-							<label for="birthday">Ma date de naissance :</label>
-							<div class="birthday">
-								<div>
-									<input type="text" class="form-control birthday-input account" name="birthday" id="birthday" placeholder="Ma date de naissance">
-								</div>
-
-								<div>
-									<i class="fas fa-calendar-alt clickable-icon"></i>
-								</div>
-							</div>
-
-							<div>
-								<i class="fas fa-thumbs-down thumbs-birthday invisible"></i>
-								<span class="warning-birthday invisible">Veuillez indiquer une date (format DD/MM/YYYY)</span>
-							</div>
-						</div>
-
-						<div class="form-group" data-target="buttons">
-							<label for="email">Mon adresse mail :</label>
-							<input type="email" class="form-control email account" name="email" id="email" placeholder="Mon adresse mail">
-							<i class="fas fa-thumbs-down invisible"></i>
-							<span class="invisible">Veuillez indiquer une adresse mail</span>
-						</div>
-
-						<div class="form-group" data-target="buttons">
-							<label for="pwd">Mon mot de passe :</label>
-							<input type="password" class="form-control pwd account invalid" name="pwd" id="pwd" placeholder="Au moins 6 caractères (au moins 1 majuscule et 1 chiffre)">
-							<i class="fas fa-thumbs-down invisible"></i>
-							<span class="invisible">Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)</span>
-						</div>
-
-						<div class="form-group" data-target="buttons">
-							<label for="vpwd">Confirmer mon mot de passe :</label>
-							<input type="password" class="form-control vpwd account invalid" name="vpwd" id="pwd"/>
-							<i class="fas fa-thumbs-down invisible"></i>
-							<span class="invisible">Les mots de passe ne correspondent pas</span>
-						</div>
-
-						<div class="buttons account-buttons invisible">
-							<div class="reset-button">
-								<button type="reset" class="btn btn-primary">Annuler </button>
-							</div>
-
-							<div class="submit-button">
-								<button type="submit" class="btn btn-primary">Modifier mes informations</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
+			<div class="col-md-6 col-account-2">
+				<img class="border-smooth" src="../pictures/account.jpg" alt="account-picture" />
+			</div>
 		</div>
+	</div>
 
-  	<!--footer start!-->
+	<!--footer start-->
+	<div class="footer bg-color">
+		<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+	</div>
+	<!--footer end-->
 
-		<div class="footer bg-dark">
-			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
-		</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="../scripts/account.js"></script>
+</body>
 
-  	<!--footer end!-->
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		<script src="../scripts/account.js"></script>
-    </body>
 </html>

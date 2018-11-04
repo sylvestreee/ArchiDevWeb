@@ -1,376 +1,378 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-			<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-    	<link rel="stylesheet" href="../style/global.css">
-    </head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <body>
-		<!--header start!-->
-		<div>
-			<nav class="navbar navbar-expand-sm bg-color navbar-dark">
-				<a class="navbar-brand" href="home.html">One Game One <i class="fas fa-heart"></i></a>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" href="../style/global.css">
+</head>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
-					<i class="fas fa-align-justify"></i>
-				</button>
+<body class="bg-color-2">
+	<!--header start-->
+	<div>
+		<nav class="navbar navbar-expand-sm bg-color navbar-dark">
+			<a class="navbar-brand" href="home.html">One Game One <i class="fas fa-heart"></i></a>
 
-				<div class="collapse navbar-collapse" id="navBar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<form class="form-inline">
-								<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
-								<button class="btn btn-success" type="submit">
-									<i class="fas fa-search"></i>
-								</button>
-							</form>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="catalogue.html">
-								Catalogue
-								<i class="fas fa-book"></i>
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
-								Utilisateur
-								<i class="fas fa-user"></i>
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="log.html">Se connecter</a>
-								<a class="dropdown-item" href="sign.html">Créer un compte</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+				<i class="fas fa-align-justify"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navBar">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<form class="form-inline">
+							<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
+							<button class="btn btn-success" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="catalogue.html">
+							Catalogue
+							<i class="fas fa-book"></i>
+						</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+							Utilisateur
+							<i class="fas fa-user"></i>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="log.html">Se connecter</a>
+							<a class="dropdown-item" href="sign.html">Créer un compte</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!--header end-->
+
+	<div class="title">
+		<h1>Catalogue</h1>
+	</div>
+
+	<div class="container con-catalogue">
+		<div class="row ro-catalogue-1">
+
+			<!--filter-->
+			<div class="col-md-2">
+				<div class="filter border-smooth">
+					<h3>Filtrer</h3>
+
+					<div class="filter-item">
+						<h5>Editeur
+							<i class="fas fa-plus-circle discover clickable-icon" data-target="editor"></i>
+						</h5>
+
+						<form class="editor invisible">
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Sony
+								</label>
 							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-		<!--header end!-->
 
-		<div class="title">
-			<h1>Catalogue</h1>
-		</div>
-
-		<div class="container con-catalogue">
-			<div class="row ro-catalogue-1">
-
-				<!--filter-->
-				<div class="col-md-2">
-					<div class="filter border-smooth">
-						<h3>Filtrer</h3>
-
-						<div class="filter-item">
-							<h5>Editeur
-								<i class="fas fa-plus-circle discover clickable-icon" data-target="editor"></i>
-							</h5>
-
-							<form class="editor invisible" >
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Sony
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Square Enix
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Konami
-									</label>
-								</div>
-							</form>
-						</div>
-
-						<div class="filter-item">
-							<h5>Développeur
-								<i class="fas fa-plus-circle discover clickable-icon" data-target="developer"></i>
-							</h5>
-
-							<form class="developer invisible">
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Insomniac Games
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Eidos Montréal
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Konami
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Square Enix
-									</label>
-								</div>
-							</form>
-						</div>
-
-						<div class="filter-item">
-							<h5>Plateforme
-								<i class="fas fa-plus-circle discover clickable-icon" data-target="plateform"></i>
-							</h5>
-
-							<form class="plateform invisible">
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										PlayStation 4
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Xbox One
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										Nintendo Switch
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										PC
-									</label>
-								</div>
-							</form>
-						</div>
-
-						<div class="filter-item">
-							<h5>
-								Date de sortie
-								<i class="fas fa-plus-circle discover clickable-icon" data-target="released"></i>
-							</h5>
-
-							<form class="released invisible">
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										A venir
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										- 3 mois
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										3 - 6 mois
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										6 - 12 mois
-									</label>
-								</div>
-
-								<div class="check-item">
-									<label for="defaultCheck">
-										<input type="checkbox" id="defaultCheck">
-										+ 12 mois
-									</label>
-								</div>
-							</form>
-						</div>
-
-						<div class="filter-item">
-							<h5>Note
-								<i class="fas fa-plus-circle discover clickable-icon" data-target="rating-stars"></i>
-							</h5>
-
-							<div class="rating-stars invisible">
-								<ul id="stars">
-									<li class="star" data-value="1">
-										<i class="fas fa-star clickable-icon"></i>
-									</li>
-
-									<li class="star" data-value="2">
-										<i class="fas fa-star clickable-icon"></i>
-									</li>
-
-									<li class="star" data-value="3">
-										<i class="fas fa-star clickable-icon"></i>
-									</li>
-
-									<li class="star" data-value="4">
-										<i class="fas fa-star clickable-icon"></i>
-									</li>
-
-									<li class="star" data-value="5">
-										<i class="fas fa-star clickable-icon"></i>
-									</li>
-								</ul>
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Square Enix
+								</label>
 							</div>
-						</div>
 
-						<div class="filter-item">
-							<h5>Prix
-								<i class="fas fa-plus-circle discover clickable-icon" data-target="price"></i>
-							</h5>
-
-							<div class="price invisible">
-								<p>
-									<input type="text" id="range" readonly>
-								</p>
-
-								<div id="slider-range"></div><br>
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Konami
+								</label>
 							</div>
+						</form>
+					</div>
+
+					<div class="filter-item">
+						<h5>Développeur
+							<i class="fas fa-plus-circle discover clickable-icon" data-target="developer"></i>
+						</h5>
+
+						<form class="developer invisible">
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Insomniac Games
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Eidos Montréal
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Konami
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Square Enix
+								</label>
+							</div>
+						</form>
+					</div>
+
+					<div class="filter-item">
+						<h5>Plateforme
+							<i class="fas fa-plus-circle discover clickable-icon" data-target="plateform"></i>
+						</h5>
+
+						<form class="plateform invisible">
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									PlayStation 4
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Xbox One
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									Nintendo Switch
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									PC
+								</label>
+							</div>
+						</form>
+					</div>
+
+					<div class="filter-item">
+						<h5>
+							Date de sortie
+							<i class="fas fa-plus-circle discover clickable-icon" data-target="released"></i>
+						</h5>
+
+						<form class="released invisible">
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									A venir
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									- 3 mois
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									3 - 6 mois
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									6 - 12 mois
+								</label>
+							</div>
+
+							<div class="check-item">
+								<label for="defaultCheck">
+									<input type="checkbox" id="defaultCheck">
+									+ 12 mois
+								</label>
+							</div>
+						</form>
+					</div>
+
+					<div class="filter-item">
+						<h5>Note
+							<i class="fas fa-plus-circle discover clickable-icon" data-target="rating-stars"></i>
+						</h5>
+
+						<div class="rating-stars invisible">
+							<ul id="stars">
+								<li class="star" data-value="1">
+									<i class="fas fa-star clickable-icon"></i>
+								</li>
+
+								<li class="star" data-value="2">
+									<i class="fas fa-star clickable-icon"></i>
+								</li>
+
+								<li class="star" data-value="3">
+									<i class="fas fa-star clickable-icon"></i>
+								</li>
+
+								<li class="star" data-value="4">
+									<i class="fas fa-star clickable-icon"></i>
+								</li>
+
+								<li class="star" data-value="5">
+									<i class="fas fa-star clickable-icon"></i>
+								</li>
+							</ul>
 						</div>
 					</div>
-				</div>
 
+					<div class="filter-item">
+						<h5>Prix
+							<i class="fas fa-plus-circle discover clickable-icon" data-target="price"></i>
+						</h5>
 
-				<!--catalogue-->
-				<div class="col-md-10">
-					<div class="container">
-						<!-- 1 !-->
-						<div class="row align-items-center ro-catalogue ro-catalogue-2 border-smooth">
-							<div class="col-md-3">
-								<img class="cover" src="../pictures/sm-cover-sm.png" alt="Spider-Man"/>
-							</div>
+						<div class="price invisible">
+							<p>
+								<input type="text" id="range" readonly>
+							</p>
 
-							<div class="col-md-3 col-catalogue-1">
-								<p>
-									Spider-Man<br>
-									<span class="underline">Editeur :</span> Sony<br>
-									<span class="underline">Développeur :</span> Insomniac Games<br>
-								</p>
-							</div>
-
-							<div class="col-md-3 col-catalogue-2">
-								<p>
-									<span class="underline">Plateforme :</span> Playstation 4<br>
-									<span class="underline">Date de sortie :</span> 07/09/18<br>
-									<span class="underline">Note :</span><br>
-								</p>
-							</div>
-
-							<div class="col-md-3 col-price">
-								<p>54€99</p>
-							</div>
-						</div>
-
-						<div class="row align-items-center ro-catalogue ro-catalogue-3 border-smooth">
-							<div class="col-md-3">
-								<img class="cover" src="../pictures/tr-cover-sm.jpg" alt="Tomb-Raider"/>
-							</div>
-
-							<div class="col-md-3 col-catalogue-1">
-								<p>Shadow of the Tomb Raider</p>
-								<p><span class="underline">Editeur :</span> Square Enix</p>
-								<p><span class="underline">Développeur :</span> Eidos Montréal</p>
-							</div>
-
-							<div class="col-md-3 col-catalogue-2">
-								<p><span class="underline">Plateforme :</span> Playstation 4</p>
-								<p><span class="underline">Date de sortie :</span> 14/09/18</p>
-								<p><span class="underline">Note :</span></p>
-							</div>
-
-							<div class="col-md-3 col-price">
-								<p>56€99</p>
-							</div>
-						</div>
-
-						<div class="row align-items-center ro-catalogue ro-catalogue-3 border-smooth">
-							<div class="col-md-3">
-								<img class="cover" src="../pictures/pes-cover-sm.png" alt="Pro-Evolution-Soccer"/>
-							</div>
-
-							<div class="col-md-3 col-catalogue-1">
-								<p>Pro Evolution Soccer 2019</p>
-								<p><span class="underline">Editeur :</span> Konami</p>
-								<p><span class="underline">Développeur :</span> Konami</p>
-							</div>
-
-							<div class="col-md-3 col-catalogue-2">
-								<p><span class="underline">Plateforme :</span> Playstation 4</p>
-								<p><span class="underline">Date de sortie :</span> 30/08/18</p>
-								<p><span class="underline">Note :</span></p>
-							</div>
-
-							<div class="col-md-3 col-price">
-								<p>49€99</p>
-							</div>
-						</div>
-
-						<div class="row align-items-center ro-catalogue ro-catalogue-3 border-smooth">
-							<div class="col-md-3">
-								<img class="cover" src="../pictures/dq-cover-sm.png" alt="Dragon-Quest"/>
-							</div>
-
-							<div class="col-md-3 col-catalogue-1">
-								<p>
-									Dragon Quest XI : Les Combattants de la destinée<br>
-									<span class="underline">Editeur :</span> Square Enix<br>
-									<span class="underline">Développeur :</span> Square Enix<br>
-								</p>
-							</div>
-
-							<div class="col-md-3 col-catalogue-2">
-								<p>
-									<span class="underline">Plateforme :</span> Playstation 4<br>
-									<span class="underline">Date de sortie :</span> 04/09/18<br>
-									<span class="underline">Note :</span><br>
-								</p>
-							</div>
-
-							<div class="col-md-3 col-price">
-								<p>52€99</p>
-							</div>
+							<div id="slider-range"></div><br>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!--footer start!-->
-    		<div class="footer bg-color">
-    			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
-    		</div>
-    	<!--footer end!-->
 
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-			<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-			<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-			<script src="../scripts/catalogue.js"></script>
-    </body>
+			<!--catalogue-->
+			<div class="col-md-10">
+				<div class="container">
+					<!-- 1 !-->
+					<div class="row align-items-center ro-catalogue ro-catalogue-2 border-smooth bg-color-2">
+						<div class="col-md-3">
+							<img class="cover border-smooth" src="../pictures/sm-cover-sm.png" alt="Spider-Man" />
+						</div>
+
+						<div class="col-md-3 col-catalogue-1">
+							<p>
+								Spider-Man<br>
+								<span class="underline">Editeur :</span> Sony<br>
+								<span class="underline">Développeur :</span> Insomniac Games<br>
+							</p>
+						</div>
+
+						<div class="col-md-3 col-catalogue-2">
+							<p>
+								<span class="underline">Plateforme :</span> Playstation 4<br>
+								<span class="underline">Date de sortie :</span> 07/09/18<br>
+								<span class="underline">Note :</span><br>
+							</p>
+						</div>
+
+						<div class="col-md-3 col-price">
+							<p>54€99</p>
+						</div>
+					</div>
+
+					<div class="row align-items-center ro-catalogue ro-catalogue-3 border-smooth bg-color-2">
+						<div class="col-md-3">
+							<img class="cover border-smooth" src="../pictures/tr-cover-sm.jpg" alt="Tomb-Raider" />
+						</div>
+
+						<div class="col-md-3 col-catalogue-1">
+							<p>Shadow of the Tomb Raider</p>
+							<p><span class="underline">Editeur :</span> Square Enix</p>
+							<p><span class="underline">Développeur :</span> Eidos Montréal</p>
+						</div>
+
+						<div class="col-md-3 col-catalogue-2">
+							<p><span class="underline">Plateforme :</span> Playstation 4</p>
+							<p><span class="underline">Date de sortie :</span> 14/09/18</p>
+							<p><span class="underline">Note :</span></p>
+						</div>
+
+						<div class="col-md-3 col-price">
+							<p>56€99</p>
+						</div>
+					</div>
+
+					<div class="row align-items-center ro-catalogue ro-catalogue-3 border-smooth bg-color-2">
+						<div class="col-md-3">
+							<img class="cover border-smooth" src="../pictures/pes-cover-sm.png" alt="Pro-Evolution-Soccer" />
+						</div>
+
+						<div class="col-md-3 col-catalogue-1">
+							<p>Pro Evolution Soccer 2019</p>
+							<p><span class="underline">Editeur :</span> Konami</p>
+							<p><span class="underline">Développeur :</span> Konami</p>
+						</div>
+
+						<div class="col-md-3 col-catalogue-2">
+							<p><span class="underline">Plateforme :</span> Playstation 4</p>
+							<p><span class="underline">Date de sortie :</span> 30/08/18</p>
+							<p><span class="underline">Note :</span></p>
+						</div>
+
+						<div class="col-md-3 col-price">
+							<p>49€99</p>
+						</div>
+					</div>
+
+					<div class="row align-items-center ro-catalogue ro-catalogue-3 border-smooth bg-color-2">
+						<div class="col-md-3">
+							<img class="cover border-smooth" src="../pictures/dq-cover-sm.png" alt="Dragon-Quest" />
+						</div>
+
+						<div class="col-md-3 col-catalogue-1">
+							<p>
+								Dragon Quest XI : Les Combattants de la destinée<br>
+								<span class="underline">Editeur :</span> Square Enix<br>
+								<span class="underline">Développeur :</span> Square Enix<br>
+							</p>
+						</div>
+
+						<div class="col-md-3 col-catalogue-2">
+							<p>
+								<span class="underline">Plateforme :</span> Playstation 4<br>
+								<span class="underline">Date de sortie :</span> 04/09/18<br>
+								<span class="underline">Note :</span><br>
+							</p>
+						</div>
+
+						<div class="col-md-3 col-price">
+							<p>52€99</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--footer start-->
+		<div class="footer bg-color">
+			<p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+		</div>
+		<!--footer end-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="../scripts/catalogue.js"></script>
+</body>
+
 </html>
