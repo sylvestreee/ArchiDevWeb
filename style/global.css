@@ -127,17 +127,28 @@ body {
 
 .row-sign, .row-log {
 	margin-left: 1px;
+	margin-right: 1px;
 }
 
 .col-sign-1, .col-log-1 {
 	border: 1px solid black;
 	padding: 10px;
 	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 }
 
+/*.col-sign-1 {
+	border: 1px solid blue;
+}
+
+.col-sign-2 {
+	border: 1px solid green;
+}*/
+
 .col-sign-2, .col-log-2 {
-	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 /*
@@ -173,6 +184,7 @@ body {
 .filter {
 	border: 1px solid black;
 	padding: 10px;
+	margin-bottom: 15px;
 }
 
 .ro-catalogue-3 {
@@ -236,6 +248,7 @@ body {
 
 .row-account {
 	margin-left: 1px;
+	margin-right: 1px;
 }
 
 .col-account-1 {
@@ -246,7 +259,9 @@ body {
 }
 
 .col-account-2 {
-	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 /*
@@ -270,7 +285,7 @@ body {
 
 /*specific CSS for game.html*/
 
-.container-game-1, .con-game-2 {
+.container-game-1, .container-game-2 {
 	border: 1px solid black;
 }
 
@@ -289,12 +304,12 @@ body {
 	padding: 10px;
 }
 
-.con-game-2 {
+.container-game-2 {
 	margin-top: 5px;
 	padding: 10px;
 }
 
-.con-game-2 video {
+.container-game-2 video {
 	display: block;
 	margin: auto;
 }
