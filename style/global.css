@@ -25,6 +25,10 @@ body {
 	margin-bottom: 40px;
 }
 
+.teko {
+	font-family: 'Teko', sans-serif;
+}
+
 .invisible {
 	display: none;
 }
