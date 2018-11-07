@@ -1,5 +1,4 @@
 <?php
 
-require 'views/home.html';
+require './views/home.html';
 
->

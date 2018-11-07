@@ -1,5 +1,3 @@
 <?php
 
-require 'views/catalogue.html';
-
->
+require './views/catalogue.html';

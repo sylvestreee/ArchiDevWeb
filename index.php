@@ -1,27 +1,40 @@
 <?php
 
-$url = $_GET['url'];
-$file = basename($url);
+$url = $_SERVER[REQUEST_URI];
 
-require 'global/header.html';
+require './views/global/header.html';
 
-switch($file) {
-  case "home" :
-    require 'controllers/home.html';
+switch($url) {
+  case "/" :
+  case "/home" :
+    require './controllers/home.php';
     break;
-  case "catalogue" :
-    require 'controllers/catalogue.html';
+  case "/catalogue" :
+    require './controllers/catalogue.php';
     break;
-  case "log" :
-    require 'controllers/log.html';
+  case "/log" :
+    require './controllers/log.php';
     break;
-  case "sign" :
-    require 'controllers/sign.html';
+  case "/sign" :
+    require './controllers/sign.php';
+    break;
+  case "/game" :
+  	require './controllers/game.php';
+  	break;
+  case "/user" :
+    require './controllers/user.php';
+    break;
+  case "/account" :
+    require './controllers/account.php';
+    break;
+  case "/cart" :
+    require './controllers/cart.php';
     break;
   default :
+  	require './controllers/error.php';
     break;
 }
 
-require 'global/footer.html';
+require './views/global/footer.html';
 
->
+

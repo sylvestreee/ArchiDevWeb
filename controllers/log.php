@@ -1,5 +1,3 @@
 <?php
 
-require 'views/log.html';
-
->
+require './views/log.html';

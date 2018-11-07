@@ -1,5 +1,3 @@
 <?php
 
-require 'views/sign.html';
-
->
+require './views/sign.html';
