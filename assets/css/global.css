@@ -1,4 +1,8 @@
-/*global*/
+/*
+**********
+**global**
+**********
+*/
 
 html {
 	height: 100%;
@@ -67,30 +71,54 @@ h3, h5, p, label, span {
 	border-radius: 15px;
 }
 
-/*header*/
+.cover {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (max-width: 576px) {
+	.cover {
+		max-height: 50vh;
+	}
+}
+
+.col-price {
+	text-align: center;
+}
+
+/*
+***************
+**header.html**
+***************
+*/
 
 .navbar-nav .nav-item {
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-/*footer*/
+/*
+***************
+**footer.html**
+***************
+*/
 
 .footer {
-	margin-top: 15px;
 	border: 0.1px solid;
+	margin-top: 15px;
 }
 
 .footer p {
-	text-align :center;
 	color: white;
+	text-align: center;
 }
 
-/*home*/
-
-.carousel-caption p {
-	margin-top: 20px;
-}
+/*
+*************
+**home.html**
+*************
+*/
 
 .con-home-1, .con-home-2, .con-home-3 {
 	max-width: 100%;
@@ -99,7 +127,7 @@ h3, h5, p, label, span {
 }
 
 #news img {
-	width:100%;
+	width: 100%;
 }
 
 .ro-home-1, .ro-home-2, .colo-home-1, .colo-home-2 {
@@ -114,7 +142,7 @@ h3, h5, p, label, span {
 }
 
 #bestsellers, .ro-home-2 {
-	background-color: #E0E0E0;
+	background-color: #f2f9ff;
 }
 
 #bestsellers {
@@ -122,43 +150,43 @@ h3, h5, p, label, span {
 	height: 93%;
 }
 
-.cover {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+/*
+*******************************************
+**log.html and sign.html and account.html**
+*******************************************
+*/
 
-@media (max-width: 576px) {
-	.cover {
-		max-height: 50vh;
-	}
-}
-
-/*log & sign*/
-
-.container-log, .container-sign {
+.container-log, .container-sign, .container-account {
 	max-width: 100%;
 }
 
-.row-log, .row-sign {
+.row-log, .row-sign, .row-account {
 	margin-left: 1px;
 	margin-right: 1px;
 }
 
-.col-log-1, .col-sign-1 {
+.col-log-1, .col-sign-1, .col-account-1 {
 	border: 1px solid black;
 	padding: 10px;
 	margin-top: 5px;
 	margin-bottom: 15px;
 }
 
-.col-log-2, .col-sign-2 {
+.col-log-2, .col-sign-2, .col-account-2 {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
 
-/*catalogue*/
+.account-button div, .civility div, .birthday *, .buttons div {
+	display: inline-block;
+}
+
+/*
+********************************
+**catalogue.html and cart.html**
+********************************
+*/
 
 .con-catalogue {
 	max-width: 100%;
@@ -192,7 +220,7 @@ h3, h5, p, label, span {
 	padding: 5px;
 }
 
-.col-catalogue-1, .col-catalogue-2 {
+.col-catalogue-1, .col-catalogue-2, .col-cart-3, .col-cart-4 {
 	display: flex;
 	flex-direction: column;
 	height: 170px;
@@ -201,25 +229,40 @@ h3, h5, p, label, span {
 	border-bottom: solid 0px black;
 }
 
-.col-catalogue-1 {
+.col-catalogue-1, .col-cart-3 {
 	border-left: solid 1px black;
 	border-top: solid 0px black;
 }
 
 @media (max-width: 576px) {
-	.col-catalogue-1, .col-catalogue-2 {
+	.col-catalogue-1, .col-catalogue-2, .col-cart-3, .col-cart-4 {
 		border-right: solid 0px black;
 		border-bottom: solid 1px black;
 	}
 
-	.col-catalogue-1 {
+	.col-catalogue-1, .col-cart-3 {
 		border-left: solid 0px black;
 		border-top: solid 1px black;
 	}
 }
 
-.col-price {
-	text-align : center;
+.col-cart-1, .col-cart-2 {
+	border: 1px solid black;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.col-cart-2 {
+	display: flex;
+	flex-direction: column;
+	height: 200px;
+	justify-content: center;
+	text-align: center;
+}
+
+.pay, .delete {
+	padding: 5px 0;
 }
 
 .rating-stars ul {
@@ -247,42 +290,14 @@ h3, h5, p, label, span {
 	border: 0;
 }
 
-/*account*/
-
-.container-account {
-	max-width: 100%;
-}
-
-.row-account {
-	margin-left: 1px;
-	margin-right: 1px;
-}
-
-.col-account-1 {
-	border: 1px solid black;
-	padding: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.col-account-2 {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-.account-button div, .civility div, .birthday *, .buttons div {
-	display: inline-block;
-}
-
-/*game*/
+/*
+*************
+**game.html**
+*************
+*/
 
 .container-game-1, .container-game-2 {
 	border: 1px solid black;
-}
-
-.price {
-	text-align: center;
 }
 
 .basket-button .btn {
@@ -304,41 +319,15 @@ h3, h5, p, label, span {
 .container-game-2 video {
 	display: block;
 	margin: auto;
-}
-
-video {
 	max-width: 100%;
 }
 
-/*cart*/
+/*
+****************************
+**error.html and user.html**
+****************************
+*/
 
-.col-basket-1, .col-basket-2 {
-	border: 1px solid black;
-	padding: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.col-basket-2 {
-	display: flex;
-	flex-direction: column;
-	height: 200px;
-	justify-content: center;
-	text-align: center;
-}
-
-.pay, .delete {
-	padding: 5px 0;
-}
-
-/*error*/
-
-.container-error {
-	margin-left: 1px;
-}
-
-/*user*/
-
-.container-user {
+.container-error, .container-user {
 	margin-left: 1px;
 }

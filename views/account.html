@@ -1,116 +1,127 @@
-	<div class="title">
-		<h1>Modifier mes informations</h1>
-	</div>
+<div class="title">
+	<h1>Modifier mes informations</h1>
+</div>
 
-	<div class="container container-account border-smooth">
-		<div class="row row-account">
-			<div class="col-md-6 col-account-1 border-smooth">
-				<form class="form-account" action="#" novalidate>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group" data-target="buttons">
+<div class="container container-account border-smooth">
+	<div class="row row-account">
+		<div class="col-md-6 col-account-1 border-smooth">
+			<form class="form-account" action="#" novalidate>
+				<div class="row">
+					<div class="col-md-6">
 
-								<label for="civility">Ma civilité :</label>
-								<div class="civility">
-									<div class="check-item">
-										<label for="defaultCheck">
-											<input type="checkbox" id="defaultCheck" class="check-1 account">
-											Mlle
-										</label>
-									</div>
-
-									<div class="check-item">
-										<label for="defaultCheck">
-											<input type="checkbox" id="defaultCheck" class="check-2 account">
-											Mme
-										</label>
-									</div>
-
-									<div class="check-item">
-										<label for="defaultCheck">
-											<input type="checkbox" id="defaultCheck" class="check-3 account" checked>
-											M
-										</label>
-									</div>
+						<!--civility field-->
+						<div class="form-group" data-target="buttons">
+							<label for="civility">Ma civilité :</label>
+							<div class="civility">
+								<div class="check-item">
+									<label for="defaultCheck">
+										<input type="checkbox" id="defaultCheck" class="check-1 account">
+										Mlle
+									</label>
 								</div>
-							</div>
 
-							<div class="form-group" data-target="buttons">
-								<label for="pseudo">Mon pseudo :</label>
-								<input type="text" class="form-control pseudo account" name="pseudo" id="pseudo" placeholder="sylvestreee">
-							</div>
+								<div class="check-item">
+									<label for="defaultCheck">
+										<input type="checkbox" id="defaultCheck" class="check-2 account">
+										Mme
+									</label>
+								</div>
 
-							<div class="form-group" data-target="buttons">
-								<label for="name">Mon nom :</label>
-								<input type="text" class="form-control name account" name="name" id="name" placeholder="Heitz">
-								<i class="fas fa-thumbs-down invisible"></i>
-								<span class="invisible">Veuillez indiquer un nom (sans chiffres)</span>
-							</div>
-
-							<div class="form-group" data-target="buttons">
-								<label for="fname">Mon prénom :</label>
-								<input type="text" class="form-control fname account" name="fname" id="fname" placeholder="Martin">
-								<i class="fas fa-thumbs-down invisible"></i>
-								<span class="invisible">Veuillez indiquer un prénom (sans chiffres)</span>
+								<div class="check-item">
+									<label for="defaultCheck">
+										<input type="checkbox" id="defaultCheck" class="check-3 account" checked>
+										M
+									</label>
+								</div>
 							</div>
 						</div>
 
-						<div class="col-md-6">
-							<div class="form-group" data-target="buttons">
-								<label for="birthday">Ma date de naissance :</label>
-								<div class="birthday">
-									<div>
-										<input type="text" class="form-control birthday-input account" name="birthday" id="birthday" placeholder="01/01/1997">
-									</div>
+						<!--pseudo field-->
+						<div class="form-group" data-target="buttons">
+							<label for="pseudo">Mon pseudo :</label>
+							<input type="text" class="form-control pseudo account" name="pseudo" id="pseudo" placeholder="sylvestreee">
+						</div>
 
-									<div>
-										<i class="fas fa-calendar-alt clickable-icon"></i>
-									</div>
+						<!--name field-->
+						<div class="form-group" data-target="buttons">
+							<label for="name">Mon nom :</label>
+							<input type="text" class="form-control name account" name="name" id="name" placeholder="Heitz">
+							<i class="fas fa-thumbs-down invisible"></i>
+							<span class="invisible">Veuillez indiquer un nom (sans chiffres)</span>
+						</div>
+
+						<!--first name field-->
+						<div class="form-group" data-target="buttons">
+							<label for="fname">Mon prénom :</label>
+							<input type="text" class="form-control fname account" name="fname" id="fname" placeholder="Martin">
+							<i class="fas fa-thumbs-down invisible"></i>
+							<span class="invisible">Veuillez indiquer un prénom (sans chiffres)</span>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+
+						<!--birthday field-->
+						<div class="form-group" data-target="buttons">
+							<label for="birthday">Ma date de naissance :</label>
+							<div class="birthday">
+								<div>
+									<input type="text" class="form-control birthday-input account" name="birthday" id="birthday" placeholder="01/01/1997">
 								</div>
 
 								<div>
-									<i class="fas fa-thumbs-down thumbs-birthday invisible"></i>
-									<span class="warning-birthday invisible">Veuillez indiquer une date (format DD/MM/YYYY)</span>
+									<i class="fas fa-calendar-alt clickable-icon"></i>
 								</div>
 							</div>
 
-							<div class="form-group" data-target="buttons">
-								<label for="email">Mon adresse mail :</label>
-								<input type="email" class="form-control email account" name="email" id="email" placeholder="martin.heitz@etu.unistra.fr">
-								<i class="fas fa-thumbs-down invisible"></i>
-								<span class="invisible">Veuillez indiquer une adresse mail</span>
+							<div>
+								<i class="fas fa-thumbs-down thumbs-birthday invisible"></i>
+								<span class="warning-birthday invisible">Veuillez indiquer une date (format DD/MM/YYYY)</span>
+							</div>
+						</div>
+
+						<!--email field-->
+						<div class="form-group" data-target="buttons">
+							<label for="email">Mon adresse mail :</label>
+							<input type="email" class="form-control email account" name="email" id="email" placeholder="martin.heitz@etu.unistra.fr">
+							<i class="fas fa-thumbs-down invisible"></i>
+							<span class="invisible">Veuillez indiquer une adresse mail</span>
+						</div>
+
+						<!--password field-->
+						<div class="form-group" data-target="buttons">
+							<label for="pwd">Mon mot de passe :</label>
+							<input type="password" class="form-control pwd account invalid" name="pwd" id="pwd" placeholder="*********">
+							<i class="fas fa-thumbs-down invisible"></i>
+							<span class="invisible">Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)</span>
+						</div>
+
+						<!--confirm password field-->
+						<div class="form-group" data-target="buttons">
+							<label for="vpwd">Confirmer mon mot de passe :</label>
+							<input type="password" class="form-control vpwd account invalid" name="vpwd" id="pwd" />
+							<i class="fas fa-thumbs-down invisible"></i>
+							<span class="invisible">Les mots de passe ne correspondent pas</span>
+						</div>
+
+						<!--cancel button-->
+						<div class="buttons account-buttons invisible">
+							<div class="reset-button">
+								<button type="reset" class="btn btn-primary">Annuler </button>
 							</div>
 
-							<div class="form-group" data-target="buttons">
-								<label for="pwd">Mon mot de passe :</label>
-								<input type="password" class="form-control pwd account invalid" name="pwd" id="pwd" placeholder="*********">
-								<i class="fas fa-thumbs-down invisible"></i>
-								<span class="invisible">Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)</span>
-							</div>
-
-							<div class="form-group" data-target="buttons">
-								<label for="vpwd">Confirmer mon mot de passe :</label>
-								<input type="password" class="form-control vpwd account invalid" name="vpwd" id="pwd" />
-								<i class="fas fa-thumbs-down invisible"></i>
-								<span class="invisible">Les mots de passe ne correspondent pas</span>
-							</div>
-
-							<div class="buttons account-buttons invisible">
-								<div class="reset-button">
-									<button type="reset" class="btn btn-primary">Annuler </button>
-								</div>
-
-								<div class="submit-button">
-									<button type="submit" class="btn btn-primary">Modifier mes informations</button>
-								</div>
+							<!--submit button-->
+							<div class="submit-button">
+								<button type="submit" class="btn btn-primary">Modifier mes informations</button>
 							</div>
 						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
+		</div>
 
-			<div class="col-md-6 col-account-2">
-				<img class="cover border-smooth" src="./assets/pictures/account.jpg" alt="account-picture" />
-			</div>
+		<div class="col-md-6 col-account-2">
+			<img class="cover border-smooth" src="./assets/pictures/account.jpg" alt="account-picture" />
 		</div>
 	</div>
+</div>
