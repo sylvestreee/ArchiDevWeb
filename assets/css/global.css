@@ -1,4 +1,4 @@
-/*global CSS*/
+/*global*/
 
 html {
 	height: 100%;
@@ -55,23 +55,6 @@ h3, h5, p, label, span {
 	cursor: pointer;
 }
 
-/*specifc CCS for header and footer*/
-
-.navbar-nav .nav-item {
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-.footer {
-	margin-top: 15px;
-	border: 0.1px solid;
-}
-
-.footer p {
-	text-align :center;
-	color: white;
-}
-
 .bg-color {
 	background-color: #5DADEC;
 }
@@ -84,7 +67,26 @@ h3, h5, p, label, span {
 	border-radius: 15px;
 }
 
-/*specific CSS for home.html*/
+/*header*/
+
+.navbar-nav .nav-item {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*footer*/
+
+.footer {
+	margin-top: 15px;
+	border: 0.1px solid;
+}
+
+.footer p {
+	text-align :center;
+	color: white;
+}
+
+/*home*/
 
 .carousel-caption p {
 	margin-top: 20px;
@@ -132,52 +134,31 @@ h3, h5, p, label, span {
 	}
 }
 
-/*specific CSS for log.html and sign.html*/
+/*log & sign*/
 
-.container-sign, .container-log {
+.container-log, .container-sign {
 	max-width: 100%;
 }
 
-.row-sign, .row-log {
+.row-log, .row-sign {
 	margin-left: 1px;
 	margin-right: 1px;
 }
 
-.col-sign-1, .col-log-1 {
+.col-log-1, .col-sign-1 {
 	border: 1px solid black;
 	padding: 10px;
 	margin-top: 5px;
 	margin-bottom: 15px;
 }
 
-/*.col-sign-1 {
-	border: 1px solid blue;
-}
-
-.col-sign-2 {
-	border: 1px solid green;
-}*/
-
-.col-sign-2, .col-log-2 {
+.col-log-2, .col-sign-2 {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
 
-/*
-.col-sign img {
-	max-width: 75vw;
-	max-height: 75vh;
-}
-
-@media (max-width: 576px) {
-	.container-log {
-		width: 230px;
-	}
-}
-*/
-
-/*specific CSS for catalogue.html*/
+/*catalogue*/
 
 .con-catalogue {
 	max-width: 100%;
@@ -195,7 +176,6 @@ h3, h5, p, label, span {
 }
 
 .filter {
-	border: 1px solid black;
 	padding: 10px;
 	margin-bottom: 15px;
 }
@@ -218,10 +198,24 @@ h3, h5, p, label, span {
 	height: 170px;
 	justify-content: center;
 	border-right: solid 1px black;
+	border-bottom: solid 0px black;
 }
 
 .col-catalogue-1 {
 	border-left: solid 1px black;
+	border-top: solid 0px black;
+}
+
+@media (max-width: 576px) {
+	.col-catalogue-1, .col-catalogue-2 {
+		border-right: solid 0px black;
+		border-bottom: solid 1px black;
+	}
+
+	.col-catalogue-1 {
+		border-left: solid 0px black;
+		border-top: solid 1px black;
+	}
 }
 
 .col-price {
@@ -253,7 +247,7 @@ h3, h5, p, label, span {
 	border: 0;
 }
 
-/*specific CSS for account.html*/
+/*account*/
 
 .container-account {
 	max-width: 100%;
@@ -277,26 +271,11 @@ h3, h5, p, label, span {
 	justify-content: center;
 }
 
-/*
-.container-account {
-	margin-left: 10px;
-	width: 50vw;
-	padding: 10px;
-	border: 1px solid black;
-}
-
-@media (max-width: 576px) {
-	.container-account {
-		width: 230px;
-	}
-}
-*/
-
 .account-button div, .civility div, .birthday *, .buttons div {
 	display: inline-block;
 }
 
-/*specific CSS for game.html*/
+/*game*/
 
 .container-game-1, .container-game-2 {
 	border: 1px solid black;
@@ -331,7 +310,7 @@ video {
 	max-width: 100%;
 }
 
-/*specific CSS for basket.html*/
+/*cart*/
 
 .col-basket-1, .col-basket-2 {
 	border: 1px solid black;
@@ -352,13 +331,13 @@ video {
 	padding: 5px 0;
 }
 
-/*specific CSS for error.html*/
+/*error*/
 
 .container-error {
 	margin-left: 1px;
 }
 
-/*specific CSS for user.html*/
+/*user*/
 
 .container-user {
 	margin-left: 1px;

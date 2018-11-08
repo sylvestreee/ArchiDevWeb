@@ -36,5 +36,3 @@ switch($url) {
 }
 
 require './views/global/footer.html';
-
-
