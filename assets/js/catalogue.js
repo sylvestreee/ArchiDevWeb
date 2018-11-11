@@ -1,31 +1,28 @@
 $(document).ready(function() {
 
-  // on click listener on all ".discover" elements
-  $(document).on('click', '.discover', function () {
-      var targetClass = $(this).attr("data-target");
-      var $target = $("." + targetClass);
+  /*show / hide a filter option*/
+  $(document).on('click', '.discover', function() {
+    var targetClass = $(this).attr("data-target");
+    var $target = $("." + targetClass);
 
-      var valid = $target.hasClass("invisible");
-      if(valid) {
-        $(this).removeClass("fa-plus-circle").addClass("fa-minus-circle");
-        $target.removeClass("invisible").addClass("visible");
+    var valid = $target.hasClass("invisible");
+    if (valid) {
+      $(this).removeClass("fa-plus-circle").addClass("fa-minus-circle");
+      $target.removeClass("invisible").addClass("visible");
 
-      } else {
-        $(this).removeClass("fa-minus-circle").addClass("fa-plus-circle");
-        $target.removeClass("visible").addClass("invisible");
-      }
+    } else {
+      $(this).removeClass("fa-minus-circle").addClass("fa-plus-circle");
+      $target.removeClass("visible").addClass("invisible");
+    }
   });
 
+  /*turn on / off a star when the mouse is / is not on it*/
   $("#stars li").on("mouseover", function() {
     var onStar = parseInt($(this).data("value"), 10);
-    //console.log(onStar);
     $(this).parent().children('li.star').each(function(e) {
-      if(e < onStar) {
-        //console.log("hey");
+      if (e < onStar) {
         $(this).addClass("hover");
-      }
-      else {
-        //console.log("hey2");
+      } else {
         $(this).removeClass("hover");
       }
     });
@@ -35,18 +32,19 @@ $(document).ready(function() {
     });
   });
 
+  /*turn on all stars before the one the user clicked on to show that a rating selection has been made*/
   $("#stars li").on('click', function() {
     var onStar = parseInt($(this).data('value'), 10);
-    console.log
     var stars = $(this).parent().children('li.star');
-    for(i = 0; i < stars.length; i++) {
+    for (i = 0; i < stars.length; i++) {
       $(stars[i]).removeClass("selected");
     }
-    for(i = 0; i < onStar; i++) {
+    for (i = 0; i < onStar; i++) {
       $(stars[i]).addClass("selected");
     }
   });
 
+  /*set the min and max of the price range, and show its current status*/
   $(function() {
     $("#slider-range").slider({
       max: 70,
