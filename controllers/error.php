@@ -1,3 +1,5 @@
 <?php
 
-require './views/error.html';
+$template = $twig->load('error.twig');
+
+echo $template->render();

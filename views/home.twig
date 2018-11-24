@@ -15,25 +15,17 @@
             {% for new in news %}
                 {% if loop.first %}
                     <div class="carousel-item active">
-                    	<a class="img-link" href="game">
-                            <img src="./assets/pictures/{{ new.wallpaper }}-wallpaper.jpg" alt="{{ new.descr }}" /> 
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>{{ new.name }}</h3>
-                            <p>{{ new.catch }}</p>
-                        </div>
-                    </div>
                 {% else %}
-                    <div class="carousel-item">
-                        <a class="img-link" href="error">
-                            <img src="./assets/pictures/{{ new.wallpaper }}-wallpaper.jpg" alt="{{ new.descr }}" /> 
+                	<div class="carousel-item">
+                {% endif %}
+                    	<a class="img-link" href="game">
+                            <img src="./assets/pictures/{{ new.wallpaper }}-wallpaper.png" alt="{{ new.descr }}" /> 
                         </a>
                         <div class="carousel-caption">
                             <h3>{{ new.name }}</h3>
                             <p>{{ new.catch }}</p>
                         </div>
                     </div>
-                {% endif %}
             {% endfor %}
     	</div>
 
@@ -66,11 +58,14 @@
 					{% for bestseller in bestsellers %}
 						{% if loop.first %}
 							<div class="carousel-item active">
+						{% else %}
+							<div class="carousel-item">
+						{% endif %}
 								<div class="container">
 									<div class="row align-items-center">
 										<div class="col-md-6">
 											<a class="img-link" href="game">
-												<img class="cover border-smooth" src="./assets/pictures/{{ bestseller.cover }}-cover.jpg" alt="{{ bestseller.descr }}" />
+												<img class="cover border-smooth" src="./assets/pictures/{{ bestseller.cover }}-cover.png" alt="{{ bestseller.descr }}" />
 											</a>
 										</div>
 										
@@ -86,29 +81,6 @@
 									</div>
 								</div>
 							</div>
-						{% else %}
-							<div class="carousel-item">
-								<div class="container">
-									<div class="row align-items-center">
-										<div class="col-md-6">
-											<a class="img-link" href="game">
-												<img class="cover border-smooth" src="./assets/pictures/{{ bestseller.cover }}-cover.jpg" alt="{{ bestseller.descr }}" />
-											</a>
-										</div>
-										
-										<div class="col-md-6">
-											<i class="fas fa-medal">#{{ loop.index }}</i>
-											<h4>{{ bestseller.name }}</h4>
-											<p>
-												<span class="underline">Editeur :</span> {{ bestseller.editor }}<br>
-												<span class="underline">Développeur : </span> {{ bestseller.developer }}<br>
-												{{ bestseller.price }}
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						{% endif %}
 					{% endfor %}
 				</div>
 
@@ -132,7 +104,7 @@
 				<div class="row align-items-center ro-home-2">
 					<div class="col-md-6">
 						<a class="img-link" href="game">
-							<img class="cover border-smooth" src="./assets/pictures/{{ suggestion.cover }}-cover.jpg" alt="{{ suggestion.descr }}" />
+							<img class="cover border-smooth" src="./assets/pictures/{{ suggestion.cover }}-cover.png" alt="{{ suggestion.descr }}" />
 						</a>
 					</div>
 					

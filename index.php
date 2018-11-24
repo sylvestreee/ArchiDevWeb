@@ -11,7 +11,6 @@ switch($url) {
   case "/" :
   case "/index.php" :
   case "/home" :
-    echo "bonjour";
     require './controllers/home.php';
     break;
   case "/catalogue" :

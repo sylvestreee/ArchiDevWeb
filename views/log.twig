@@ -1,0 +1,42 @@
+{% extends "masterPage.twig" %}
+{% block body %}
+
+<div class="title">
+	<h1 class="teko">Se connecter</h1>
+</div>
+
+<div class="container container-log">
+	<div class="row row-log">
+		<div class="col-md-6 col-log-1 border-smooth">
+			<form class="form-log" action="#" novalidate>
+
+				<!--email field-->
+				<div class="form-group">
+					<label for="email">Votre adresse mail :</label>
+					<input type="email" class="form-control email log invalid" name="email" id="email">
+					<i class="fas fa-thumbs-down"></i>
+					<span>Veuillez indiquer votre adresse mail</span>
+				</div>
+
+				<!--password field-->
+				<div class="form-group">
+					<label for="pwd">Votre mot de passe :</label>
+					<input type="password" class="form-control pwd log invalid" name="pwd" id="pwd">
+					<i class="fas fa-thumbs-down"></i>
+					<span>Veuillez indiquer votre mot de passe</span>
+				</div>
+
+				<!--submit button-->
+				<div class="submit-button">
+					<button type="submit" class="btn btn-primary log-submit invisible">Se connecter</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="col-md-6 col-log-2">
+			<img class="cover border-smooth" src="./assets/pictures/log.png" alt="log-picture" />
+		</div>
+	</div>
+</div>
+
+{% endblock %}

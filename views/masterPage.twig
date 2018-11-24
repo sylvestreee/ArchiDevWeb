@@ -1,25 +1,104 @@
-{% block header %}
+<!DOCTYPE html>
 
-{% endblock %}
+<html>
 
-{% block body %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{% endblock %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Muli|Teko" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/global.css">
+</head>
 
-<div class="footer bg-color">
-  <p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
-</div>
+<body class="bg-color-2">
+	<div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script src="./assets/js/catalogue.js"></script>
-<script src="./assets/js/log.js"></script>
-<script src="./assets/js/sign.js"></script>
-<script src="./assets/js/account.js"></script>
-<script src="./assets/js/cart.js"></script>
+		<!--navbar-->
+		<nav class="navbar navbar-expand-sm bg-color navbar-dark">
+			<a class="navbar-brand" href="home">One Game One <i class="fas fa-heart"></i></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+				<i class="fas fa-align-justify"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navBar">
+				<ul class="navbar-nav">
+
+					<!--search bar-->
+					<li class="nav-item">
+						<form class="form-inline">
+							<input class="form-control mr-sm-2" type="text" placeholder="Recherche rapide">
+							<button class="btn btn-success" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+					</li>
+
+					<!--catalogue menu-->
+					<li class="nav-item">
+						<a class="nav-link" href="catalogue">
+							Catalogue
+							<i class="fas fa-book"></i>
+						</a>
+					</li>
+
+					<!--non-connected user menu-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+							Utilisateur
+							<i class="fas fa-user"></i>
+						</a>
+						<div class="dropdown-menu">
+
+							<!--log in menu-->
+							<a class="dropdown-item" href="log">Se connecter</a>
+
+							<!--sign up menu-->
+							<a class="dropdown-item" href="sign">Créer un compte</a>
+						</div>
+					</li>
+
+					<!--connected user menu (for test purposes)-->
+					<li class="nav-item">
+						<a class="nav-link" href="user">
+							sylvestreee
+							<i class="fas fa-user"></i>
+						</a>
+					</li>
+
+					<!--cart menu (for test purposes)-->
+					<li class="nav-item">
+						<a class="nav-link" href="cart">
+							Mon panier
+							<i class="fas fa-shopping-cart"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+    {% block body %}
+    
+    {% endblock %}
+
+    <div class="footer bg-color">
+      <p>HEITZ Martin - CMI IIRVIJ - Projet d'Architecture et Développement Web</p>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="./assets/js/catalogue.js"></script>
+    <script src="./assets/js/log.js"></script>
+    <script src="./assets/js/sign.js"></script>
+    <script src="./assets/js/account.js"></script>
+    <script src="./assets/js/cart.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,70 @@
+{% extends "masterPage.twig" %}
+{% block body %}
+
+<div class="title">
+	<h1>Mon panier</h1>
+</div>
+
+<div class="container container-cart">
+	<div class="row align-items-center row-cart">
+
+		<!--game #1-->
+		<div class="col-md-10 col-cart-1 border-smooth">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3">
+						<a class="img-link" href="game">
+							<img class="cover border-smooth" src="./assets/pictures/{{ game.cover }}-cover-sm.png" alt="{{ game.descr }}" />
+						</a>
+					</div>
+
+					<div class="col-md-3 col-cart-3">
+						<p>
+							{{ game.name }}<br>
+							<span class="underline">Editeur :</span> {{ game.editor }}<br>
+							<span class="underline">Développeur :</span> {{ game.developer }}<br>
+						</p>
+					</div>
+
+					<div class="col-md-3 col-cart-4">
+						<p>
+							<span class="underline">Plateforme :</span> {{ game.platform }}<br>
+							<span class="underline">Date de sortie :</span> {{ game.rdate }}<br>
+							<span class="underline">Note :</span><br>
+						</p>
+					</div>
+
+					<div class="col-md-3 col-price">
+						<p>{{ game.price }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-2 col-cart-2 border-smooth">
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<input type="number" class="form-control num" value="1" />
+				</div>
+
+				<!--pay button-->
+				<div class="col-md-6">
+					<div class="submit-button pay">
+						<button type="submit" class="btn btn-primary btn-pay">
+							<i class="fas fa-euro-sign"></i>
+						</button>
+					</div>
+
+					<!--delete button-->
+					<div class="submit-button delete">
+						<button type="submit" class="btn btn-primary btn-delete">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

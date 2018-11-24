@@ -1,3 +1,5 @@
 <?php
 
-require './views/sign.html';
+$template = $twig->load('sign.twig');
+
+echo $template->render();

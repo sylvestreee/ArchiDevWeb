@@ -1,0 +1,207 @@
+{% extends "masterPage.twig" %}
+{% block body %}
+
+<div class="title">
+	<h1>Catalogue</h1>
+</div>
+
+<div class="container con-catalogue">
+	<div class="row ro-catalogue-1">
+
+		<!--filter-->
+		<div class="col-md-2">
+			<div class="filter border-smooth">
+				<h3>Filtrer</h3>
+
+				<!--editor option-->
+				<div class="filter-item">
+					<h5>Editeur
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="editor"></i>
+					</h5>
+
+					<form class="editor invisible">
+					    {% for editor in editors %}
+						    <div class="check-item">
+							    <label for="defaultCheck">
+								    <input type="checkbox" id="defaultCheck">
+								    {{ editor.name }}
+							    </label>
+						    </div>
+						{% endfor %}
+					</form>
+				</div>
+
+				<!--developer option-->
+				<div class="filter-item">
+					<h5>Développeur
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="developer"></i>
+					</h5>
+
+					<form class="developer invisible">
+						{% for developer in developers %}
+						    <div class="check-item">
+							    <label for="defaultCheck">
+								    <input type="checkbox" id="defaultCheck">
+								    {{ developer.name }}
+							    </label>
+						    </div>
+						{% endfor %}
+					</form>
+				</div>
+
+				<!--plateform option-->
+				<div class="filter-item">
+					<h5>Plateforme
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="platform"></i>
+					</h5>
+
+					<form class="platform invisible">
+						{% for platform in platforms %}
+						    <div class="check-item">
+							    <label for="defaultCheck">
+								    <input type="checkbox" id="defaultCheck">
+								    {{ platform.name }}
+							    </label>
+						    </div>
+						{% endfor %}
+					</form>
+				</div>
+
+				<!--release period option-->
+				<div class="filter-item">
+					<h5>
+						Date de sortie
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="released"></i>
+					</h5>
+
+					<form class="released invisible">
+					    <div class="check-item">
+						    <label for="defaultCheck">
+							    <input type="checkbox" id="defaultCheck">
+							    A venir
+						    </label>
+					    </div>
+					    
+					    <div class="check-item">
+						    <label for="defaultCheck">
+							    <input type="checkbox" id="defaultCheck">
+							    - 3 mois
+						    </label>
+					    </div>
+					    
+					    <div class="check-item">
+						    <label for="defaultCheck">
+							    <input type="checkbox" id="defaultCheck">
+							    3 - 6 mois
+						    </label>
+					    </div>
+					    
+					    <div class="check-item">
+						    <label for="defaultCheck">
+							    <input type="checkbox" id="defaultCheck">
+							    6 - 12 mois
+						    </label>
+					    </div>
+					    
+					    <div class="check-item">
+						    <label for="defaultCheck">
+							    <input type="checkbox" id="defaultCheck">
+							    + 12 mois
+						    </label>
+					    </div>
+					</form>
+				</div>
+
+				<!--rating option-->
+				<div class="filter-item">
+					<h5>Note
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="rating-stars"></i>
+					</h5>
+
+					<div class="rating-stars invisible">
+						<ul id="stars">
+							<li class="star" data-value="1">
+								<i class="fas fa-star clickable-icon"></i>
+							</li>
+
+							<li class="star" data-value="2">
+								<i class="fas fa-star clickable-icon"></i>
+							</li>
+
+							<li class="star" data-value="3">
+								<i class="fas fa-star clickable-icon"></i>
+							</li>
+
+							<li class="star" data-value="4">
+								<i class="fas fa-star clickable-icon"></i>
+							</li>
+
+							<li class="star" data-value="5">
+								<i class="fas fa-star clickable-icon"></i>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!--price option-->
+				<div class="filter-item">
+					<h5>Prix
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="price"></i>
+					</h5>
+
+					<div class="price invisible">
+						<p>
+							<input type="text" id="range" readonly>
+						</p>
+
+						<div id="slider-range"></div><br>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--catalogue-->
+		<div class="col-md-10">
+			<div class="container">
+
+				{% for game in games %}
+				    {% if loop.first %}
+				        <div class="game row align-items-center ro-catalogue ro-catalogue-2 border-smooth bg-color-2">
+				    {% else %}
+				        <div class="game row align-items-center ro-catalogue ro-catalogue-3 border-smooth bg-color-2">
+				    {% endif %}
+				    
+    					<div class="col-md-3">
+    						<a class="img-link" href="game">
+    							<img class="cover border-smooth" src="./assets/pictures/{{ game.cover }}-cover-sm.png" alt="{{ game.descr }}" />
+    						</a>
+    					</div>
+    
+    					<div class="col-md-3 col-catalogue-1">
+    						<p>
+    							{{ game.name }}<br>
+    							<span class="underline">Editeur :</span> {{ game.editor}}<br>
+    							<span class="underline">Développeur :</span> {{ game.developer}}<br>
+    						</p>
+    					</div>
+    
+    					<div class="col-md-3 col-catalogue-2">
+    						<p>
+    							<span class="underline">Plateforme :</span> {{ game.platform }}<br>
+    							<span class="underline">Date de sortie :</span> {{ game.rdate }}<br>
+    							<span class="underline">Note :</span><br>
+    						</p>
+    					</div>
+    
+    					<div class="col-md-3 col-price">
+    						<p>{{ game.price }}</p>
+    					</div>
+    				</div>
+    			{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "masterPage.twig" %}
+{% block body %}
+
+<div class="title">
+	<h1>Mon compte</h1>
+</div>
+
+<!--user information description-->
+<div class="container container-user">
+	<p>Ici repose les informations de <strong class="civility">{{ user.civility }}</strong> <strong class="fname">{{ user.fname }}</strong> <strong class="name">{{ user.name }}</strong>, aka <strong class="pseudo">{{ user.pseudo }}</strong> !</p>
+	<p>Preux gamer né(e) le <strong class="birthday">{{ user.birthday }}</strong>, muni(e) de son adresse mail <strong class="email">{{ user.email }}</strong>, qui s'en va continuer à vivre des aventures éprouvantes mais palpitantes, alors que
+		d'autres viennent de se terminer et que d'autres encore se profilent à l'horizon... <i class="fas fa-gamepad"></i></p>
+
+	<!--modify button-->
+	<a href="account">Modifier mon compte</a>
+</div>
+
+{% endblock %}

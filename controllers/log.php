@@ -1,3 +1,5 @@
 <?php
 
-require './views/log.html';
+$template = $twig->load('log.twig');
+
+echo $template->render();

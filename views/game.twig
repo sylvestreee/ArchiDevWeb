@@ -1,0 +1,58 @@
+{% extends "masterPage.twig" %}
+{% block body %}
+
+<div class="title">
+	<h1>Fiche produit</h1>
+</div>
+
+<!--game description-->
+<div class="container container-game-1 border-smooth">
+	<div class="row align-items-center">
+		<div class="col-md-6">
+			<img class="cover border-smooth" src="./assets/pictures/{{ game.cover }}-cover.png" alt="{{ game.descr }}" />
+		</div>
+
+		<div class="col-md-6">
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<p>
+						{{ game.name }}<br>
+						<span class="underline">Editeur :</span> {{ game.editor }}<br>
+						<span class="underline">Développeur :</span> {{ game.developer }}<br>
+					</p>
+				</div>
+
+				<div class="col-md-6">
+					<p>
+						<span class="underline">Plateforme :</span> {{ game.platform }}<br>
+						<span class="underline">Date de sortie :</span> {{ game.rdate }}<br>
+						<span class="underline">Note :</span><br>
+					</p>
+				</div>
+			</div>
+
+			<p>
+				<span class="underline">Synopsis :</span> 
+				{{ game.synopsis }}
+			</p>
+
+			<p class="col-price">{{ game.price }}</p>
+
+			<div class="basket-button">
+				<button type="submit" class="btn btn-primary">Mettre dans le panier</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--game trailer-->
+<div class="container container-game-2 border-smooth">
+	<h4>
+		<span class="underline">Trailer</span>
+	</h4>
+
+	<video width="720" height="480" class="clickable-icon border-smooth" controls src="./assets/videos/{{ game.trailer }}-trailer.mp4" alt="Spider Man">
+</div>
+
+
+{% endblock %}
