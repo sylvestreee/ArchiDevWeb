@@ -7,7 +7,7 @@ permettant à un utilisateur d'effectuer diverses opérations comme créer un co
 
 ## Technologies
 Frontend :
-    * HTML
+* HTML
     ..* CSS
     ..* BOOTSTRAP
     ..* Javascript
