@@ -1,12 +1,17 @@
 <?php
 
-$url = $_SERVER[REQUEST_URI];
+require_once './vendor/autoload.php';
 
-require './views/global/header.html';
+$loader = new Twig_Loader_Filesystem('./views');
+$twig   = new Twig_Environment($loader);
+
+$url    = $_SERVER[REQUEST_URI];
 
 switch($url) {
   case "/" :
+  case "/index.php" :
   case "/home" :
+    echo "bonjour";
     require './controllers/home.php';
     break;
   case "/catalogue" :
@@ -34,5 +39,3 @@ switch($url) {
   	require './controllers/error.php';
     break;
 }
-
-require './views/global/footer.html';

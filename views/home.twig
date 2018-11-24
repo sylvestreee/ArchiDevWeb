@@ -1,0 +1,157 @@
+{% extends "masterPage.twig" %}
+{% block body %}
+
+<div class="container con-home-1">
+
+	<!--new releases-->
+	<div id="news" class="carousel slide" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#news" data-slide-to="0" class="active"></li>
+			<li data-target="#news" data-slide-to="1"></li>
+			<li data-target="#news" data-slide-to="2"></li>
+		</ul>
+
+		<div class="carousel-inner">
+            {% for new in news %}
+                {% if loop.first %}
+                    <div class="carousel-item active">
+                    	<a class="img-link" href="game">
+                            <img src="./assets/pictures/{{ new.wallpaper }}-wallpaper.jpg" alt="{{ new.descr }}" /> 
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>{{ new.name }}</h3>
+                            <p>{{ new.catch }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="carousel-item">
+                        <a class="img-link" href="error">
+                            <img src="./assets/pictures/{{ new.wallpaper }}-wallpaper.jpg" alt="{{ new.descr }}" /> 
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>{{ new.name }}</h3>
+                            <p>{{ new.catch }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+    	</div>
+
+		<a class="carousel-control-prev" href="#news" data-slide="prev">
+			<i class="fas fa-chevron-circle-left"></i>
+		</a>
+		<a class="carousel-control-next" href="#news" data-slide="next">
+			<i class="fas fa-chevron-circle-right"></i>
+		</a>
+	</div>
+
+	<div class="subtitle">
+		<h3><i class="fas fa-calendar-alt"></i> Dernières sorties</h3>
+	</div>
+</div>
+
+<div class="container con-home-2">
+	<div class="row align-items-start ro-home-1">
+		<div class="col-md-6 colo-home-1">
+
+			<!--bestsellers-->
+			<div id="bestsellers" class="carousel slide" data-ride="carousel">
+				<ul class="carousel-indicators">
+					<li data-target="#bestsellers" data-slide-to="0" class="active"></li>
+					<li data-target="#bestsellers" data-slide-to="1"></li>
+					<li data-target="#bestsellers" data-slide-to="2"></li>
+				</ul>
+
+				<div class="carousel-inner">
+					{% for bestseller in bestsellers %}
+						{% if loop.first %}
+							<div class="carousel-item active">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6">
+											<a class="img-link" href="game">
+												<img class="cover border-smooth" src="./assets/pictures/{{ bestseller.cover }}-cover.jpg" alt="{{ bestseller.descr }}" />
+											</a>
+										</div>
+										
+										<div class="col-md-6">
+											<i class="fas fa-medal">#{{ loop.index }}</i>
+											<h4>{{ bestseller.name }}</h4>
+											<p>
+												<span class="underline">Editeur :</span> {{bestseller.editor}}<br>
+												<span class="underline">Développeur : </span> {{bestseller.developer}}<br>
+												{{ bestseller.price }}
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% else %}
+							<div class="carousel-item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6">
+											<a class="img-link" href="game">
+												<img class="cover border-smooth" src="./assets/pictures/{{ bestseller.cover }}-cover.jpg" alt="{{ bestseller.descr }}" />
+											</a>
+										</div>
+										
+										<div class="col-md-6">
+											<i class="fas fa-medal">#{{ loop.index }}</i>
+											<h4>{{ bestseller.name }}</h4>
+											<p>
+												<span class="underline">Editeur :</span> {{ bestseller.editor }}<br>
+												<span class="underline">Développeur : </span> {{ bestseller.developer }}<br>
+												{{ bestseller.price }}
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+
+				<a class="carousel-control-prev" href="#bestsellers" data-slide="prev">
+					<i class="fas fa-chevron-circle-left"></i>
+				</a>
+				<a class="carousel-control-next" href="#bestsellers" data-slide="next">
+					<i class="fas fa-chevron-circle-right"></i>
+				</a>
+			</div>
+
+			<div class="subtitle">
+				<h3><i class="fas fa-medal"></i> Meilleures ventes</h3>
+			</div>
+		</div>
+
+		<div class="col-md-6 colo-home-2">
+
+			<!--suggestion-->
+			<div class="container con-home-3">
+				<div class="row align-items-center ro-home-2">
+					<div class="col-md-6">
+						<a class="img-link" href="game">
+							<img class="cover border-smooth" src="./assets/pictures/{{ suggestion.cover }}-cover.jpg" alt="{{ suggestion.descr }}" />
+						</a>
+					</div>
+					
+					<div class="col-md-6">
+						<h4>{{ suggestion.name }}</h4>
+						<p>
+							<span class="underline">Editeur :</span> {{ suggestion.editor }}<br>
+							<span class="underline">Développeur : </span> {{ suggestion.developer }}<br>
+							{{ suggestion.price }}
+						</p>
+					</div>
+				</div>
+
+				<div class="subtitle">
+					<h3><i class="fas fa-exclamation-circle"></i> Ça peut vous intéresser</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
