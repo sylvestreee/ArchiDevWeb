@@ -8,16 +8,16 @@ permettant à un utilisateur d'effectuer diverses opérations comme créer un co
 ## Technologies
 Frontend :
 * HTML
-    ..* CSS
-    ..* BOOTSTRAP
-    ..* Javascript
-    ..* TWIG
+* CSS
+* BOOTSTRAP
+ * Javascript
+ * TWIG
     
 Backend :
-    ..* PHP
-    ..* DOCTRINE
-    ..* SLIM
-    ..* composer
+* PHP
+* DOCTRINE
+ * SLIM
+ * composer
     
 BDD :
-    ..* MySQL
+* MySQL
