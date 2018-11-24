@@ -1,5 +1,5 @@
 # Architecture et Développement Web - Projet
-Projet réalisé dans le cadred de l'UE "Architecture et Développement Web"
+Projet réalisé dans le cadre de l'UE "Architecture et Développement Web"
 
 ## Objectif
 L'objectif de ce projet a été de développer un site web (frontend et backend) d'e-commerce en modèle MVC, 
