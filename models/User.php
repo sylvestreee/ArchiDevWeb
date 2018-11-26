@@ -15,20 +15,25 @@ class User {
      * @JoinTable(name="purchases")
      */
      private $purchases;
+     
+    /**
+     * @OneToMany(targetEntity="Cart", mappedBy="user")
+     */
+    private $userCart;
     
-    /** @Column(type="string") **/
+    /** @Column(type="string", nullable=true) **/
     private $civility;
     
-    /** @Column(type="string") **/
+    /** @Column(type="string", nullable=true) **/
     private $pseudo;
     
-    /** @Column(type="string") **/
+    /** @Column(type="string", nullable=true) **/
     private $name;
     
-    /** @Column(type="string") **/
+    /** @Column(type="string", nullable=true) **/
     private $fname;
     
-    /** @Column(type="date") **/
+    /** @Column(type="date", nullable=true) **/
     private $birthday;
     
     /** @Column(type="string") **/

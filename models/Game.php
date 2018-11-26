@@ -22,6 +22,11 @@ class Game {
      */
     private $gamePurchased;
     
+    /**
+     * @OneToMany(targetEntity="Cart", mappedBy="game")
+     */
+    private $gameCart;
+    
     /** @Column(type="string") **/
     private $title;
     

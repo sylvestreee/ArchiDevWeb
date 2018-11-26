@@ -11,7 +11,7 @@ CREATE TABLE `JV`   (
                         `illustration`  varchar(10) NOT NULL,
                         `released`      date NOT NULL,
                         `rating`        int NOT NULL,
-                        `price`         decimal(4,2),
+                        `price`         decimal(4,2) NOT NULL,
                         PRIMARY KEY (`idJv`)
                     );
                     
