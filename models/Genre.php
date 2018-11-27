@@ -1,33 +1,37 @@
 <?php
 
 /**
- * @Entity @Table(name="genres")
+ * @Entity @Table(name="Genre")
  **/
 
 class Genre {
     /** @Id @Column(type="integer") @GeneratedValue **/ 
     private $id;
     
-    /**
-     * Bidirectional - Many genres have Many games (OWNING SIDE)
-     *
-     * @ManyToMany(targetEntity="Game", inversedBy="gameGenres")
-     * @JoinTable(name="genres_games")
-     */
-    private $games;
-    
-    /** @Column(type="string") **/
+    /** @Column(type="string", unique=true) **/
     private $name;
     
-    public function getId() {
-        return $this->id;
-    }
+    /**
+     * Bidirectional - Many genres are for many games (INVERSE SIDE)
+     *
+     * @ManyToMany(targetEntity="Game", mappedBy="genres")
+     */
+     private $games;
     
-    public function getName() {
-        return $this->name;
-    }
     
-    public function setName($name) {
-        $this->name = $name;
-    }
+    /**
+     * constructor
+     */
+    public function __construct() { }
+    
+    /**
+     * getters
+     */
+    public function getId() { return $this->id; }
+    public function getName() { return $this->name; }
+    
+    /**
+     * setters
+     */
+    public function setGames($games) { $this->games = $games; }
 }

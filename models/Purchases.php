@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @Entity @Table(name="Cart")
+ * @Entity @Table(name="Purchases")
  **/
 
-class Cart {
+class Purchases {
     /** @Id @ManyToOne(targetEntity="Game") */
     private $game;
     
     /** @Id @ManyToOne(targetEntity="User") */
     private $user;
     
-    /** @Column(type="integer") **/
-    private $quantity;
+    /** @Column(type="date") **/
+    private $purchased;
     
     /**
      * constructor
@@ -24,10 +24,5 @@ class Cart {
      */
     public function getGame() { return $this->game; }
     public function getUser() { return $this->user; }
-    public function getQuantity() {return $this->quantity; }
-    
-    /**
-     * setters
-     */
-    public function setQuantity($quantity) { $this->quantity = $quantity; }
+    public function getPurchased() { return $this->purchased; }
 }

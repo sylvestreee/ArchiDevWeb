@@ -1,12 +1,12 @@
 /*add 4 games*/
-INSERT INTO games (title, editor, developer, platform, catchphrase, synopsis, illustration, released, rating, price)
+INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, illustration, released, rating, price)
        VALUES   (
                     'Marvel''s Spider-Man',
                     'Sony',
                     'Insomniac Games',
                     'PlayStation 4',
                     'Incarne l''homme-araignée et protège New-York des vilains qui l''a menace !',
-                    'New-York a besoin de son plus grand héros : Spider-Man ! Alors qu''une menace sans précédent s''apprête à frapper sa ville, tiraillé entre sa vie personnelle et son devoir de super-héros, l''homme-araigné va devoir devenir plus fort, sous peine d''en payer les terribles conséquences...',
+                    'New-York a besoin de Spider-Man ! Alors qu''une menace sans précédent s''apprête à frapper sa ville, l''homme-araigné va devoir devenir plus fort, sous peine d''en payer les terribles conséquences...',
                     'sm',
                     '2018-09-07',
                     '5',
@@ -32,7 +32,7 @@ INSERT INTO games (title, editor, developer, platform, catchphrase, synopsis, il
                     'Konami',
                     'PlayStation 4',
                     'La référence du ballon rond vidéoludique est de retour pour une nouvelle édition !',
-                    'Prêt à remettre les crampons ? Pro Evolution Soccer revient avec une nouvelle cuvée, pour toujours plus faire vibrer les amateurs de ballon rond virtuel ! Toujours plus loin dans le réalisme et le plaisir de jeu, ce nouvel opus saura satisfaire les fans de la première heure !',
+                    'Pro Evolution Soccer revient avec une nouvelle cuvée, pour toujours plus faire vibrer les amateurs de ballon rond virtuel ! Toujours plus loin dans le réalisme et le plaisir de jeu, ce nouvel opus saura satisfaire les fans de la première heure !',
                     'pes',
                     '2018-08-30',
                     '3',
@@ -45,7 +45,7 @@ INSERT INTO games (title, editor, developer, platform, catchphrase, synopsis, il
                     'Square Enix',
                     'PlayStation 4',
                     'Partez à l''aventure avec vos fidèles compagnons et repousser les ténèbres qui menacent votre monde !',
-                    'Orphelin aux origines inconnues, celles-ci vous sont finalement révélées et vous poussent à l''aventure afin de sauver le monde des ténèbres ! Rencontrez des personnages attachants, visitez des lieux splendides, etc... bref ! Vivez une aventure avec un grand A !',
+                    'Orphelin aux origines inconnues, celles-ci vous sont finalement révélées et vous poussent à l''aventure afin de sauver le monde des ténèbres ! Rencontrez des personnages attachants et visitez des lieux splendides : vivez une aventure avec un grand A !',
                     'dq',
                     '2018-09-04',
                     '4',
@@ -53,7 +53,7 @@ INSERT INTO games (title, editor, developer, platform, catchphrase, synopsis, il
                 );
 
 /*add 2 users*/
-INSERT INTO users (civility, pseudo, name, fname, birthday, email, password)
+INSERT INTO User (civility, pseudo, name, fname, birthday, email, password)
        VALUES   (
                     'M',
                     'sylvestreee',
@@ -75,7 +75,7 @@ INSERT INTO users (civility, pseudo, name, fname, birthday, email, password)
                 );
                         
 /*add 5 genres*/
-INSERT INTO genres (name)
+INSERT INTO Genre (name)
        VALUES   ('Action'),
                 ('Open World'),
                 ('Aventure'),
@@ -83,25 +83,25 @@ INSERT INTO genres (name)
                 ('Simulation');
 
 /*link games with genres*/
-INSERT INTO genres_games (genre_id, game_id)
+INSERT INTO Game_Genre (game_id, genre_id)
        VALUES   (1, 1),
-                (2, 1),
                 (1, 2),
-                (3, 2),
-                (4, 3),
-                (5, 3),
+                (2, 1),
+                (2, 3),
                 (3, 4),
-                (2, 4);
+                (3, 5),
+                (4, 3),
+                (4, 2);
 
 /*fill users cart*/
-INSERT INTO carts (game_id, user_id, quantity)
+INSERT INTO Cart (game_id, user_id, quantity)
        VALUES   (1, 1, 1),
                 (2, 1, 2),
                 (3, 2, 1),
                 (4, 2, 1);
                             
 /*link purchases with games*/
-INSERT INTO purchases (user_id, game_id) 
-       VALUES   (1, 4),
-                (2, 1),
-                (2, 2);
+INSERT INTO Purchases (game_id, user_id, purchased) 
+       VALUES   (4, 1, '2018-09-06'),
+                (1, 2, '2018-09-10'),
+                (2, 2, '2018-09-22');
