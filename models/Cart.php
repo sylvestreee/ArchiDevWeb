@@ -27,7 +27,7 @@ class Cart {
     public function getQuantity() {return $this->quantity; }
     
     /**
-     * setters
+     * setter
      */
     public function setQuantity($quantity) { $this->quantity = $quantity; }
 }
