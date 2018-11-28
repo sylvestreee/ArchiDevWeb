@@ -5,7 +5,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Website\\": ""
+            "Website\\": "",
+            "Website\\Models\\": "./models",
+            "Website\\Controllers\\": "./controllers"
         }
     }
 }

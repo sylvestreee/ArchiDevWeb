@@ -40,7 +40,7 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                 ),
                 
                 (
-                    'Dragon Question XI : Les Combattants de la destinée',
+                    'Dragon Quest XI : Les Combattants de la destinée',
                     'Square Enix',
                     'Square Enix',
                     'PlayStation 4',

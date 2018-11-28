@@ -12,7 +12,8 @@ switch($url) {
   case "/" :
   case "/index.php" :
   case "/home" :
-    require './controllers/home.php';
+    $homeController = new Website\Controllers\home();
+    $homeController->index();
     break;
   case "/catalogue" :
     require './controllers/catalogue.php';

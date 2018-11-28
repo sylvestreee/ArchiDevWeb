@@ -1,5 +1,7 @@
 <?php
 
+namespace Website\Models;
+
 /**
  * @Entity @Table(name="Purchases")
  **/

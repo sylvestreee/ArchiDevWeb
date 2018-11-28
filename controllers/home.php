@@ -1,8 +1,39 @@
 <?php
 
-$template = $twig->load('home.twig');
+namespace Website\Controllers;
+use Website\Models\Game as Game;
 
-$news = [
+//echo "mdr";
+
+global $twig;
+global $entityManager;
+
+class Home {
+    private $twig;
+    
+    public function __construct() {
+        global $twig;
+        global $entityManager;
+        
+        $this->twig = $twig;
+        $this->entityManager = $entityManager;
+    }
+    
+    public function index() {
+        $games =    $this->entityManager
+                    ->getRepository(Game::class)
+                    ->createQueryBuilder('Game')
+                    ->from('Website\Models\Game', 'g')
+                    ->setMaxResults(3)
+                    ->getQuery()
+                    ->getResult();
+                
+        $template = $this->twig->load("home.twig");
+        echo $template->render(["bestsellers" => $games]);
+    }
+}
+
+/*$news = [
             [
                 "wallpaper" => "sm",
                 "descr"     => "Spider-Man",
@@ -58,10 +89,4 @@ $suggestion =   [
                     "developer" => "Square Enix",
                     "price"     => "52€99"
                 ];
-    
-echo $template->render  ([
-                            "news" => $news, 
-                            "bestsellers" => $bestsellers,
-                            "suggestion" => $suggestion
-                        ]);
-
+*/
