@@ -24,6 +24,7 @@ class Home {
                     ->select('g')
                     ->from('Website\Models\Game', 'g')
                     ->orderBy('g.released', 'DESC')
+                    ->distinct()
                     ->setMaxResults(3)
                     ->getQuery()
                     ->getResult();
@@ -33,23 +34,13 @@ class Home {
                             ->createQueryBuilder('Game')
                             ->select('g')
                             ->from('Website\Models\Game', 'g')
-                            ->orderBy('g.id', 'ASC')
+                            ->orderBy('g.released', 'DESC')
+                            ->distinct()
                             ->setMaxResults(3)
                             ->getQuery()
                             ->getResult();
                             
-        $bestsellers    =   $this->entityManager
-                            ->getRepository(Game::class)
-                            ->createQueryBuilder('Game')
-                            ->select('g')
-                            ->from('Website\Models\Game', 'g')
-                            ->innerJoin('g', 'Website\Models\Purchases', 'p', 'g.id = p.game_id')
-                            ->groupBy()
-                            ->select('c.name', 'i.type', 'count(i)'])
-                            ->from('AppBundle:Category', 'c')
-                            ->innerJoin('c.items','i')
-                            ->groupBy('c.name')
-                            ->addGroupBy('i.type');
+                            //var_dump($bestsellers);
                 
         $template = $this->twig->load("home.twig");
         echo $template->render(["news" => $news, "bestsellers" => $bestsellers]);

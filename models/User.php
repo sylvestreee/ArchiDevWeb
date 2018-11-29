@@ -35,10 +35,7 @@ class User {
     private $reserved;
     
     /**
-     * Bidirectional - Many users have Many games purchased (OWNING SIDE)
-     *
-     * @ManyToMany(targetEntity="Game", inversedBy="purchased")
-     * @JoinTable(name="Purchases")
+     * @OneToMany(targetEntity="Purchases", mappedBy="user")
      */
      private $purchases;
     

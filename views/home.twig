@@ -56,6 +56,9 @@
 
 				<div class="carousel-inner">
 					{% for bestseller in bestsellers %}
+						{% for test in bestseller.purchased %}
+							{{ test.id }}
+						{% endfor %}
 						{% if loop.first %}
 							<div class="carousel-item active">
 						{% else %}

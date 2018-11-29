@@ -49,9 +49,7 @@ class Game {
     private $genres;
     
     /**
-     * Bidirectional - Many games are purchased by Many users (INVERSE SIDE)
-     *
-     * @ManyToMany(targetEntity="User", mappedBy="purchases")
+     * @OneToMany(targetEntity="Purchases", mappedBy="game")
      */
     private $purchased;
     
@@ -78,6 +76,7 @@ class Game {
     public function getRating() { return $this->rating; }
     public function getPrice() { return $this->price; }
     public function getGenres() { return $this->genres; }
+    public function getPurchased() { return $this->purchased; }
     
     /**
      * setters

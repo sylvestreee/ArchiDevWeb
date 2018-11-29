@@ -103,6 +103,8 @@ INSERT INTO Cart (game_id, user_id, quantity)
 INSERT INTO Purchases (game_id, user_id, purchased) 
        VALUES   (4, 1, '2018-09-06'),
                 (4, 1, '2018-09-07'),
+                (4, 1, '2018-09-07'),
+                (4, 1, '2018-09-07'),
                 (1, 2, '2018-09-10'),
                 (2, 2, '2018-09-22'),
                 (2, 2, '2018-09-10'),
