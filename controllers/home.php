@@ -29,20 +29,21 @@ class Home {
                     ->getQuery()
                     ->getResult();
                     
-        $bestsellers    =   $this->entityManager
+        /*$bestsellers    =   $this->entityManager
                             ->getRepository(Game::class)
                             ->createQueryBuilder('Game')
                             ->select('g')
                             ->from('Website\Models\Game', 'g')
-                            ->orderBy('g.released', 'DESC')
+                            ->innerJoin('Website\Models\Purchases', 'p', 'WITH', 'g.id = p.game_id')
+                            ->groupBy('p.game_id')
+                            ->orderBy('count(p.game_id)', 'DESC')
                             ->distinct()
                             ->setMaxResults(3)
-                            ->getQuery()
-                            ->getResult();
+                            ->getQuery();*/
                             
                             //var_dump($bestsellers);
                 
         $template = $this->twig->load("home.twig");
-        echo $template->render(["news" => $news, "bestsellers" => $bestsellers]);
+        echo $template->render(["news" => $news/*, "bestsellers" => $bestsellers*/]);
     }
 }
