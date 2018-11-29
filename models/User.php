@@ -34,13 +34,20 @@ class User {
     /** @OneToMany(targetEntity="Cart", mappedBy="user") */
     private $reserved;
     
-    /** @OneToMany(targetEntity="Purchases", mappedBy="user") */
-    private $purchases;
+    /**
+     * Bidirectional - Many users have Many games purchased (OWNING SIDE)
+     *
+     * @ManyToMany(targetEntity="Game", inversedBy="purchased")
+     * @JoinTable(name="Purchases")
+     */
+     private $purchases;
     
     /**
      * constructor
      */
-    public function __construct() { }
+    public function __construct() { 
+        $this->purchases = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
     /**
      * getters

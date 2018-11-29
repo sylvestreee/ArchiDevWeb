@@ -16,13 +16,15 @@ switch($url) {
     $homeController->index();
     break;
   case "/catalogue" :
-    require './controllers/catalogue.php';
+    $catalogueController = new Website\Controllers\catalogue();
+    $catalogueController->index();
     break;
   case "/log" :
     require './controllers/log.php';
     break;
   case "/sign" :
     require './controllers/sign.php';
+    echo "hey";
     break;
   case "/game" :
   	require './controllers/game.php';

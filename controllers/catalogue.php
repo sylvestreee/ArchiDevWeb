@@ -1,7 +1,78 @@
 <?php
 
-$template = $twig->load('catalogue.twig');
+namespace Website\Controllers;
+use Website\Models\Game as Game;
+use Website\Models\Genre as Genre;
 
+global $twig;
+global $entityManager;
+
+class Catalogue {
+    private $twig;
+    
+    public function __construct() {
+        global $twig;
+        global $entityManager;
+        
+        $this->twig = $twig;
+        $this->entityManager = $entityManager;
+    }
+    
+    public function index() {
+        $editors    =   $this->entityManager
+                        ->getRepository(Game::class)
+                        ->createQueryBuilder('Game')
+                        ->select('g.editor')
+                        ->from('Website\Models\Game', 'g')
+                        ->orderBy('g.editor', 'ASC')
+                        ->distinct()
+                        ->getQuery()
+                        ->getResult();
+                        
+        $developers =   $this->entityManager
+                        ->getRepository(Game::class)
+                        ->createQueryBuilder('Game')
+                        ->select('g.developer')
+                        ->from('Website\Models\Game', 'g')
+                        ->orderBy('g.developer', 'ASC')
+                        ->distinct()
+                        ->getQuery()
+                        ->getResult();
+                            
+        $platforms  =   $this->entityManager
+                        ->getRepository(Game::class)
+                        ->createQueryBuilder('Game')
+                        ->select('g.platform')
+                        ->from('Website\Models\Game', 'g')
+                        ->orderBy('g.platform', 'ASC')
+                        ->distinct()
+                        ->getQuery()
+                        ->getResult();
+                            
+        $genres     =   $this->entityManager
+                        ->getRepository(Genre::class)
+                        ->createQueryBuilder('Genre')
+                        ->select('g.name')
+                        ->from('Website\Models\Genre', 'g')
+                        ->orderBy('g.name', 'ASC')
+                        ->distinct()
+                        ->getQuery()
+                        ->getResult();
+                        
+       $games       =   $this->entityManager
+                        ->getRepository(Game::class)
+                        ->createQueryBuilder('Game')
+                        ->select('g')
+                        ->from('Website\Models\Game', 'g')
+                        ->orderBy('g.id', 'ASC')
+                        ->getQuery()
+                        ->getResult();
+
+        $template = $this->twig->load("catalogue.twig");
+        echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);
+    }
+}
+/*
 $editors =  [
                 [
                     "name" => "Sony"
@@ -53,6 +124,7 @@ $games =    [
                     "developer" => "Insomniac Games",
                     "platform"  => "PlayStation 4",
                     "rdate"     => "07/09/18",
+                    "rating"    => "5",
                     "price"     => "54€99"
                 ],
                 [
@@ -63,6 +135,7 @@ $games =    [
                     "developer" => "Eidos Montréal",
                     "platform"  => "PlayStation 4",
                     "rdate"     => "14/09/18",
+                    "rating"    => "4",
                     "price"     => "56€99"
                 ],
                 [
@@ -73,6 +146,7 @@ $games =    [
                     "developer" => "Konami",
                     "platform"  => "PlayStation 4",
                     "rdate"     => "30/08/18",
+                    "rating"    => "3",
                     "price"     => "49€99"
                 ],
                 [
@@ -83,6 +157,7 @@ $games =    [
                     "developer" => "Square Enix",
                     "platform"  => "PlayStation 4",
                     "rdate"     => "04/09/18",
+                    "rating"    => "4",
                     "price"     => "52€99"
                 ]
             ];
@@ -93,3 +168,4 @@ echo $template->render  ([
                             "platforms"     => $platforms,
                             "games"         => $games
                         ]);
+*/

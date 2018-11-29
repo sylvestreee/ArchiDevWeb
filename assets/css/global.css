@@ -276,7 +276,7 @@ h3, h5, p, label, span {
   color: #FFCC36;
 }
 
-.rating-stars ul>li.star.selected>i.fas {
+.rating-stars ul>li.star.selected>i.fas, .rated {
   color: #FF912C;
 }
 

@@ -7,10 +7,19 @@ namespace Website\Models;
  **/
 
 class Cart {
-    /** @Id @ManyToOne(targetEntity="Game") */
+    /** @Id @Column(type="integer") @GeneratedValue **/ 
+    private $id;
+    
+    /**
+     * @ManyToOne(targetEntity="Game")
+     * @JoinColumn(nullable=false)
+     */
     private $game;
     
-    /** @Id @ManyToOne(targetEntity="User") */
+    /**
+     * @ManyToOne(targetEntity="User")
+     * @JoinColumn(nullable=false)
+     */
     private $user;
     
     /** @Column(type="integer") **/

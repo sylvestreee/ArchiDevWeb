@@ -5,8 +5,8 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                     'Sony',
                     'Insomniac Games',
                     'PlayStation 4',
-                    'Incarne l''homme-araignée et protège New-York des vilains qui l''a menace !',
-                    'New-York a besoin de Spider-Man ! Alors qu''une menace sans précédent s''apprête à frapper sa ville, l''homme-araigné va devoir devenir plus fort, sous peine d''en payer les terribles conséquences...',
+                    'Incarne l''homme-araignee et protège New-York des vilains qui l''a menace !',
+                    'New-York a besoin de Spider-Man ! Alors qu''une menace sans precedent s''apprete à frapper sa ville, l''homme-araignee va devoir devenir plus fort, sous peine d''en payer les terribles conséquences...',
                     'sm',
                     '2018-09-07',
                     '5',
@@ -16,10 +16,10 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                 (
                     'Shadow of the Tomb Raider',
                     'Square Enix',
-                    'Eidos Montréal',
+                    'Eidos Montreal',
                     'PlayStation 4',
-                    'Lara doit empêcher l''apocalypse de s''abattre sur Terre et devenir la Tomb Raider !',
-                    'Essayant d''empêcher l''apocalypse de s''abattre sur Terre et de stopper définitivement les agissements dangereux de l''ordre de la Trinité, Lara doit embraser sa destinée et devenir la Tomb Raider !',
+                    'Lara doit empecher l''apocalypse de s''abattre sur Terre et devenir la Tomb Raider !',
+                    'Essayant d''empecher l''apocalypse de s''abattre sur Terre et de stopper definitivement les agissements dangereux de l''ordre de la Trinite, Lara doit embraser sa destinee et devenir la Tomb Raider !',
                     'tr',
                     '2018-09-14',
                     '4',
@@ -31,8 +31,8 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                     'Konami',
                     'Konami',
                     'PlayStation 4',
-                    'La référence du ballon rond vidéoludique est de retour pour une nouvelle édition !',
-                    'Pro Evolution Soccer revient avec une nouvelle cuvée, pour toujours plus faire vibrer les amateurs de ballon rond virtuel ! Toujours plus loin dans le réalisme et le plaisir de jeu, ce nouvel opus saura satisfaire les fans de la première heure !',
+                    'La reference du ballon rond videoludique est de retour pour une nouvelle edition !',
+                    'Pro Evolution Soccer revient avec une nouvelle cuvee, pour toujours plus faire vibrer les amateurs de ballon rond virtuel ! Toujours plus loin dans le realisme et le plaisir de jeu, ce nouvel opus saura satisfaire les fans de la premiere heure !',
                     'pes',
                     '2018-08-30',
                     '3',
@@ -40,12 +40,12 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                 ),
                 
                 (
-                    'Dragon Quest XI : Les Combattants de la destinée',
+                    'Dragon Quest XI : Les Combattants de la destinee',
                     'Square Enix',
                     'Square Enix',
                     'PlayStation 4',
-                    'Partez à l''aventure avec vos fidèles compagnons et repousser les ténèbres qui menacent votre monde !',
-                    'Orphelin aux origines inconnues, celles-ci vous sont finalement révélées et vous poussent à l''aventure afin de sauver le monde des ténèbres ! Rencontrez des personnages attachants et visitez des lieux splendides : vivez une aventure avec un grand A !',
+                    'Partez à l''aventure avec vos fideles compagnons et repousser les tenebres qui menacent votre monde !',
+                    'Orphelin aux origines inconnues, celles-ci vous sont finalement revelees et vous poussent à l''aventure afin de sauver le monde des tenebres ! Rencontrez des personnages attachants et visitez des lieux splendides : vivez une aventure avec un grand A !',
                     'dq',
                     '2018-09-04',
                     '4',
@@ -97,11 +97,13 @@ INSERT INTO Game_Genre (game_id, genre_id)
 INSERT INTO Cart (game_id, user_id, quantity)
        VALUES   (1, 1, 1),
                 (2, 1, 2),
-                (3, 2, 1),
-                (4, 2, 1);
+                (3, 2, 1);
                             
 /*link purchases with games*/
 INSERT INTO Purchases (game_id, user_id, purchased) 
        VALUES   (4, 1, '2018-09-06'),
+                (4, 1, '2018-09-07'),
                 (1, 2, '2018-09-10'),
-                (2, 2, '2018-09-22');
+                (2, 2, '2018-09-22'),
+                (2, 2, '2018-09-10'),
+                (4, 2, '2018-09-18');

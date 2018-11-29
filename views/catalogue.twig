@@ -24,7 +24,7 @@
 						    <div class="check-item">
 							    <label for="defaultCheck">
 								    <input type="checkbox" id="defaultCheck">
-								    {{ editor.name }}
+								    {{ editor.editor }}
 							    </label>
 						    </div>
 						{% endfor %}
@@ -42,7 +42,7 @@
 						    <div class="check-item">
 							    <label for="defaultCheck">
 								    <input type="checkbox" id="defaultCheck">
-								    {{ developer.name }}
+								    {{ developer.developer }}
 							    </label>
 						    </div>
 						{% endfor %}
@@ -60,7 +60,25 @@
 						    <div class="check-item">
 							    <label for="defaultCheck">
 								    <input type="checkbox" id="defaultCheck">
-								    {{ platform.name }}
+								    {{ platform.platform }}
+							    </label>
+						    </div>
+						{% endfor %}
+					</form>
+				</div>
+				
+				<!--genre option-->
+				<div class="filter-item">
+					<h5>Genre
+						<i class="fas fa-plus-circle discover clickable-icon" data-target="genre"></i>
+					</h5>
+
+					<form class="genre invisible">
+						{% for genre in genres %}
+						    <div class="check-item">
+							    <label for="defaultCheck">
+								    <input type="checkbox" id="defaultCheck">
+								    {{ genre.name }}
 							    </label>
 						    </div>
 						{% endfor %}
@@ -174,28 +192,41 @@
 				    
     					<div class="col-md-3">
     						<a class="img-link" href="game">
-    							<img class="cover border-smooth" src="./assets/pictures/{{ game.cover }}-cover-sm.png" alt="{{ game.descr }}" />
+    							<img class="cover border-smooth" src="./assets/pictures/{{ game.illustration }}-cover-sm.png" />
     						</a>
     					</div>
     
     					<div class="col-md-3 col-catalogue-1">
     						<p>
-    							{{ game.name }}<br>
-    							<span class="underline">Editeur :</span> {{ game.editor}}<br>
-    							<span class="underline">Développeur :</span> {{ game.developer}}<br>
+    							{{ game.title }}<br>
+    							<span class="underline">Editeur :</span> {{ game.editor }}<br>
+    							<span class="underline">Développeur :</span> {{ game.developer }}<br>
     						</p>
     					</div>
     
     					<div class="col-md-3 col-catalogue-2">
     						<p>
     							<span class="underline">Plateforme :</span> {{ game.platform }}<br>
-    							<span class="underline">Date de sortie :</span> {{ game.rdate }}<br>
-    							<span class="underline">Note :</span><br>
+    							<span class="underline">Genres :</span>
+    							{% for genre in game.genres %}
+    								{% if loop.last %}
+    									{{ genre.name }} 
+    								{% else %}
+    									{{ genre.name }} |
+    								{% endif %}
+    							{% endfor %}
+    							
+    							<br>
+    							<span class="underline">Date de sortie :</span> {{ game.released|date('d/m/Y') }}<br>
+    							<span class="underline">Note :</span>
+    															{% for i in 1..game.rating %}
+																	<i class="fas fa-star clickable-icon rated"></i>
+    															{% endfor %}
     						</p>
     					</div>
     
     					<div class="col-md-3 col-price">
-    						<p>{{ game.price }}</p>
+    						<p>{{ game.price }}€</p>
     					</div>
     				</div>
     			{% endfor %}

@@ -49,9 +49,19 @@ class Game {
     private $genres;
     
     /**
+     * Bidirectional - Many games are purchased by Many users (INVERSE SIDE)
+     *
+     * @ManyToMany(targetEntity="User", mappedBy="purchases")
+     */
+    private $purchased;
+    
+    /**
      * constructor
      */
-    public function __construct() { }
+    public function __construct() { 
+        $this->genres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->purchased = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * getters
@@ -67,7 +77,7 @@ class Game {
     public function getReleased() { return $this->released; }
     public function getRating() { return $this->rating; }
     public function getPrice() { return $this->price; }
-    public function getGenres() { return $this->genre; }
+    public function getGenres() { return $this->genres; }
     
     /**
      * setters

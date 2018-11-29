@@ -19,11 +19,11 @@
                 	<div class="carousel-item">
                 {% endif %}
                     	<a class="img-link" href="game">
-                            <img src="./assets/pictures/{{ new.wallpaper }}-wallpaper.png" alt="{{ new.descr }}" /> 
+                            <img src="./assets/pictures/{{ new.illustration }}-wallpaper.png" /> 
                         </a>
                         <div class="carousel-caption">
-                            <h3>{{ new.name }}</h3>
-                            <p>{{ new.catch }}</p>
+                            <h3>{{ new.title }}</h3>
+                            <p>{{ new.catchphrase }}</p>
                         </div>
                     </div>
             {% endfor %}
@@ -72,10 +72,10 @@
 										<div class="col-md-6">
 											<i class="fas fa-medal">#{{ loop.index }}</i>
 											<h4>{{ bestseller.title }}</h4>
-											<p>
-												<span class="underline">Editeur :</span> {{bestseller.editor}}<br>
-												<span class="underline">Développeur : </span> {{bestseller.developer}}<br>
-												{{ bestseller.price }}
+											<p> 
+												<span class="underline">Editeur :</span> {{ bestseller.editor }}<br>
+												<span class="underline">Développeur :</span> {{ bestseller.developer }}<br>
+												{{ bestseller.price }}€
 											</p>
 										</div>
 									</div>
@@ -104,12 +104,12 @@
 				<div class="row align-items-center ro-home-2">
 					<div class="col-md-6">
 						<a class="img-link" href="game">
-							<img class="cover border-smooth" src="./assets/pictures/{{ suggestion.cover }}-cover.png" alt="{{ suggestion.descr }}" />
+							<img class="cover border-smooth" src="./assets/pictures/{{ suggestion.illustration }}-cover.png" />
 						</a>
 					</div>
 					
 					<div class="col-md-6">
-						<h4>{{ suggestion.name }}</h4>
+						<h4>{{ suggestion.title }}</h4>
 						<p>
 							<span class="underline">Editeur :</span> {{ suggestion.editor }}<br>
 							<span class="underline">Développeur : </span> {{ suggestion.developer }}<br>

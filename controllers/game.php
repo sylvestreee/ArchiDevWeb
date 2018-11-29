@@ -10,6 +10,7 @@ $game = [
             "developer" => "Insomniac Games",
             "platform"  => "PlayStation 4",
             "rdate"     => "07/09/18",
+            "rating"    => "5",
             "synopsis"  => "New-York a besoin de son plus grand héros : Spider-Man !
 				            Alors qu'une menace sans précédent s'apprête à frapper sa ville, tiraillé entre sa vie personnelle
 				            et son devoir de super-héros, l'homme-araigné va devoir devenir plus fort, sous peine d'en

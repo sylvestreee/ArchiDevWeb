@@ -26,7 +26,10 @@
 					<p>
 						<span class="underline">Plateforme :</span> {{ game.platform }}<br>
 						<span class="underline">Date de sortie :</span> {{ game.rdate }}<br>
-						<span class="underline">Note :</span><br>
+						<span class="underline">Note :</span>
+														{% for i in 1..game.rating %}
+															<i class="fas fa-star clickable-icon rated"></i>
+														{% endfor %}
 					</p>
 				</div>
 			</div>
@@ -53,6 +56,5 @@
 
 	<video width="720" height="480" class="clickable-icon border-smooth" controls src="./assets/videos/{{ game.trailer }}-trailer.mp4" alt="Spider Man">
 </div>
-
 
 {% endblock %}
