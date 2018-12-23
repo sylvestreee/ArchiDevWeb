@@ -10,141 +10,153 @@
 
 		<!--filter-->
 		<div class="col-md-2">
-			<div class="filter border-smooth">
-				<h3>Filtrer</h3>
-
+			<form class="form-filter filter border-smooth" action="#" novalidate>
+				<h3>Filtrage</h3>
+	
 				<!--editor option-->
-				<div class="filter-item">
+				<div class="form-group">
 					<h5>Editeur
 						<i class="fas fa-plus-circle discover clickable-icon" data-target="editor"></i>
 					</h5>
-
-					<form class="editor invisible">
-					    {% for editor in editors %}
-						    <div class="check-item">
-							    <label for="defaultCheck">
-								    <input type="checkbox" id="defaultCheck">
-								    {{ editor.editor }}
-							    </label>
-						    </div>
+					
+					<div class="editor invisible">
+						{% for editor in editors %}
+					    	<div class="block">
+					    		<label for="editor"></label>
+								<input type="checkbox" class="editor filter" name="editor[]" id="editor" value="{{ editor.editor }}">
+								{{ editor.editor }}
+							</div>
 						{% endfor %}
-					</form>
+					</div>
 				</div>
-
+				
 				<!--developer option-->
-				<div class="filter-item">
+				<div class="form-group">
 					<h5>Développeur
 						<i class="fas fa-plus-circle discover clickable-icon" data-target="developer"></i>
 					</h5>
-
-					<form class="developer invisible">
+					
+					<div class="developer invisible">
 						{% for developer in developers %}
-						    <div class="check-item">
-							    <label for="defaultCheck">
-								    <input type="checkbox" id="defaultCheck">
-								    {{ developer.developer }}
-							    </label>
-						    </div>
+							<div class="block">
+						    	<label for="developer"></label>
+								<input type="checkbox" class="developer filter" name="developer[]" id="developer" value="{{ developer.developer }}">
+								{{ developer.developer }}
+							</div>
 						{% endfor %}
-					</form>
+					</div>
 				</div>
-
-				<!--plateform option-->
-				<div class="filter-item">
+				
+				<!--platform option-->
+				<div class="form-group">
 					<h5>Plateforme
 						<i class="fas fa-plus-circle discover clickable-icon" data-target="platform"></i>
 					</h5>
-
-					<form class="platform invisible">
+					
+					<div class="platform invisible">
 						{% for platform in platforms %}
-						    <div class="check-item">
-							    <label for="defaultCheck">
-								    <input type="checkbox" id="defaultCheck">
-								    {{ platform.platform }}
-							    </label>
-						    </div>
+							<div class="block">
+						    	<label for="plateform"></label>
+								<input type="checkbox" class="platform filter" name="platform[]" id="platform" value="{{ platform.platform }}">
+								{{ platform.platform }}
+							</div>
 						{% endfor %}
-					</form>
+					</div>
 				</div>
 				
 				<!--genre option-->
-				<div class="filter-item">
+				<div class="form-group">
 					<h5>Genre
 						<i class="fas fa-plus-circle discover clickable-icon" data-target="genre"></i>
 					</h5>
-
-					<form class="genre invisible">
+					
+					<div class="genre invisible">
 						{% for genre in genres %}
-						    <div class="check-item">
-							    <label for="defaultCheck">
-								    <input type="checkbox" id="defaultCheck">
-								    {{ genre.name }}
-							    </label>
-						    </div>
+							<div class="block">
+						    	<label for="genre"></label>
+								<input type="checkbox" class="genre filter" name="genre[]" id="genre" value="{{ genre.name }}">
+								{{ genre.name }}
+							</div>
 						{% endfor %}
-					</form>
+					</div>
 				</div>
-
+				
 				<!--release period option-->
-				<div class="filter-item">
-					<h5>
-						Date de sortie
+				<div class="form-group">
+					<h5>Date de sortie
 						<i class="fas fa-plus-circle discover clickable-icon" data-target="released"></i>
 					</h5>
-
-					<form class="released invisible">
-					    <div class="check-item">
-						    <label for="defaultCheck">
-							    <input type="checkbox" id="defaultCheck">
-							    A venir
-						    </label>
-					    </div>
-					    
-					    <div class="check-item">
-						    <label for="defaultCheck">
-							    <input type="checkbox" id="defaultCheck">
-							    - 3 mois
-						    </label>
-					    </div>
-					    
-					    <div class="check-item">
-						    <label for="defaultCheck">
-							    <input type="checkbox" id="defaultCheck">
-							    3 - 6 mois
-						    </label>
-					    </div>
-					    
-					    <div class="check-item">
-						    <label for="defaultCheck">
-							    <input type="checkbox" id="defaultCheck">
-							    6 - 12 mois
-						    </label>
-					    </div>
-					    
-					    <div class="check-item">
-						    <label for="defaultCheck">
-							    <input type="checkbox" id="defaultCheck">
-							    + 12 mois
-						    </label>
-					    </div>
-					</form>
+					
+					<div class="released invisible">
+						<div class="block">
+							<label for="released"></label>
+							<input type="checkbox" class="released filter" name="released[]" id="released" value="<0">
+							A venir
+						</div>
+						
+						<div class="block">
+							<label for="released"></label>
+							<input type="checkbox" class="released filter" name="released[]" id="released" value="-3">
+							- 3 mois
+						</div>
+						
+						<div class="block">
+							<label for="released"></label>
+							<input type="checkbox" class="released filter" name="released[]" id="released" value="3-6">
+							3 - 6 mois
+						</div>
+						
+						<div class="block">
+							<label for="released"></label>
+							<input type="checkbox" class="released filter" name="released[]" id="released" value="6-12">
+							6 - 12 mois
+						</div>
+						
+						<div class="block">
+							<label for="released"></label>
+							<input type="checkbox" class="released filter" name="released[]" id="released" value=">12">
+							+ 12 mois
+						</div>
+					</div>
 				</div>
-
+				
 				<!--price option-->
-				<div class="filter-item">
+				<div class="form-group">
 					<h5>Prix
 						<i class="fas fa-plus-circle discover clickable-icon" data-target="price"></i>
 					</h5>
-
+					
 					<div class="price invisible">
-						<p>
-							<input type="text" id="range" readonly>
-						</p>
-
-						<div id="slider-range"></div><br>
+						<div class="block">
+							<label for="price"></label>
+							<input type="checkbox" class="price filter" name="price[]" id="price" value="<25">
+							< 25€
+						</div>
+						
+						<div class="block">
+							<label for="price"></label>
+							<input type="checkbox" class="price filter" name="price[]" id="price" value="25-50">
+							25 - 50€
+						</div>
+						
+						<div class="block">
+							<label for="price"></label>
+							<input type="checkbox" class="price filter" name="price[]" id="price" value="50-75">
+							50 - 75€
+						</div>
+						
+						<div class="block">
+							<label for="price"></label>
+							<input type="checkbox" class="price filter" name="price[]" id="price" value=">75">
+							> 75€
+						</div>
 					</div>
 				</div>
-			</div>
+				
+				<div class="submit-button">
+					<button type="submit" class="btn btn-primary">Filtrer</button>
+				</div>
+			</form>
 		</div>
 
 

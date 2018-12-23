@@ -10,15 +10,15 @@ $url    = $_SERVER['REQUEST_URI'];
 
 $regex  = '/[\/]*([A-Z0-9a-z]+)[\/]*';
 $regex .= '(([A-Z0-9a-z]*)';
-$regex .= '([\?][a-zA-Z]*[\=][a-zA-Z]*';
-$regex .= '([\&][a-zA-Z]*[\=][a-zA-Z]*)*';
+$regex .= '([\?][a-zA-Z\[\]]*[\=][a-zA-Z]*';
+$regex .= '([\&][a-zA-Z\[\]]*[\=][a-zA-Z]*)*';
 $regex .= '\/*)*|[\/]*)/';
 
 preg_match($regex, $url, $match);
 $controller = $match[1];
 
 // var_dump($match);
-// var_dump($_GET);
+var_dump($_GET);
 // index($_GET);
 
 try {
@@ -47,6 +47,14 @@ try {
           else {
             throw new Exception();
           }
+          break;
+          
+        case "log" :
+          require './controllers/log.php';
+          break;
+          
+        case "sign" :
+          require './controllers/sign.php';
           break;
       }
     }
