@@ -16,34 +16,6 @@ $(document).ready(function() {
     }
   });
 
-  /*turn on / off a star when the mouse is / is not on it*/
-  $("#stars li").on("mouseover", function() {
-    var onStar = parseInt($(this).data("value"), 10);
-    $(this).parent().children('li.star').each(function(e) {
-      if (e < onStar) {
-        $(this).addClass("hover");
-      } else {
-        $(this).removeClass("hover");
-      }
-    });
-  }).on("mouseout", function() {
-    $(this).parent().children('li.star').each(function(e) {
-      $(this).removeClass("hover");
-    });
-  });
-
-  /*turn on all stars before the one the user clicked on to show that a rating selection has been made*/
-  $("#stars li").on('click', function() {
-    var onStar = parseInt($(this).data('value'), 10);
-    var stars = $(this).parent().children('li.star');
-    for (i = 0; i < stars.length; i++) {
-      $(stars[i]).removeClass("selected");
-    }
-    for (i = 0; i < onStar; i++) {
-      $(stars[i]).addClass("selected");
-    }
-  });
-
   /*set the min and max of the price range, and show its current status*/
   $(function() {
     $("#slider-range").slider({

@@ -130,37 +130,6 @@
 					</form>
 				</div>
 
-				<!--rating option-->
-				<div class="filter-item">
-					<h5>Note
-						<i class="fas fa-plus-circle discover clickable-icon" data-target="rating-stars"></i>
-					</h5>
-
-					<div class="rating-stars invisible">
-						<ul id="stars">
-							<li class="star" data-value="1">
-								<i class="fas fa-star clickable-icon"></i>
-							</li>
-
-							<li class="star" data-value="2">
-								<i class="fas fa-star clickable-icon"></i>
-							</li>
-
-							<li class="star" data-value="3">
-								<i class="fas fa-star clickable-icon"></i>
-							</li>
-
-							<li class="star" data-value="4">
-								<i class="fas fa-star clickable-icon"></i>
-							</li>
-
-							<li class="star" data-value="5">
-								<i class="fas fa-star clickable-icon"></i>
-							</li>
-						</ul>
-					</div>
-				</div>
-
 				<!--price option-->
 				<div class="filter-item">
 					<h5>Prix
@@ -191,7 +160,7 @@
 				    {% endif %}
 				    
     					<div class="col-md-3">
-    						<a class="img-link" href="game/{{ game.id }}">
+    						<a class="img-link" href="game?id={{ game.id }}">
     							<img class="cover border-smooth" src="./assets/pictures/{{ game.illustration }}-cover-sm.png" />
     						</a>
     					</div>
@@ -215,13 +184,8 @@
     									{{ genre.name }} |
     								{% endif %}
     							{% endfor %}
-    							
     							<br>
     							<span class="underline">Date de sortie :</span> {{ game.released|date('d/m/Y') }}<br>
-    							<span class="underline">Note :</span>
-    															{% for i in 1..game.rating %}
-																	<i class="fas fa-star clickable-icon rated"></i>
-    															{% endfor %}
     						</p>
     					</div>
     

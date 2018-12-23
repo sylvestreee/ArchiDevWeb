@@ -18,6 +18,7 @@ class Catalogue {
         $this->entityManager = $entityManager;
     }
     
+    //
     public function index() {
         $editors    =   $this->entityManager
                         ->getRepository(Game::class)

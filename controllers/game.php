@@ -1,24 +1,55 @@
 <?php
 
-$template = $twig->load('game.twig');
+namespace Website\Controllers;
+use Website\Models\Game as GameModel;
+use Website\Models\Genre as Genre;
 
-$game = [
-            "cover"     => "sm",
-            "descr"     => "Spider-Man",
-            "name"      => "Marvel's Spider-Man",
-            "editor"    => "Sony",
-            "developer" => "Insomniac Games",
-            "platform"  => "PlayStation 4",
-            "rdate"     => "07/09/18",
-            "rating"    => "5",
-            "synopsis"  => "New-York a besoin de son plus grand héros : Spider-Man !
-				            Alors qu'une menace sans précédent s'apprête à frapper sa ville, tiraillé entre sa vie personnelle
-				            et son devoir de super-héros, l'homme-araigné va devoir devenir plus fort, sous peine d'en
-				            payer les terribles conséquences...",
-            "price"     => "54€99",
-            "trailer"   => "sm"
-        ];
+global $twig;
+global $entityManager;
 
-echo $template->render  ([
-                            "game" => $game
-                        ]);
+class Game {
+    private $twig;
+    
+    public function __construct() {
+        global $twig;
+        global $entityManager;
+        
+        $this->twig = $twig;
+        $this->entityManager = $entityManager;
+    }
+    
+    //
+    public function index($get) {
+        $id = $get["id"];
+        $game   =   $this->entityManager
+                         ->getRepository(GameModel::class)
+                         ->createQueryBuilder('Game')
+                         ->select('g')
+                         ->from('Website\Models\Game', 'g')
+                         ->where("g.id = $id")
+                         ->getQuery()
+                         ->getOneOrNullResult();
+
+        $template = $this->twig->load("game.twig");
+        echo $template->render(["game" => $game]);
+    }
+    
+    public function exist($get) {
+        $id = $get["id"];
+        $game   =   $this->entityManager
+                         ->getRepository(GameModel::class)
+                         ->createQueryBuilder('Game')
+                         ->select('g')
+                         ->from('Website\Models\Game', 'g')
+                         ->where("g.id = $id")
+                         ->getQuery()
+                         ->getOneOrNullResult();
+                         
+        if($game == NULL) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+}

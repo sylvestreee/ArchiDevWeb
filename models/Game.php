@@ -34,9 +34,6 @@ class Game {
     /** @Column(type="date") **/
     private $released;
     
-    /** @Column(type="integer") **/
-    private $rating;
-    
     /** @Column(type="float") **/
     private $price;
     
@@ -73,7 +70,6 @@ class Game {
     public function getSynopsis() { return $this->synopsis; }
     public function getIllustration() { return $this->illustration; }
     public function getReleased() { return $this->released; }
-    public function getRating() { return $this->rating; }
     public function getPrice() { return $this->price; }
     public function getGenres() { return $this->genres; }
     public function getPurchased() { return $this->purchased; }
