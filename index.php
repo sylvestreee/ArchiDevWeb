@@ -25,24 +25,31 @@ $method = $match[3];
 // index($_GET);
 
 try {
-  if($controller == NULL) {
+  if($controller == NULL || $controller == "index") {
     $homeController = new Website\Controllers\home();
     $homeController->index();
   }
   else {
     if(is_file("./controllers/".$controller.".php")) {
       switch($controller) {
+        
+        /*home*/
         case "home" :
           $homeController = new Website\Controllers\home();
           $homeController->index();
           break;
         
+        /*catalogue*/
         case "catalogue" :
           $catalogueController = new Website\Controllers\catalogue();
+          
+          /*if the user only wants to see the catalogue*/
           if($method == NULL) {
             $catalogueController->index();
           }
           else {
+            
+            /*if the user did a research in the navbar*/
             switch($method) {
               case "search" :
                 $catalogueController->search($_GET);
@@ -55,6 +62,7 @@ try {
           }
           break;
           
+        /*game*/
         case "game" :
           $gameController = new Website\Controllers\game();
           if($gameController->exist($_GET)) {
@@ -64,14 +72,34 @@ try {
             throw new Exception();
           }
           break;
-          
+        
+        /*log*/
         case "log" :
           require './controllers/log.php';
           break;
           
+        /*sign*/
         case "sign" :
           require './controllers/sign.php';
           break;
+          
+        /*user*/
+        case "/user" :
+          require './controllers/user.php';
+          break;
+  
+        /*account*/
+        case "/account" :
+          require './controllers/account.php';
+          break;
+          
+        /*cart*/
+        case "/cart" :
+          require './controllers/cart.php';
+          break;
+          
+        default :
+          throw new Exception();
       }
     }
     else {
