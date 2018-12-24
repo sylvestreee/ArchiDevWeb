@@ -15,10 +15,13 @@ $regex .= '([\&][a-zA-Z\[\]]*[\=][a-zA-Z]*)*';
 $regex .= '\/*)*|[\/]*)/';
 
 preg_match($regex, $url, $match);
+//var_dump($match)
 $controller = $match[1];
+//var_dump($controller);
+$method = $match[3];
+//var_dump($method);
 
-// var_dump($match);
-var_dump($_GET);
+// var_dump($_GET);
 // index($_GET);
 
 try {
@@ -36,7 +39,20 @@ try {
         
         case "catalogue" :
           $catalogueController = new Website\Controllers\catalogue();
-          $catalogueController->index();
+          if($method == NULL) {
+            $catalogueController->index();
+          }
+          else {
+            switch($method) {
+              case "search" :
+                $catalogueController->search($_GET);
+                break;
+              
+              default :
+                throw new Exception();
+                break;
+            }
+          }
           break;
           
         case "game" :
