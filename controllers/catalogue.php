@@ -155,7 +155,6 @@ class Catalogue {
         }
         else if(array_key_exists('platform', $get)) {
             $word = $get["platform"];
-            echo "plat";
             $games  =   $this->entityManager
                              ->getRepository(Game::class)
                              ->createQueryBuilder('Game')
