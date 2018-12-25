@@ -228,7 +228,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where("g.released > DATE_SUB(CURRENT_DATE(), 3, 'month')")
+                                  ->where("g.released > CURRENT_DATE()")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -240,7 +240,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where("g.released >= CURRENT_DATE() AND g.released <= DATE_SUB(CURRENT_DATE(), 3, 'month')")
+                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 3, 'month') AND g.released <= CURRENT_DATE()")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -252,11 +252,10 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where("g.released BETWEEN DATE_SUB(CURRENT_DATE(), 3, 'month') AND DATE_SUB(CURRENT_DATE(), 6, 'month')")
+                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 6, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 3, 'month')")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
-                var_dump($game);
                 break;
             
             case "6-12" :
@@ -265,7 +264,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 6, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 12, 'month')")                                  ->orderBy('g.id', 'ASC')
+                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 12, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 6, 'month')")                                  ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -276,7 +275,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where("g.released > DATE_SUB(CURRENT_DATE(), 12, 'month')")
+                                  ->where("g.released < DATE_SUB(CURRENT_DATE(), 12, 'month')")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
