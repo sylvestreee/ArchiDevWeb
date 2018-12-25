@@ -173,16 +173,16 @@ class Catalogue {
     
     //editor option
     public function editorFilter($word) {
-        $game   =   $this   ->entityManager
-                            ->getRepository(Game::class)
-                            ->createQueryBuilder('Game')
-                            ->select('g')
-                            ->from('Website\Models\Game', 'g')
-                            ->where('upper(g.editor) LIKE upper(:word)')
-                            ->setParameter('word', '%'.$word.'%')
-                            ->orderBy('g.id', 'ASC')
-                            ->getQuery()
-                            ->getResult();
+        $game   =   $this->entityManager
+                         ->getRepository(Game::class)
+                         ->createQueryBuilder('Game')
+                         ->select('g')
+                         ->from('Website\Models\Game', 'g')
+                         ->where('upper(g.editor) LIKE upper(:word)')
+                         ->setParameter('word', '%'.$word.'%')
+                         ->orderBy('g.id', 'ASC')
+                         ->getQuery()
+                         ->getResult();
         
         return $game;
     }
@@ -228,7 +228,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.released >= CURRENT_DATE()')
+                                  ->where("g.released > DATE_SUB(CURRENT_DATE(), 3, 'month')")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -240,7 +240,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.released >= CURRENT_DATE() AND g.released <= DATE_ADD(CURRENT_DATE(), INTERVAL 3 MONTH)')
+                                  ->where("g.released >= CURRENT_DATE() AND g.released <= DATE_SUB(CURRENT_DATE(), 3, 'month')")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -252,10 +252,11 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.released >= DATE_ADD(CURRENT_DATE(), INTERVAL 3 MONTH) AND g.released <= DATE_ADD(CURRENT_DATE(), INTERVAL 6 MONTH)')
+                                  ->where("g.released BETWEEN DATE_SUB(CURRENT_DATE(), 3, 'month') AND DATE_SUB(CURRENT_DATE(), 6, 'month')")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
+                var_dump($game);
                 break;
             
             case "6-12" :
@@ -264,8 +265,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.released >= DATE_ADD(CURRENT_DATE(), INTERVAL 6 MONTH) AND g.released <= DATE_ADD(CURRENT_DATE(), INTERVAL 12 MONTH)')
-                                  ->orderBy('g.id', 'ASC')
+                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 6, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 12, 'month')")                                  ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -276,7 +276,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.released >= DATE_ADD(CURRENT_DATE(), INTERVAL 12 MONTH)')
+                                  ->where("g.released > DATE_SUB(CURRENT_DATE(), 12, 'month')")
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -286,7 +286,7 @@ class Catalogue {
                 return NULL;
                 break;
         }
-        
+        // var_dump($game);
         return $game;
     }
     
@@ -299,7 +299,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.price <= 25')
+                                  ->where('g.price < 25')
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -335,7 +335,7 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where('g.price >= 75')
+                                  ->where('g.price > 75')
                                   ->orderBy('g.id', 'ASC')
                                   ->getQuery()
                                   ->getResult();
@@ -350,40 +350,80 @@ class Catalogue {
     }
     
     public function filter($get) {
-        $games;
+        $games = array(); $i = 0;
         foreach($get as $key => $option) {
+            
+            //editor option
             if($key == "editor") {
                 foreach($option as $editor) {
-                    var_dump($editor);
+                    $games = array_merge($games, $this->editorFilter($editor));
                 }
+                $i += 1;
             }
             
+            //developer option
             else if($key == "developer") {
-                foreach($option as $developer) {
-                    var_dump($developer);
+                if($i == 0) {
+                    foreach($option as $developer) {
+                        $games = array_merge($games, $this->developerFilter($developer));
+                    }
+                    $i += 1;
+                }
+                else {
+                    foreach($option as $developer) {
+                        $games = array_intersect_key($games, $this->developerFilter($developer));
+                    }
                 }
             }
             
+            //platform option
             else if($key == "platform") {
-                foreach($option as $platform) {
-                    var_dump($platform);
+                if($i == 0) {
+                    foreach($option as $platform) {
+                        $games = array_merge($games, $this->platformFilter($platform));
+                    }
+                    $i += 1;
+                }
+                else {
+                    foreach($option as $platform) {
+                        $games = array_intersect_key($games, $this->platformFilter($platform));
+                    }
                 }
             }
             
+            //released period option
             else if($key == "released") {
-                foreach($option as $released) {
-                    var_dump($released);
+                if($i == 0) {
+                    foreach($option as $released) {
+                        $games = array_merge($games, $this->releasedFilter($released));
+                    }
+                    $i += 1;
+                }
+                else {
+                    foreach($option as $released) {
+                        $games = array_intersect_key($games, $this->releasedFilter($released));
+                    }
                 }
             }
             
+            //price option
             else if($key == "price") {
-                foreach($option as $price) {
-                    var_dump($price);
+                if($i == 0) {
+                    foreach($option as $price) {
+                        $games = array_merge($games, $this->priceFilter($price));
+                    }
+                    $i += 1;
+                }
+                else {
+                    foreach($option as $price) {
+                        $games = array_intersect_key($games, $this->priceFilter($price));
+                    }
                 }
             }
             
             else {
-                echo "yolo";
+                $games = NULL;
+                break;
             }
         }
         
@@ -427,14 +467,14 @@ class Catalogue {
                         ->getQuery()
                         ->getResult();
                         
-       $games       =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.id', 'ASC')
-                        ->getQuery()
-                        ->getResult();
+        //   $games       =   $this->entityManager
+        //                     ->getRepository(Game::class)
+        //                     ->createQueryBuilder('Game')
+        //                     ->select('g')
+        //                     ->from('Website\Models\Game', 'g')
+        //                     ->orderBy('g.id', 'ASC')
+        //                     ->getQuery()
+        //                     ->getResult();
 
         $template = $this->twig->load("catalogue.twig");
         echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);

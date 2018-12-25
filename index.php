@@ -60,6 +60,7 @@ try {
                 break;
               
               default :
+                echo "hey";
                 throw new Exception();
                 break;
             }
@@ -73,6 +74,7 @@ try {
             $gameController->index($_GET);
           }
           else {
+            echo "hey2";
             throw new Exception();
           }
           break;
@@ -107,6 +109,7 @@ try {
       }
     }
     else {
+      echo "hey3";
       throw new Exception();
     }
   }
