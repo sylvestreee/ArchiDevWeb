@@ -54,6 +54,10 @@ try {
               case "search" :
                 $catalogueController->search($_GET);
                 break;
+                
+              case "filter" :
+                $catalogueController->filter($_GET);
+                break;
               
               default :
                 throw new Exception();
