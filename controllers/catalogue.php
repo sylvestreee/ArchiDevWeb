@@ -188,7 +188,9 @@ class Catalogue {
                 $genres = $g->getGenres();
                 foreach($genres as $genre) {
                     if(strpos(strtoupper($genre->getName()), strtoupper($word)) !== false) {
-                        array_push($games, $g);
+                        if(!in_array($g, $games)) {
+                            array_push($games, $g);
+                        }
                     }
                 }
             }
