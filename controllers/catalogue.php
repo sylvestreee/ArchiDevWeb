@@ -171,6 +171,28 @@ class Catalogue {
                              ->getQuery()
                              ->getResult();
         }
+        else if(array_key_exists('genre', $get)) {
+            $word = $get["genre"];
+            $game   =   $this->entityManager
+                             ->getRepository(Game::class)
+                             ->createQueryBuilder('Game')
+                             ->select('g')
+                             ->from('Website\Models\Game', 'g')
+                             ->orderBy('g.id', 'ASC')
+                             ->distinct()
+                             ->getQuery()
+                             ->getResult();
+                             
+            $games = array();
+            foreach($game as $g) {
+                $genres = $g->getGenres();
+                foreach($genres as $genre) {
+                    if(strpos(strtoupper($genre->getName()), strtoupper($word)) !== false) {
+                        array_push($games, $g);
+                    }
+                }
+            }
+        }
         
         $template = $this->twig->load("catalogue.twig");
         echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);
