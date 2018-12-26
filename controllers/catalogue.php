@@ -435,7 +435,7 @@ class Catalogue {
     }
     
     public function filter($get) {
-        $games = array(); $i = 0;
+        $games = array(); $temps = array(); $i = 0;
         foreach($get as $key => $option) {
             
             //editor option
@@ -456,7 +456,15 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $developer) {
-                        $games = $this->intersect($games, $this->developerFilter($developer));
+                        if(count($option) > 1) {
+                            $temps = array_push($temps, $this->intersect($games, $this->developerFilter($developer)));
+                        }
+                        else {
+                            $games = $this->intersect($games, $this->developerFilter($developer));
+                        }
+                    }
+                    foreach($temps as $temp) {
+                        $games = $this->merge_unique($games, $temp);
                     }
                 }
             }
@@ -470,8 +478,16 @@ class Catalogue {
                     $i += 1;
                 }
                 else {
-                    foreach($option as $platform) {
-                        $games = $this->intersect($games, $this->platformFilter($platform));
+                   foreach($option as $platform) {
+                        if(count($option) > 1) {
+                            $temps = array_push($temps, $this->intersect($games, $this->platformFilter($platform)));
+                        }
+                        else {
+                            $games = $this->intersect($games, $this->platformFilter($platform));
+                        }
+                    }
+                    foreach($temps as $temp) {
+                        $games = $this->merge_unique($games, $temp);
                     }
                 }
             }
@@ -486,7 +502,15 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $genre) {
-                        $games = $this->intersect($games, $this->genreFilter($genre));
+                        if(count($option) > 1) {
+                            $temps = array_push($temps, $this->intersect($games, $this->genreFilter($genre)));
+                        }
+                        else {
+                            $games = $this->intersect($games, $this->genreFilter($genre));
+                        }
+                    }
+                    foreach($temps as $temp) {
+                        $games = $this->merge_unique($games, $temp);
                     }
                 }
             }
@@ -501,7 +525,15 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $released) {
-                        $games = $this->intersect($games, $this->releasedFilter($released));
+                        if(count($option) > 1) {
+                            $temps = array_push($temps, $this->intersect($games, $this->releasedFilter($released)));
+                        }
+                        else {
+                            $games = $this->intersect($games, $this->releasedFilter($released));
+                        }
+                    }
+                    foreach($temps as $temp) {
+                        $games = $this->merge_unique($games, $temp);
                     }
                 }
             }
@@ -516,7 +548,15 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $price) {
-                        $games= $this->intersect($games, $this->priceFilter($price));
+                        if(count($option) > 1) {
+                            $temps = array_push($temps, $this->intersect($games, $this->priceFilter($price)));
+                        }
+                        else {
+                            $games = $this->intersect($games, $this->priceFilter($price));
+                        }
+                    }
+                    foreach($temps as $temp) {
+                        $games = $this->merge_unique($games, $temp);
                     }
                 }
             }
