@@ -251,6 +251,32 @@ class Catalogue {
         return $game;
     }
     
+    //genre option
+    public function genreFilter($word) {
+        $game   =   $this    ->entityManager
+                             ->getRepository(Game::class)
+                             ->createQueryBuilder('Game')
+                             ->select('g')
+                             ->from('Website\Models\Game', 'g')
+                             ->orderBy('g.id', 'ASC')
+                             ->distinct()
+                             ->getQuery()
+                             ->getResult();
+                             
+        $games = array();
+        foreach($game as $g) {
+            $genres = $g->getGenres();
+            foreach($genres as $genre) {
+                if(strpos(strtoupper($genre->getName()), strtoupper($word)) !== false) {
+                    if(!in_array($g, $games)) {
+                        array_push($games, $g);
+                    }
+                }
+            }
+        }
+        return $games;
+    }
+    
     //released period option
     public function releasedFilter($word) {
         switch($word) {
@@ -388,6 +414,16 @@ class Catalogue {
         return $game;
     }
     
+    public function merge_unique($array1, $array2) {
+        $game = $array1;
+        foreach($array2 as $elt) {
+            if(!in_array($elt, $game)) {
+                array_push($game, $elt);
+            }
+        }
+        return $game;
+    }
+    
     public function intersect($array1, $array2) {
         $game = array();
         foreach($array1 as $elt) {
@@ -405,7 +441,7 @@ class Catalogue {
             //editor option
             if($key == "editor") {
                 foreach($option as $editor) {
-                    $games = array_merge($games, $this->editorFilter($editor));
+                    $games = $this->merge_unique($games, $this->editorFilter($editor));
                 }
                 $i += 1;
             }
@@ -414,7 +450,7 @@ class Catalogue {
             else if($key == "developer") {
                 if($i == 0) {
                     foreach($option as $developer) {
-                        $games = array_merge($games, $this->developerFilter($developer));
+                        $games = $this->merge_unique($games, $this->developerFilter($developer));
                     }
                     $i += 1;
                 }
@@ -429,7 +465,7 @@ class Catalogue {
             else if($key == "platform") {
                 if($i == 0) {
                     foreach($option as $platform) {
-                        $games = array_merge($games, $this->platformFilter($platform));
+                        $games = $this->merge_unique($games, $this->platformFilter($platform));
                     }
                     $i += 1;
                 }
@@ -440,11 +476,26 @@ class Catalogue {
                 }
             }
             
+            //genre option 
+            else if($key == "genre") {
+                if($i == 0) {
+                    foreach($option as $genre) {
+                        $games = $this->merge_unique($games, $this->genreFilter($genre));
+                    }
+                    $i += 1;
+                }
+                else {
+                    foreach($option as $genre) {
+                        $games = $this->intersect($games, $this->genreFilter($genre));
+                    }
+                }
+            }
+            
             //released period option
             else if($key == "released") {
                 if($i == 0) {
                     foreach($option as $released) {
-                        $games = array_merge($games, $this->releasedFilter($released));
+                        $games = $this->merge_unique($games, $this->releasedFilter($released));
                     }
                     $i += 1;
                 }
@@ -459,7 +510,7 @@ class Catalogue {
             else if($key == "price") {
                 if($i == 0) {
                     foreach($option as $price) {
-                        $games = array_merge($games, $this->priceFilter($price));
+                        $games = $this->merge_unique($games, $this->priceFilter($price));
                     }
                     $i += 1;
                 }
