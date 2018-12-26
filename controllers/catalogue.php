@@ -66,6 +66,7 @@ class Catalogue {
                         ->select('g')
                         ->from('Website\Models\Game', 'g')
                         ->orderBy('g.id', 'ASC')
+                        ->distinct()
                         ->getQuery()
                         ->getResult();
 
@@ -124,6 +125,7 @@ class Catalogue {
                              ->where('upper(g.title) LIKE upper(:word)')
                              ->setParameter('word', '%'.$word.'%')
                              ->orderBy('g.id', 'ASC')
+                             ->distinct()
                              ->getQuery()
                              ->getResult();
         }
@@ -137,6 +139,7 @@ class Catalogue {
                              ->where('upper(g.editor) LIKE upper(:word)')
                              ->setParameter('word', '%'.$word.'%')
                              ->orderBy('g.id', 'ASC')
+                             ->distinct()
                              ->getQuery()
                              ->getResult();
         }
@@ -150,6 +153,7 @@ class Catalogue {
                              ->where('upper(g.developer) LIKE upper(:word)')
                              ->setParameter('word', '%'.$word.'%')
                              ->orderBy('g.id', 'ASC')
+                             ->distinct()
                              ->getQuery()
                              ->getResult();
         }
@@ -163,6 +167,7 @@ class Catalogue {
                              ->where('upper(g.platform) LIKE upper(:word)')
                              ->setParameter('word', '%'.$word.'%')
                              ->orderBy('g.id', 'ASC')
+                             ->distinct()
                              ->getQuery()
                              ->getResult();
         }
@@ -181,6 +186,7 @@ class Catalogue {
                          ->where('upper(g.editor) LIKE upper(:word)')
                          ->setParameter('word', '%'.$word.'%')
                          ->orderBy('g.id', 'ASC')
+                         ->distinct()
                          ->getQuery()
                          ->getResult();
         
@@ -197,6 +203,7 @@ class Catalogue {
                             ->where('upper(g.developer) LIKE upper(:word)')
                             ->setParameter('word', '%'.$word.'%')
                             ->orderBy('g.id', 'ASC')
+                            ->distinct()
                             ->getQuery()
                             ->getResult();
                             
@@ -213,6 +220,7 @@ class Catalogue {
                             ->where('upper(g.platform) LIKE upper(:word)')
                             ->setParameter('word', '%'.$word.'%')
                             ->orderBy('g.id', 'ASC')
+                            ->distinct()
                             ->getQuery()
                             ->getResult();
                             
@@ -230,6 +238,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where("g.released > CURRENT_DATE()")
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -242,6 +251,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where("g.released >= DATE_SUB(CURRENT_DATE(), 3, 'month') AND g.released <= CURRENT_DATE()")
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -254,6 +264,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where("g.released >= DATE_SUB(CURRENT_DATE(), 6, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 3, 'month')")
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -264,7 +275,9 @@ class Catalogue {
                                   ->createQueryBuilder('Game')
                                   ->select('g')
                                   ->from('Website\Models\Game', 'g')
-                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 12, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 6, 'month')")                                  ->orderBy('g.id', 'ASC')
+                                  ->where("g.released >= DATE_SUB(CURRENT_DATE(), 12, 'month') AND g.released <= DATE_SUB(CURRENT_DATE(), 6, 'month')")                                  
+                                  ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -277,6 +290,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where("g.released < DATE_SUB(CURRENT_DATE(), 12, 'month')")
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -285,7 +299,6 @@ class Catalogue {
                 return NULL;
                 break;
         }
-        // var_dump($game);
         return $game;
     }
     
@@ -300,6 +313,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where('g.price < 25')
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -312,6 +326,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where('g.price >= 25 AND g.price <= 50')
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -324,6 +339,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where('g.price >= 50 AND g.price <= 75')
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -336,6 +352,7 @@ class Catalogue {
                                   ->from('Website\Models\Game', 'g')
                                   ->where('g.price > 75')
                                   ->orderBy('g.id', 'ASC')
+                                  ->distinct()
                                   ->getQuery()
                                   ->getResult();
                 break;
@@ -344,7 +361,16 @@ class Catalogue {
                 return NULL;
                 break;
         }
-        
+        return $game;
+    }
+    
+    public function intersect($array1, $array2) {
+        $game = array();
+        foreach($array1 as $elt) {
+            if(in_array($elt, $array2)) {
+                array_push($game, $elt);
+            }
+        }
         return $game;
     }
     
@@ -370,7 +396,7 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $developer) {
-                        $games = array_intersect_key($games, $this->developerFilter($developer));
+                        $games = $this->intersect($games, $this->developerFilter($developer));
                     }
                 }
             }
@@ -385,7 +411,7 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $platform) {
-                        $games = array_intersect_key($games, $this->platformFilter($platform));
+                        $games = $this->intersect($games, $this->platformFilter($platform));
                     }
                 }
             }
@@ -400,7 +426,7 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $released) {
-                        $games = array_intersect_key($games, $this->releasedFilter($released));
+                        $games = $this->intersect($games, $this->releasedFilter($released));
                     }
                 }
             }
@@ -415,14 +441,13 @@ class Catalogue {
                 }
                 else {
                     foreach($option as $price) {
-                        $games = array_intersect_key($games, $this->priceFilter($price));
+                        $games= $this->intersect($games, $this->priceFilter($price));
                     }
                 }
             }
             
             else {
                 $games = NULL;
-                break;
             }
         }
         
@@ -466,15 +491,6 @@ class Catalogue {
                         ->getQuery()
                         ->getResult();
                         
-        //   $games       =   $this->entityManager
-        //                     ->getRepository(Game::class)
-        //                     ->createQueryBuilder('Game')
-        //                     ->select('g')
-        //                     ->from('Website\Models\Game', 'g')
-        //                     ->orderBy('g.id', 'ASC')
-        //                     ->getQuery()
-        //                     ->getResult();
-
         $template = $this->twig->load("catalogue.twig");
         echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);
     }
