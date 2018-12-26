@@ -19,8 +19,7 @@ class Genre {
      * @ManyToMany(targetEntity="Game", mappedBy="genres")
      */
      private $games;
-    
-    
+
     /**
      * constructor
      */

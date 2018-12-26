@@ -44,7 +44,7 @@
 
 <div class="container con-home-2">
 	<div class="row align-items-start ro-home-1">
-		<div class="col-md-6 colo-home-1">
+		<div class="col-md-12 colo-home-1">
 
 			<!--bestsellers-->
 			<div id="bestsellers" class="carousel slide" data-ride="carousel">
@@ -72,7 +72,7 @@
 										<div class="col-md-6">
 											<i class="fas fa-medal">#{{ loop.index }}</i>
 											<h4>{{ bestseller.title }}</h4>
-											<p> 
+											<p>
 												<span class="underline">Editeur :</span> {{ bestseller.editor }}<br>
 												<span class="underline">Développeur :</span> {{ bestseller.developer }}<br>
 												{{ bestseller.price }}€
@@ -94,33 +94,6 @@
 
 			<div class="subtitle">
 				<h3><i class="fas fa-medal"></i> Meilleures ventes</h3>
-			</div>
-		</div>
-
-		<div class="col-md-6 colo-home-2">
-
-			<!--suggestion-->
-			<div class="container con-home-3">
-				<div class="row align-items-center ro-home-2">
-					<div class="col-md-6">
-						<a class="img-link" href="game?id={{ suggestion.id }}">
-							<img class="cover border-smooth" src="./assets/pictures/{{ suggestion.illustration }}-cover.png" />
-						</a>
-					</div>
-					
-					<div class="col-md-6">
-						<h4>{{ suggestion.title }}</h4>
-						<p>
-							<span class="underline">Editeur :</span> {{ suggestion.editor }}<br>
-							<span class="underline">Développeur : </span> {{ suggestion.developer }}<br>
-							{{ suggestion.price }}
-						</p>
-					</div>
-				</div>
-
-				<div class="subtitle">
-					<h3><i class="fas fa-exclamation-circle"></i> Ça peut vous intéresser</h3>
-				</div>
 			</div>
 		</div>
 	</div>

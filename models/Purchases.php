@@ -11,14 +11,14 @@ class Purchases {
     private $id;
     
     /**
-     * @ManyToOne(targetEntity="Game")
-     * @JoinColumn(nullable=false)
+     * @ManyToOne(targetEntity="Game", inversedBy="purchased")
+     * @JoinColumn(name="game_id", referencedColumnName="id", nullable=false)
      */
     private $game;
     
-    /**
-     * @ManyToOne(targetEntity="User")
-     * @JoinColumn(nullable=false)
+    /** 
+     * @ManyToOne(targetEntity="User", inversedBy="purchases") 
+     * @JoinColumn(name="user_id", referencedColumnName="id", nullable=false) 
      */
     private $user;
     
