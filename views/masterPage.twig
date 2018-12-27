@@ -15,7 +15,7 @@
 
 <body class="bg-color-2">
 	<div>
-
+		
 		<!--navbar-->
 		<nav class="navbar navbar-expand-sm bg-color navbar-dark">
 			<a class="navbar-brand" href="/home">One Game One <i class="fas fa-heart"></i></a>
@@ -62,36 +62,50 @@
 					</li>
 
 					<!--non-connected user menu-->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
-							Utilisateur
-							<i class="fas fa-user"></i>
-						</a>
-						<div class="dropdown-menu">
-
-							<!--log in menu-->
-							<a class="dropdown-item" href="/log">Se connecter</a>
-
-							<!--sign up menu-->
-							<a class="dropdown-item" href="/sign">Créer un compte</a>
-						</div>
-					</li>
-
+					{% if session.login is empty %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+								Utilisateur
+								<i class="fas fa-user"></i>
+							</a>
+							<div class="dropdown-menu">
+	
+								<!--log in menu-->
+								<a class="dropdown-item" href="/log">Se connecter</a>
+	
+								<!--sign up menu-->
+								<a class="dropdown-item" href="/sign">Créer un compte</a>
+							</div>
+						</li>
+						
 					<!--connected user menu (for test purposes)-->
-					<li class="nav-item">
-						<a class="nav-link" href="/user">
-							sylvestreee
-							<i class="fas fa-user"></i>
-						</a>
-					</li>
-
-					<!--cart menu (for test purposes)-->
-					<li class="nav-item">
-						<a class="nav-link" href="/cart">
-							Mon panier
-							<i class="fas fa-shopping-cart"></i>
-						</a>
-					</li>
+					{% else %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
+								{{ session.pseudo }}
+								<i class="fas fa-user"></i>
+							</a>
+							<div class="dropdown-menu">
+								
+								<!--account menu-->
+								<a class="dropdown-item" href="/account">
+									Mon compte
+								</a>
+								
+								<!--cart menu--> 
+								<a class="dropdown-item" href="/cart">
+									Mon panier
+								</a>
+							</div>
+						</li>
+					
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								Se déconnecter
+								<i class="fas fa-sign-out-alt"></i>
+							</a>
+						</li>
+					{% endif %}
 				</ul>
 			</div>
 		</nav>
