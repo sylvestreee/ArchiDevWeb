@@ -62,7 +62,7 @@
 					</li>
 
 					<!--non-connected user menu-->
-					{% if session.login is empty %}
+					{% if session.pseudo is empty %}
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
 								Utilisateur
@@ -100,7 +100,7 @@
 						</li>
 					
 						<li class="nav-item">
-							<a class="nav-link" href="/sign/disconnection">
+							<a class="nav-link" href="/log/disconnection">
 								Se déconnecter
 								<i class="fas fa-sign-out-alt"></i>
 							</a>

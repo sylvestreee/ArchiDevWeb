@@ -48,27 +48,27 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                     '52.99'
                 );
 
-/*add 2 users*/
-INSERT INTO User (civility, pseudo, name, fname, birthday, email, password)
-       VALUES   (
-                    'M',
-                    'sylvestreee',
-                    'Heitz',
-                    'Martin',
-                    '1997-01-01',
-                    'martin-heitz@orange.fr',
-                    'Martin6'
-                ),
+-- /*add 2 users*/
+-- INSERT INTO User (civility, pseudo, name, fname, birthday, email, password)
+--       VALUES   (
+--                     'M',
+--                     'tinou',
+--                     'Heitz',
+--                     'Martin',
+--                     '1997-01-01',
+--                     'tinoudu68@gmail.com',
+--                     '597af142f9c3bdf39c8d09ad2b5cda5b'
+--                 ),
                 
-                (
-                    NULL,
-                    'toto',
-                    NULL,
-                    NULL,
-                    NULL,
-                    'toto@emaildu68.com',
-                    'Tototo8'
-                );
+--                 (
+--                     NULL,
+--                     'toto',
+--                     NULL,
+--                     NULL,
+--                     NULL,
+--                     'toto@emaildu68.com',
+--                     '698d18c0f562e8a693eccdb3234ee1f2'
+--                 );
                         
 /*add 5 genres*/
 INSERT INTO Genre (name)
@@ -89,19 +89,16 @@ INSERT INTO Game_Genre (game_id, genre_id)
                 (4, 3),
                 (4, 2);
 
-/*fill users cart*/
-INSERT INTO Cart (game_id, user_id, quantity)
-       VALUES   (1, 1, 1),
-                (2, 1, 2),
-                (3, 2, 1);
+-- /*fill users cart*/
+-- INSERT INTO Cart (game_id, user_id, quantity)
+--       VALUES    (1, 1, 1),
+--                 (2, 1, 2);
                             
-/*link purchases with games*/
-INSERT INTO Purchases (game_id, user_id, purchased) 
-       VALUES   (4, 1, '2018-09-06'),
-                (4, 1, '2018-09-07'),
-                (4, 1, '2018-09-07'),
-                (4, 1, '2018-09-07'),
-                (1, 2, '2018-09-10'),
-                (2, 2, '2018-09-22'),
-                (2, 2, '2018-09-10'),
-                (4, 2, '2018-09-18');
+-- -- /*link purchases with games*/
+-- INSERT INTO Purchases (game_id, user_id, purchased) 
+--       VALUES    (4, 1, '2018-09-06'),
+--                 (4, 1, '2018-09-07'),
+--                 (4, 1, '2018-09-08'),
+--                 (2, 1, '2018-09-09'),
+--                 (2, 1, '2018-09-10'),
+--                 (1, 1, '2018-09-11');

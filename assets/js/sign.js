@@ -1,4 +1,4 @@
-var inputs = [0, 0, 0];
+var inputs = [0, 0, 0, 0];
 
 /*used to know how many fields are valid*/
 $(document).ready(function() {
@@ -23,9 +23,16 @@ $(document).ready(function() {
 
     /*if the input's not empty*/
     if (no_blank) {
+      
+      /*if the modified input is the pseudo one*/
+      if(input.hasClass("pseudo")) {
+        warning.text("Pseudonyme indiqué");
+        $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+        inputs[0] = 1;
+      }
 
       /*if the modified input is the email one*/
-      if (input.hasClass("email")) {
+      else if (input.hasClass("email")) {
 
         /*test if the input value is a valid email or not*/
         if (verif_email.test(input.val())) {
@@ -33,13 +40,13 @@ $(document).ready(function() {
           /*the input value is a valid email*/
           warning.text("Adresse mail indiquée");
           $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-          inputs[0] = 1;
+          inputs[1] = 1;
         } else {
 
           /*the input value is not a valid email*/
           warning.text("Veuillez indiquer une adresse mail");
           $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-          inputs[0] = 0;
+          inputs[1] = 0;
         }
       }
 
@@ -52,19 +59,19 @@ $(document).ready(function() {
           /*the input value is a valid password*/
           warning.text("Mot de passe indiqué");
           $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-          inputs[1] = 1;
+          inputs[2] = 1;
 
           /*if the input value is equal to the confirm password one*/
           if (input.val() == $('.vpwd').val()) {
             $("span", $('.vpwd').parent()).text("Mot de passe confirmé");
             $("i", $('.vpwd').parent()).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-            inputs[2] = 1;
+            inputs[3] = 1;
           } else {
 
             /*if the input value is not equal to the confirm password one*/
             $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
             $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-            inputs[2] = 0;
+            inputs[3] = 0;
           }
         }
 
@@ -72,19 +79,19 @@ $(document).ready(function() {
         else {
           warning.text("Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)");
           $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-          inputs[1] = 0;
+          inputs[2] = 0;
 
           /*if the input value is equal to the confirm password one*/
           if (input.val() == $('.vpwd').val()) {
             $("span", $('.vpwd').parent()).text("Le mot de passe choisi est invalide");
             $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-            inputs[2] = 0;
+            inputs[3] = 0;
           } else {
 
             /*if the input value is not equal to the confirm password one*/
             $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
             $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-            inputs[2] = 0;
+            inputs[3] = 0;
           }
         }
       }
@@ -96,48 +103,55 @@ $(document).ready(function() {
         if (input.val() == $('.pwd').val()) {
 
           /*if the password value is valid*/
-          if (inputs[1] == 1) {
+          if (inputs[2] == 1) {
             warning.text("Mot de passe confirmé");
             $(thumbs).removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-            inputs[2] = 1;
+            inputs[3] = 1;
           } else {
 
             /*if the password value is not valid*/
             warning.text("Le mot de passe choisi est invalide");
             $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-            inputs[2] = 0;
+            inputs[3] = 0;
           }
         } else {
 
           /*if the input value is not equal to the password one*/
           warning.text("Les mots de passe ne correspondent pas");
           $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-          inputs[2] = 0;
+          inputs[3] = 0;
         }
       }
     }
 
     /*if the input's empty*/
     else {
-
-      /*if the modified input is the email one*/
-      if (input.hasClass("email")) {
-        warning.text("Veuillez indiquer une adresse mail");
+      
+      /*if the modified input is the pseudo one*/
+      if (input.hasClass("pseudo")) {
+        warning.text("Veuillez indiquer un pseudonyme");
         $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
         inputs[0] = 0;
+      }
+
+      /*if the modified input is the email one*/
+      else if (input.hasClass("email")) {
+        warning.text("Veuillez indiquer une adresse mail");
+        $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+        inputs[1] = 0;
       }
 
       /*if the modified input is the password one*/
       else if (input.hasClass("pwd")) {
         warning.text("Votre mot de passe doit être composé de 6 caractères minimum (au moins 1 majusule et 1 chiffre)");
         $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-        inputs[1] = 0;
+        inputs[2] = 0;
 
         /*if the confirm password value is not empty*/
         if ($('.vpwd').val().length > 0) {
           $("span", $('.vpwd').parent()).text("Les mots de passe ne correspondent pas");
           $("i", $('.vpwd').parent()).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-          inputs[2] = 0;
+          inputs[3] = 0;
         }
       }
 
@@ -145,12 +159,12 @@ $(document).ready(function() {
       else if (input.hasClass("vpwd")) {
         warning.text("Les mots de passe ne correspondent pas");
         $(thumbs).removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-        inputs[2] = 0;
+        inputs[3] = 0;
       }
     }
 
     /*if all inputs are valid, the submit button is shown*/
-    if (nb_valid(inputs) == 3) {
+    if (nb_valid(inputs) == 4) {
       $('.sign-submit').removeClass("invisible").addClass("visible");
     } else {
       $('.sign-submit').removeClass("visible").addClass("invisible");

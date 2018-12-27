@@ -18,17 +18,39 @@ class Sign {
     }
     
     public function index() {
+        $warning = array();
+        
         $template = $this->twig->load('sign.twig');
-        echo $template->render();
+        echo $template->render(["warning" => $warning]);
+    }
+    
+    public function existPseudo($pseudo) {
+        $user   =   $this->entityManager
+                         ->getRepository(User::class)
+                         ->createQueryBuilder('User')
+                         ->select('u')
+                         ->from('Website\Models\User', 'u')
+                         ->where("u.pseudo LIKE :pseudo")
+                         ->setParameter('pseudo', $pseudo)
+                         ->getQuery()
+                         ->getOneOrNullResult();
+                         
+        if($user == NULL) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
     
     public function existEmail($email) {
         $user   =   $this->entityManager
                          ->getRepository(User::class)
                          ->createQueryBuilder('User')
-                         ->select('u.email')
+                         ->select('u')
                          ->from('Website\Models\User', 'u')
-                         ->where("u.email = $email")
+                         ->where("u.email LIKE :email")
+                         ->setParameter('email', $email)
                          ->getQuery()
                          ->getOneOrNullResult();
                          
@@ -41,50 +63,76 @@ class Sign {
     }
     
     public function existPassword($pwd) {
-        $password = password_hash($pwd);
-        $user   =   $this->entityManager
+        $users  =   $this->entityManager
                          ->getRepository(User::class)
                          ->createQueryBuilder('User')
-                         ->select('u.password')
+                         ->select('u')
                          ->from('Website\Models\User', 'u')
-                         ->where("u.password = $password")
+                         ->distinct()
                          ->getQuery()
-                         ->getOneOrNullResult();
+                         ->getResult();
                          
-        if($user == NULL) {
-            return false;
+        foreach($users as $user) {
+            if(password_verify($pwd, $user->getPassword())) {
+                return true;
+            }
         }
-        else {
-            return true;
-        }
+        return false;
     }
     
-    public function connection($post) {
+    public function registration($post) {
         $verif_email = '/^[^\W][a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/';
         $verif_pwd = '/^(?=.*\d)(?=.*[A-Z]).{6,}$/';
+        $warning = array();
         
-        //email verification
-        if(preg_match($verif_email, $post['email'])) {
-            $is     =   $this->entityManager
-                        ->getRepository(Genre::class)
-                        ->createQueryBuilder('Genre')
-                        ->select('g.name')
-                        ->from('Website\Models\Genre', 'g')
-                        ->orderBy('g.name', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
+        //verify if the pseudo is already taken or not
+        if($this->existPseudo($post['pseudo'])) {
+            array_push($warning, "Pseudonyme déjà pris");
+                
+            $template = $this->twig->load('sign.twig');
+            echo $template->render(["warning" => $warning]);
         }
+        
         else {
-            $_SESSION['pseudo'] = "non";
+            
+            //email verification
+            if(preg_match($verif_email, $post['email'])) {
+            
+                //verify if the email is already taken or not
+                if($this->existEmail($post['email'])) {
+                    array_push($warning, "Adresse mail déjà prise");
+                    
+                    $template = $this->twig->load('sign.twig');
+                    echo $template->render(["warning" => $warning]);
+                }
+                
+                else {
+                    
+                    //password verification
+                    if(preg_match($verif_pwd, $post['pwd'])) {
+                        
+                        //verify if the password is already taken or not
+                        if($this->existPassword($post['pwd'])) {
+                            array_push($warning, "Mot de passe déjà pris");
+                            
+                            $template = $this->twig->load('sign.twig');
+                            echo $template->render(["warning" => $warning]);
+                        }
+                        
+                        //everything is clear
+                        else {
+                            $user = new User;
+                            $user->setPseudo($post['pseudo']);
+                            $user->setEmail($post['email']);
+                            $user->setPassword(password_hash($post['pwd'], PASSWORD_DEFAULT));
+                            $this->entityManager->persist($user);
+                            $this->entityManager->flush();
+                            $_SESSION['pseudo'] = $post['pseudo'];
+                            header ('location: /home');
+                        }
+                    }
+                } 
+            }
         }
-        $_SESSION['login'] = $post['email'];
-        header ('location: /home');
-    }
-    
-    //mettre dans log
-    public function disconnection() {
-        session_destroy();
-        header ('location: /home');
     }
 }

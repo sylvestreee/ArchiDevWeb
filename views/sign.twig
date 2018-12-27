@@ -8,7 +8,15 @@
 <div class="container container-sign">
 	<div class="row row-sign">
 		<div class="col-md-6 col-sign-1 border-smooth">
-			<form class="form-sign" method="post" action="/sign/connection" novalidate>
+			<form class="form-sign" method="post" action="/sign/registration" novalidate>
+
+				<!--pseudo field-->
+				<div class="form-group">
+					<label for="pseudo">Mon pseudo :</label>
+					<input type="text" class="form-control pseudo sign invalid" name="pseudo" id="pseudo">
+					<i class="fas fa-thumbs-down"></i>
+					<span>Veuillez indiquer un pseudonyme</span>
+				</div>
 
 				<!--email field-->
 				<div class="form-group">
@@ -39,10 +47,12 @@
 					<button type="submit" class="btn btn-primary sign-submit invisible">Créer un compte</button>
 				</div>
 			</form>
+			
+			<span>{{ warning[0] }}</span>
 		</div>
 
 		<div class="col-md-6 col-sign-2">
-			<img class="cover border-smooth" src="./assets/pictures/sign.png" alt="sign-picture" />
+			<img class="cover border-smooth" src="https://m1iirvij-heitz-martin-sylvestreee.c9users.io/assets/pictures/sign.png" alt="sign-picture" />
 		</div>
 	</div>
 </div>

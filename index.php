@@ -81,7 +81,23 @@ try {
         
         /*log*/
         case "log" :
-          require './controllers/log.php';
+          $logController = new Website\Controllers\log();
+          
+          if($method == NULL) {
+            $logController->index(); 
+          }
+          
+          else {
+            switch($method) {
+              case "disconnection" :
+                $logController->disconnection();
+                break;
+                
+              default :
+                throw new Exception();
+                break;
+            }
+          }
           break;
           
         /*sign*/
@@ -96,12 +112,8 @@ try {
             
             /*if the user did a research in the navbar*/
             switch($method) {
-              case "connection" :
-                $signController->connection($_POST);
-                break;
-                
-              case "disconnection" :
-                $signController->disconnection();
+              case "registration" :
+                $signController->registration($_POST);
                 break;
               
               default :
