@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-// session_destroy();
 
 require_once './vendor/autoload.php';
 require_once './bootstrap.php';
@@ -19,7 +18,6 @@ $regex .= '([\&][a-zA-Z\[\]]*[\=][a-zA-Z]*)*';
 $regex .= '\/*)*|[\/]*)/';
 
 preg_match($regex, $url, $match);
-//var_dump($match)
 $controller = $match[1];
 //var_dump($controller);
 $method = $match[3];
@@ -98,8 +96,12 @@ try {
             
             /*if the user did a research in the navbar*/
             switch($method) {
-              case "connexion" :
-                $signController->connexion($_POST);
+              case "connection" :
+                $signController->connection($_POST);
+                break;
+                
+              case "disconnection" :
+                $signController->disconnection();
                 break;
               
               default :
