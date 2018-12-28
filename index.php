@@ -89,6 +89,10 @@ try {
           
           else {
             switch($method) {
+              case "connection" :
+                $logController->connection($_POST);
+                break;
+                
               case "disconnection" :
                 $logController->disconnection();
                 break;
