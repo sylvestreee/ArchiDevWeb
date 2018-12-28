@@ -43,6 +43,7 @@ class User {
      * constructor
      */
     public function __construct() { 
+        $this->reserved = new \Doctrine\Common\Collections\ArrayCollection();
         $this->purchases = new \Doctrine\Common\Collections\ArrayCollection();
     }
     

@@ -140,7 +140,23 @@ try {
           
         /*cart*/
         case "cart" :
-          require './controllers/cart.php';
+          $cartController = new Website\Controllers\cart();
+          
+          if($method == NULL) {
+            $cartController->index();
+          }
+          
+          else {
+            switch($method) {
+              case "reservation" :
+                $cartController->reservation($_GET);
+                break;
+              
+              default :
+                throw new Exception();
+                break;
+            }
+          }
           break;
           
         default :

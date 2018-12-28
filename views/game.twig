@@ -48,7 +48,9 @@
 
 			{% if session.id is not empty %}
 				<div class="basket-button">
-					<button type="submit" class="btn btn-primary">Mettre dans le panier</button>
+					<a href="/cart/reservation?id={{ game.id }}">
+						<button type="submit" class="btn btn-primary">Mettre dans le panier</button>
+					</a>
 				</div>
 			{% endif %}
 		</div>

@@ -22,9 +22,6 @@ class Cart {
      */
     private $user;
     
-    /** @Column(type="integer") **/
-    private $quantity;
-    
     /**
      * constructor
      */
@@ -35,10 +32,10 @@ class Cart {
      */
     public function getGame() { return $this->game; }
     public function getUser() { return $this->user; }
-    public function getQuantity() {return $this->quantity; }
     
     /**
-     * setter
+     * setters
      */
-    public function setQuantity($quantity) { $this->quantity = $quantity; }
+    public function setGame($game) { $this->game = $game; }
+    public function setUser($user) { $this->user = $user; }
 }

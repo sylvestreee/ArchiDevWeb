@@ -44,7 +44,7 @@ class Home {
         
         $bestsellers = array();
         foreach($purchases as $i => $p) {
-            $bestsellers[$i]=$p[0]->getGame();
+            $bestsellers[$i] = $p[0]->getGame();
         }
                 
         $template = $this->twig->load("home.twig");
