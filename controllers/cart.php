@@ -70,4 +70,28 @@ class Cart {
         $this->entityManager->flush();
         header ('location: /cart');
     }
+    
+    public function cancel($get) {
+        $id = $_SESSION['id'];
+        $reserved   =   $this->entityManager
+                             ->getRepository(CartModel::class)
+                             ->createQueryBuilder('Cart')
+                             ->select('c')
+                             ->from('Website\Models\Cart', 'c')
+                             ->distinct()
+                             ->getQuery()
+                             ->getResult();
+        
+        $games = array();
+        foreach($reserved as $res) {
+            if($res->getUser()->getId() == $id) {
+                array_push($games, $res);
+            }
+        }
+        
+        $canceled = $games[$get['index']];
+        $this->entityManager->remove($canceled);
+        $this->entityManager->flush();
+        header ('location: /cart');
+    }
 }

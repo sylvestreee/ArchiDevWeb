@@ -5,7 +5,7 @@ INSERT INTO Game (title, editor, developer, platform, catchphrase, synopsis, ill
                     'Sony',
                     'Insomniac Games',
                     'PlayStation 4',
-                    'Incarne l''homme-araignee et protege New-York des vilains qui l''a menace !',
+                    'Incarne l''homme-araignee et protege New-York des vilains qui la menacent !',
                     'New-York a besoin de Spider-Man ! Alors qu''une menace sans precedent s''apprete a frapper sa ville, l''homme-araignee va devoir devenir plus fort, sous peine d''en payer les terribles consequences...',
                     'sm',
                     '2018-09-07',
@@ -96,9 +96,9 @@ INSERT INTO Game_Genre (game_id, genre_id)
                             
 -- /*link purchases with games*/
 -- INSERT INTO Purchases (game_id, user_id, purchased) 
-      VALUES    (4, 1, '2018-09-06'),
-                (4, 1, '2018-09-07'),
-                (4, 1, '2018-09-08'),
-                (2, 1, '2018-09-09'),
-                (2, 1, '2018-09-10'),
-                (1, 1, '2018-09-11');
+--       VALUES    (4, 1, '2018-09-06'),
+--                 (4, 1, '2018-09-07'),
+--                 (4, 1, '2018-09-08'),
+--                 (2, 1, '2018-09-09'),
+--                 (2, 1, '2018-09-10'),
+--                 (1, 1, '2018-09-11');

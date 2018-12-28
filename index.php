@@ -151,6 +151,11 @@ try {
               case "reservation" :
                 $cartController->reservation($_GET);
                 break;
+                
+              case "cancel" :
+                echo "yolo";
+                $cartController->cancel($_GET);
+                break;
               
               default :
                 throw new Exception();
