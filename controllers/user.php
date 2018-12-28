@@ -1,16 +1,34 @@
 <?php
 
-$template = $twig->load('user.twig');
+namespace Website\Controllers;
+use Website\Models\User as UserModel;
 
-$user = [
-            "civility"  => "Sir",
-            "fname"     => "Martin",
-            "name"      => "Heitz",
-            "pseudo"    => "sylvestreee",
-            "birthday"  => "01/01/1997",
-            "email"     => "martin.heitz@etu.unistra.fr"
-        ];
+global $twig;
+global $entityManager;
 
-echo $template->render  ([
-                            "user" => $user
-                        ]);
+class User {
+    private $twig;
+    
+    public function __construct() {
+        global $twig;
+        global $entityManager;
+        
+        $this->twig = $twig;
+        $this->entityManager = $entityManager;
+    }
+    
+    public function index() {
+        $id = $_SESSION['id'];
+        $user   =   $this->entityManager
+                         ->getRepository(UserModel::class)
+                         ->createQueryBuilder('User')
+                         ->select('u')
+                         ->from('Website\Models\User', 'u')
+                         ->where("u.id = $id")
+                         ->getQuery()
+                         ->getOneOrNullResult();
+        
+        $template = $this->twig->load('user.twig');
+        echo $template->render(["user" => $user]);
+    }
+}

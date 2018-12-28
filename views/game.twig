@@ -46,9 +46,11 @@
 
 			<p class="col-price">{{ game.price }}€</p>
 
-			<div class="basket-button">
-				<button type="submit" class="btn btn-primary">Mettre dans le panier</button>
-			</div>
+			{% if session.id is not empty %}
+				<div class="basket-button">
+					<button type="submit" class="btn btn-primary">Mettre dans le panier</button>
+				</div>
+			{% endif %}
 		</div>
 	</div>
 </div>

@@ -127,6 +127,7 @@ class Sign {
                             $user->setPassword(password_hash($post['pwd'], PASSWORD_DEFAULT));
                             $this->entityManager->persist($user);
                             $this->entityManager->flush();
+                            $_SESSION['id'] = $user->getId();
                             $_SESSION['pseudo'] = $post['pseudo'];
                             header ('location: /home');
                         }

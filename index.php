@@ -125,7 +125,8 @@ try {
           
         /*user*/
         case "user" :
-          require './controllers/user.php';
+          $userController = new Website\Controllers\user();
+          $userController->index();
           break;
   
         /*account*/

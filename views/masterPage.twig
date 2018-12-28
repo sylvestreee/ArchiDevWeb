@@ -62,7 +62,7 @@
 					</li>
 
 					<!--non-connected user menu-->
-					{% if session.pseudo is empty %}
+					{% if session.id is empty %}
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
 								Utilisateur
@@ -88,7 +88,7 @@
 							<div class="dropdown-menu">
 								
 								<!--account menu-->
-								<a class="dropdown-item" href="/account">
+								<a class="dropdown-item" href="/user">
 									Mon compte
 								</a>
 								
