@@ -37,8 +37,15 @@ class Cart {
             }
         }
         
+        $total = 0.0;
+        if(count($games) > 0) {
+            foreach($games as $game) {
+                $total += $game->getPrice(); 
+            }
+        }
+        
         $template = $this->twig->load('cart.twig');
-        echo $template->render(["games" => $games]);
+        echo $template->render(["games" => $games, "total" => $total]);
     }
     
     public function reservation($get) {
