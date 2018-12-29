@@ -90,11 +90,21 @@ try {
           else {
             switch($method) {
               case "connection" :
-                $logController->connection($_POST);
+                if(empty($_SESSION['id'])) {
+                  $logController->connection($_POST);
+                }
+                else {
+                  throw new Exception();
+                }
                 break;
                 
               case "disconnection" :
-                $logController->disconnection();
+                if(!empty($_SESSION['id'])) {
+                  $logController->disconnection();
+                }
+                else {
+                  throw new Exception();
+                }
                 break;
                 
               default :
@@ -106,79 +116,97 @@ try {
           
         /*sign*/
         case "sign" :
-          $signController = new Website\Controllers\sign();
-          
-          if($method == NULL) {
-            $signController->index();
-          }
-          
-          else {
+          if(empty($_SESSION['id'])) {
+            $signController = new Website\Controllers\sign();
             
-            /*if the user did a research in the navbar*/
-            switch($method) {
-              case "registration" :
-                $signController->registration($_POST);
-                break;
-              
-              default :
-                throw new Exception();
-                break;
+            if($method == NULL) {
+              $signController->index();
             }
+            
+            else {
+              
+              switch($method) {
+                case "registration" :
+                  $signController->registration($_POST);
+                  break;
+                
+                default :
+                  throw new Exception();
+                  break;
+              }
+            }
+          }
+          else {
+            throw new Exception();
           }
           break;
           
         /*user*/
         case "user" :
-          $userController = new Website\Controllers\user();
-          $userController->index();
+          if(!empty($_SESSION['id'])) {
+            $userController = new Website\Controllers\user();
+            $userController->index();
+          }
+          else {
+            throw new Exception();
+          }
           break;
   
         /*account*/
         case "account" :
-          $accountController = new Website\Controllers\account();
-          
-          if($method == NULL) {
-            $accountController->index();
-          }
-          
-          else {
+          if(!empty($_SESSION['id'])) {
+            $accountController = new Website\Controllers\account();
             
-            switch($method) {
-              case "update" :
-                $accountController->update($_POST);
-                break;
+            if($method == NULL) {
+              $accountController->index();
+            }
+            
+            else {
               
-              default :
-                throw new Exception();
-                break;
+              switch($method) {
+                case "update" :
+                  $accountController->update($_POST);
+                  break;
+                
+                default :
+                  throw new Exception();
+                  break;
+              }
             }
           }
-          
+          else {
+            throw new Exception();
+          }
           break;
           
         /*cart*/
         case "cart" :
-          $cartController = new Website\Controllers\cart();
-          
-          if($method == NULL) {
-            $cartController->index();
-          }
-          
-          else {
-            switch($method) {
-              case "reservation" :
-                $cartController->reservation($_GET);
-                break;
-                
-              case "cancel" :
-                echo "yolo";
-                $cartController->cancel($_GET);
-                break;
-              
-              default :
-                throw new Exception();
-                break;
+          if(!empty($_SESSION['id'])) {
+            $cartController = new Website\Controllers\cart();
+            
+            if($method == NULL) {
+              $cartController->index();
             }
+            
+            else {
+              switch($method) {
+                case "reservation" :
+                  $cartController->reservation($_GET);
+                  break;
+                  
+                case "cancel" :
+                  echo "yolo";
+                  $cartController->cancel($_GET);
+                  break;
+                
+                default :
+                  throw new Exception();
+                  break;
+              }
+            }
+          }
+          else {
+            throw new Exception();
           }
           break;
           
