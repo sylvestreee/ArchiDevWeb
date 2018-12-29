@@ -135,7 +135,25 @@ try {
   
         /*account*/
         case "account" :
-          require './controllers/account.php';
+          $accountController = new Website\Controllers\account();
+          
+          if($method == NULL) {
+            $accountController->index();
+          }
+          
+          else {
+            
+            switch($method) {
+              case "update" :
+                $accountController->update($_POST);
+                break;
+              
+              default :
+                throw new Exception();
+                break;
+            }
+          }
+          
           break;
           
         /*cart*/

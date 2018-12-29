@@ -95,10 +95,10 @@ INSERT INTO Game_Genre (game_id, genre_id)
 --                 (2, 1);
                             
 -- /*link purchases with games*/
--- INSERT INTO Purchases (game_id, user_id, purchased) 
---       VALUES    (4, 1, '2018-09-06'),
---                 (4, 1, '2018-09-07'),
---                 (4, 1, '2018-09-08'),
---                 (2, 1, '2018-09-09'),
---                 (2, 1, '2018-09-10'),
---                 (1, 1, '2018-09-11');
+INSERT INTO Purchases (game_id, user_id, purchased) 
+      VALUES    (4, 1, '2018-09-06'),
+                (4, 1, '2018-09-07'),
+                (4, 1, '2018-09-08'),
+                (2, 1, '2018-09-09'),
+                (2, 1, '2018-09-10'),
+                (1, 1, '2018-09-11');
