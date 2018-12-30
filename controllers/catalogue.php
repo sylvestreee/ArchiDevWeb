@@ -18,8 +18,7 @@ class Catalogue {
         $this->entityManager = $entityManager;
     }
     
-    //
-    public function index() {
+    public function getEditors() {
         $editors    =   $this->entityManager
                         ->getRepository(Game::class)
                         ->createQueryBuilder('Game')
@@ -30,6 +29,10 @@ class Catalogue {
                         ->getQuery()
                         ->getResult();
                         
+        return $editors;
+    }
+    
+    public function getDevelopers() {
         $developers =   $this->entityManager
                         ->getRepository(Game::class)
                         ->createQueryBuilder('Game')
@@ -40,6 +43,10 @@ class Catalogue {
                         ->getQuery()
                         ->getResult();
                             
+        return $developers;
+    }
+    
+    public function getPlatforms() {
         $platforms  =   $this->entityManager
                         ->getRepository(Game::class)
                         ->createQueryBuilder('Game')
@@ -49,7 +56,11 @@ class Catalogue {
                         ->distinct()
                         ->getQuery()
                         ->getResult();
-                            
+                        
+        return $platforms;
+    }
+    
+    public function getGenres() {
         $genres     =   $this->entityManager
                         ->getRepository(Genre::class)
                         ->createQueryBuilder('Genre')
@@ -60,7 +71,16 @@ class Catalogue {
                         ->getQuery()
                         ->getResult();
                         
-       $games       =   $this->entityManager
+        return $genres;
+    }
+    
+    public function index() {
+        $editors = $this->getEditors();
+        $developers = $this->getDevelopers();
+        $platforms = $this->getPlatforms();
+        $genres = $this->getGenres();
+                        
+        $games      =   $this->entityManager
                         ->getRepository(Game::class)
                         ->createQueryBuilder('Game')
                         ->select('g')
@@ -75,45 +95,10 @@ class Catalogue {
     }
     
     public function search($get) {
-        $editors    =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g.editor')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.editor', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
-                        
-        $developers =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g.developer')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.developer', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
-                            
-        $platforms  =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g.platform')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.platform', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
-                            
-        $genres     =   $this->entityManager
-                        ->getRepository(Genre::class)
-                        ->createQueryBuilder('Genre')
-                        ->select('g.name')
-                        ->from('Website\Models\Genre', 'g')
-                        ->orderBy('g.name', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
+        $editors = $this->getEditors();
+        $developers = $this->getDevelopers();
+        $platforms = $this->getPlatforms();
+        $genres = $this->getGenres();
                         
         if(array_key_exists('title', $get)) {
             $word = $get["title"];

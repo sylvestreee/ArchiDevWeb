@@ -116,7 +116,7 @@ class Account {
                     /*pseudo update*/
                     case "pseudo" :
                         
-                        //verify if the pseudo is already taken or not
+                        /*verify if the pseudo is already taken or not*/
                         if($this->existPseudo($field)) {
                             array_push($warning, "Pseudonyme déjà pris");
                 
@@ -131,6 +131,8 @@ class Account {
                         
                     /*name update*/
                     case "name" :
+                        
+                        /*name verification*/
                         if(preg_match($verif_name, $field)) {
                             $user->setName($field);
                         }
@@ -138,6 +140,8 @@ class Account {
                         
                     /*first name update*/    
                     case "fname" :
+                        
+                        /*name verification*/
                         if(preg_match($verif_name, $field)) {
                             $user->setFname($field);
                         }
@@ -151,9 +155,11 @@ class Account {
                         
                     /*email update*/
                     case "email" :
+                        
+                        /*email verification*/
                         if(preg_match($verif_email, $field)) {
                             
-                            //verify if the email is already taken or not
+                            /*verify if the email is already taken or not*/
                             if($this->existEmail($field)) {
                                 array_push($warning, "Adresse mail déjà prise");
                 
@@ -169,9 +175,11 @@ class Account {
                         
                     /*password update*/
                     case "pwd" :
+                        
+                        /*password verification*/
                         if(preg_match($verif_pwd, $field)) {
                             
-                            //verify if the password is already taken or not
+                            /*verify if the password is already taken or not*/
                             if($this->existPassword($field)) {
                                 array_push($warning, "Mot de passe déjà pris");
                 

@@ -85,7 +85,7 @@ class Sign {
         $verif_pwd = '/^(?=.*\d)(?=.*[A-Z]).{6,}$/';
         $warning = array();
         
-        //verify if the pseudo is already taken or not
+        /*verify if the pseudo is already taken or not*/
         if($this->existPseudo($post['pseudo'])) {
             array_push($warning, "Pseudonyme déjà pris");
                 
@@ -95,10 +95,10 @@ class Sign {
         
         else {
             
-            //email verification
+            /*email verification*/
             if(preg_match($verif_email, $post['email'])) {
             
-                //verify if the email is already taken or not
+                /*verify if the email is already taken or not*/
                 if($this->existEmail($post['email'])) {
                     array_push($warning, "Adresse mail déjà prise");
                     
@@ -108,10 +108,10 @@ class Sign {
                 
                 else {
                     
-                    //password verification
+                    /*password verification*/
                     if(preg_match($verif_pwd, $post['pwd'])) {
                         
-                        //verify if the password is already taken or not
+                        /*verify if the password is already taken or not*/
                         if($this->existPassword($post['pwd'])) {
                             array_push($warning, "Mot de passe déjà pris");
                             
@@ -119,7 +119,7 @@ class Sign {
                             echo $template->render(["warning" => $warning]);
                         }
                         
-                        //everything is clear
+                        /*everything is clear*/
                         else {
                             $user = new User;
                             $user->setPseudo($post['pseudo']);
