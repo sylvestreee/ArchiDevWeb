@@ -27,7 +27,7 @@ class Home {
                     ->from('Website\Models\Game', 'g')
                     ->orderBy('g.released', 'DESC')
                     ->distinct()
-                    ->setMaxResults(2)
+                    ->setMaxResults(3)
                     ->getQuery()
                     ->getResult();
                     
