@@ -36,6 +36,8 @@
   								<button class="btn btn-default dropdown-toggle search-font" type="button" id="option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 									Titre
 								</button>
+								
+								<!--search bar options-->
 								<ul class="dropdown-menu" aria-labelledby="option">
 									<li><a class="dropdown-item clickable-icon" data-value="title">Titre</a></li>
 									<li><a class="dropdown-item clickable-icon" data-value="editor">Editeur</a></li>
@@ -61,7 +63,7 @@
 						</a>
 					</li>
 
-					<!--non-connected user menu-->
+					<!--non-connected user menus-->
 					{% if session.id is empty %}
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
@@ -78,7 +80,7 @@
 							</div>
 						</li>
 						
-					<!--connected user menu (for test purposes)-->
+					<!--connected user menus-->
 					{% else %}
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown">
@@ -99,6 +101,7 @@
 							</div>
 						</li>
 					
+						<!--disconnection menu-->
 						<li class="nav-item">
 							<a class="nav-link" href="/log/disconnection">
 								Se déconnecter

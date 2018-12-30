@@ -19,12 +19,7 @@ $regex .= '\/*)*|[\/]*)/';
 
 preg_match($regex, $url, $match);
 $controller = $match[1];
-//var_dump($controller);
 $method = $match[3];
-//var_dump($method);
-
-// var_dump($_GET);
-// index($_GET);
 
 try {
   if($controller == NULL || $controller == "index") {
@@ -50,13 +45,14 @@ try {
             $catalogueController->index();
           }
           else {
-            
-            /*if the user did a research in the navbar*/
             switch($method) {
+              
+              /*use of the navbar*/ 
               case "search" :
                 $catalogueController->search($_GET);
                 break;
                 
+              /*use of the filter options*/
               case "filter" :
                 $catalogueController->filter($_GET);
                 break;
@@ -71,6 +67,8 @@ try {
         /*game*/
         case "game" :
           $gameController = new Website\Controllers\game();
+          
+          /*test if the game exists or not*/
           if($gameController->exist($_GET)) {
             $gameController->index($_GET);
           }
@@ -89,7 +87,11 @@ try {
           
           else {
             switch($method) {
+              
+              /*connection to an account*/
               case "connection" :
+                
+                /*an user can only connect if he's not already connected*/
                 if(empty($_SESSION['id'])) {
                   $logController->connection($_POST);
                 }
@@ -98,7 +100,10 @@ try {
                 }
                 break;
                 
+              /*disconnection from an account*/
               case "disconnection" :
+                
+                /*an user can only disconnect if he's connected*/
                 if(!empty($_SESSION['id'])) {
                   $logController->disconnection();
                 }
@@ -116,6 +121,8 @@ try {
           
         /*sign*/
         case "sign" :
+          
+          /*an user can only create a new account if he's not connected*/
           if(empty($_SESSION['id'])) {
             $signController = new Website\Controllers\sign();
             
@@ -126,6 +133,8 @@ try {
             else {
               
               switch($method) {
+                
+                /*registration of a new account*/
                 case "registration" :
                   $signController->registration($_POST);
                   break;
@@ -143,6 +152,8 @@ try {
           
         /*user*/
         case "user" :
+          
+          /*an user can only see his account informations if he's connected*/
           if(!empty($_SESSION['id'])) {
             $userController = new Website\Controllers\user();
             $userController->index();
@@ -154,6 +165,8 @@ try {
   
         /*account*/
         case "account" :
+          
+          /*an user can only modify his account informations if he's connected*/
           if(!empty($_SESSION['id'])) {
             $accountController = new Website\Controllers\account();
             
@@ -164,6 +177,8 @@ try {
             else {
               
               switch($method) {
+                
+                /*update account informations*/
                 case "update" :
                   $accountController->update($_POST);
                   break;
@@ -181,6 +196,8 @@ try {
           
         /*cart*/
         case "cart" :
+          
+          /*an user can only see and modify his cart if he's connected*/
           if(!empty($_SESSION['id'])) {
             $cartController = new Website\Controllers\cart();
             
@@ -190,12 +207,14 @@ try {
             
             else {
               switch($method) {
+                
+                /*add a game to the cart*/
                 case "reservation" :
                   $cartController->reservation($_GET);
                   break;
                   
+                /*delete a game from the cart*/
                 case "cancel" :
-                  echo "yolo";
                   $cartController->cancel($_GET);
                   break;
                 
