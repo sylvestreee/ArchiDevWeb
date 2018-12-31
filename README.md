@@ -67,10 +67,10 @@ Pour accéder à cette page, cliquer (entre autres possibilités) sur une jaquet
 
 Pour créer un compte utilisateur, un utilisateur doit renseigner quatre champs :
 
-* pseudonyme
-* adresse mail
-* mot de passe
-* confirmation du mot de passe
+* un pseudonyme
+* une adresse mail
+* un mot de passe
+* une confirmation du mot de passe
 
 Le bouton permettant à l'utilisateur de créer le compte n'apparaît que s'il a rempli les quatre champs correctement (adresse mail valide, confirmation du mot de passe égale au mot de passe, etc...). Avant de confirmer la création du compte, il est vérifié que l'utilisateur n'a pas rentré un pseudonyme ou encore une adresse mail déjà utilisée par un autre utilisateur, auquel cas il en est informé et peut modifier ses informations.
 
