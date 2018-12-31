@@ -48,12 +48,12 @@ L'utilisateur écrit une chaîne de caractères dans la barre de recherche, et l
 
 Sur le catalogue, l'utilisateur peut visualiser la totalité des jeux présents sur le site, et pour chacun une série d'informations comme l'éditeur ou encore le prix. S'il le souhaite, l'utilisateur peut affiner la liste des jeux affichée via six options de filtrage :
 
-* Editeur
-* Développeur
-* Plateforme
-* Genre
-* Date de sortie
-* Prix
+* les éditeurs
+* les développeurs
+* les plateformes
+* les genres
+* des périodes de date de sortie
+* des fourchettes de prix
 
 Pour accéder à cette page, cliquer sur `Catalogue` dans la barre de navigation.
 
