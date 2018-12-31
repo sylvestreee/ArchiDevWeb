@@ -36,10 +36,10 @@ Pour accéder à cette page, cliquer sur le logo du site présent sur la barre d
 
 La barre de recherche permet d'effectuer une recherche parmi les jeux sur cinq critères :
 
-* les titres
-* les éditeurs
-* les développeurs
-* les plateformes
+* le titre
+* l'éditeur
+* le développeur
+* la plateforme
 * les genres
 
 L'utilisateur écrit une chaîne de caractères dans la barre de recherche, et les jeux affichés sont ceux possédant cette chaîne dans l'un des cinq critères susévoqués.
