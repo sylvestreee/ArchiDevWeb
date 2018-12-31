@@ -84,7 +84,7 @@ Pour accéder à cette page, ouvrir le menu déroulant `Utilisateur` dans la bar
 
 ### Compte utilisateur
 
-L'utilisateur retrouve sur un ton humoristique ses informations renseignées par ses soins dans une page dédiée. En cliquant sur le lien `Modifier mon compte` présent sur ladite page, l'utilisateur accède à une page lui permettant de modifier diverses informations de son compte comme son pseudonyme, son nom, son adresse mail, etc... Comme sur la page de connexion et la page de création de compte, l'utilisateur ne peut modifier ses informations que si celles-ci sont valides, et il lui sera indiqué si l'une de ses modifications est déjà prise par un autre utilisateur (valable pour certaines informations uniquement, comme l'adresse mail).
+L'utilisateur retrouve sur un ton humoristique ses informations renseignées par ses soins dans une page dédiée. En cliquant sur le lien `Modifier mon compte` présent sur ladite page, l'utilisateur accède à une page lui permettant de modifier diverses informations de son compte comme son pseudonyme, son nom ou encore son adresse mail (il aperçoit les informations actuelles sur les différents champs dédiés). Comme sur la page de connexion et la page de création de compte, l'utilisateur ne peut modifier ses informations que si celles-ci sont valides, et il lui sera indiqué si l'une de ses modifications est déjà prise par un autre utilisateur (valable pour certaines informations uniquement, comme l'adresse mail).
 
 Pour accéder à cette page, ouvrir le menu déroulant portant le pseudonyme de l'utilisateur dans la barre de navigation puis cliquer sur `Mon compte`.
 
