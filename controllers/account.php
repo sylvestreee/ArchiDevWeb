@@ -17,6 +17,7 @@ class Account {
         $this->entityManager = $entityManager;
     }
     
+    /*gets the informations of the connected user*/
     public function getUser() {
         $id = $_SESSION['id'];
         $user   =   $this->entityManager
@@ -39,6 +40,7 @@ class Account {
         echo $template->render(["user" => $user, "warning" => $warning]);
     }
     
+    /*searches if a pseudo already exists in the database*/
     public function existPseudo($pseudo) {
         $user   =   $this->entityManager
                          ->getRepository(User::class)
@@ -58,6 +60,7 @@ class Account {
         }
     }
     
+    /*searches if an email already exists in the database*/
     public function existEmail($email) {
         $user   =   $this->entityManager
                          ->getRepository(User::class)
@@ -77,6 +80,7 @@ class Account {
         }
     }
     
+    /*searches if a password already exists in the database*/
     public function existPassword($pwd) {
         $users  =   $this->entityManager
                          ->getRepository(User::class)
@@ -95,10 +99,10 @@ class Account {
         return false;
     }
     
+    /*update informations function*/
     public function update($post) {
         $verif_email = '/^[^\W][a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/';
-        $verif_pwd = '/^(?=.*\d)(?=.*[A-Z]).{6,}$/';
-        $verif_date = '/^((((0[1-9]|[12][0-9]|3[01])[- /.](0[13578]|1[02]))|((0[1-9]|[12][0-9]|30)[- /.](0[469]|11))|((0[1-9]|[12][0-8])[- /.](02)))[- /.]\d{4})|((0[1-9]|[12][0-9])[- /.](02)[- /.](([0-9]{2}(04|08|[2468][048]|[13579][26])|2000)))$/';
+        $verif_pwd = '/^(?=.*\d)(?=.*[A-Z]).{6,}$/';        
         $verif_name = '/^[a-zA-Z -]*[^0-9]$/';
         
         $warning = array();

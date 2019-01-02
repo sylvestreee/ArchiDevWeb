@@ -3,7 +3,6 @@
 namespace Website\Controllers;
 use Website\Models\Game as Game;
 use Website\Models\Purchases as Purchases;
-use Doctrine\ORM\Query\Expr\Join;
 
 global $twig;
 global $entityManager;
@@ -20,6 +19,8 @@ class Home {
     }
     
     public function index() {
+        
+        /*gets the 3 most recent game based on their release date*/
         $news   =   $this->entityManager
                     ->getRepository(Game::class)
                     ->createQueryBuilder('Game')
@@ -31,6 +32,7 @@ class Home {
                     ->getQuery()
                     ->getResult();
                     
+        /*gets the 3 most purchased games based of the number of their occurences in the Purchases table*/
         $purchases  =   $this->entityManager
                              ->getRepository(Purchases::class)
                              ->createQueryBuilder('Purchases')

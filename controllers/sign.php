@@ -24,6 +24,7 @@ class Sign {
         echo $template->render(["warning" => $warning]);
     }
     
+    /*searches if a pseudo already exists in the database*/
     public function existPseudo($pseudo) {
         $user   =   $this->entityManager
                          ->getRepository(User::class)
@@ -43,6 +44,7 @@ class Sign {
         }
     }
     
+    /*searches if an email already exists in the database*/
     public function existEmail($email) {
         $user   =   $this->entityManager
                          ->getRepository(User::class)
@@ -62,6 +64,7 @@ class Sign {
         }
     }
     
+    /*searches if a password already exists in the database*/
     public function existPassword($pwd) {
         $users  =   $this->entityManager
                          ->getRepository(User::class)
@@ -85,7 +88,7 @@ class Sign {
         $verif_pwd = '/^(?=.*\d)(?=.*[A-Z]).{6,}$/';
         $warning = array();
         
-        /*verify if the pseudo is already taken or not*/
+        /*verifies if the pseudo is already taken or not*/
         if($this->existPseudo($post['pseudo'])) {
             array_push($warning, "Pseudonyme déjà pris");
                 
@@ -98,7 +101,7 @@ class Sign {
             /*email verification*/
             if(preg_match($verif_email, $post['email'])) {
             
-                /*verify if the email is already taken or not*/
+                /*verifies if the email is already taken or not*/
                 if($this->existEmail($post['email'])) {
                     array_push($warning, "Adresse mail déjà prise");
                     
@@ -111,7 +114,7 @@ class Sign {
                     /*password verification*/
                     if(preg_match($verif_pwd, $post['pwd'])) {
                         
-                        /*verify if the password is already taken or not*/
+                        /*verifies if the password is already taken or not*/
                         if($this->existPassword($post['pwd'])) {
                             array_push($warning, "Mot de passe déjà pris");
                             
@@ -119,7 +122,7 @@ class Sign {
                             echo $template->render(["warning" => $warning]);
                         }
                         
-                        /*everything is clear*/
+                        /*everything is clear, the new account is registered*/
                         else {
                             $user = new User;
                             $user->setPseudo($post['pseudo']);

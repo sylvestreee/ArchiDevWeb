@@ -18,6 +18,7 @@ class Game {
         $this->entityManager = $entityManager;
     }
     
+    /*gets the informations of the displayed game*/
     public function getGame($game) {
         $game   =   $this->entityManager
                          ->getRepository(GameModel::class)
@@ -37,6 +38,7 @@ class Game {
         echo $template->render(["game" => $game]);
     }
     
+    /*tests if a game exists in the database or not*/
     public function exist($get) {
         $game = $this->getGame($get['id']);
                          

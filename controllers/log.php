@@ -24,6 +24,7 @@ class Log {
         echo $template->render(["warning" => $warning]);
     }
     
+    /*connection function*/
     public function connection($post) {
         $verif_email = '/^[^\W][a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/';
         $warning = array();
@@ -39,6 +40,8 @@ class Log {
                          
         if(preg_match($verif_email, $post['email'])) {
             foreach($users as $user) {
+                
+                /*tests if there exists a user with the email and the password given by the user in the database*/
                 if(($user->getEmail() == $post['email']) && password_verify($post['pwd'], $user->getPassword())) {
                     $_SESSION['id'] = $user->getId();
                     $_SESSION['pseudo'] = $user->getPseudo();
@@ -52,6 +55,7 @@ class Log {
         }
     }
     
+    /*disconnection function*/
     public function disconnection() {
         session_destroy();
         header ('location: /home');

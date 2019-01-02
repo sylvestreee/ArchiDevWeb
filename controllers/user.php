@@ -17,6 +17,7 @@ class User {
         $this->entityManager = $entityManager;
     }
     
+    /*gets the informations of the connected user*/
     public function index() {
         $id = $_SESSION['id'];
         $user   =   $this->entityManager

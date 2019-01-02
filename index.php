@@ -218,7 +218,7 @@ try {
                   $cartController->reservation($_GET);
                   break;
                   
-                /*if an user deleted a game from his cart*/
+                /*if an user canceled a game from his cart*/
                 case "cancel" :
                   $cartController->cancel($_GET);
                   break;

@@ -21,6 +21,8 @@ class Cart {
     
     public function index() {
         $id = $_SESSION['id'];
+        
+        /*gets all reserved games*/
         $reserved   =   $this->entityManager
                              ->getRepository(CartModel::class)
                              ->createQueryBuilder('Cart')
@@ -30,6 +32,7 @@ class Cart {
                              ->getQuery()
                              ->getResult();
         
+        /*gets all reserved games of the connected user*/
         $games = array();
         foreach($reserved as $res) {
             if($res->getUser()->getId() == $id) {
@@ -37,6 +40,7 @@ class Cart {
             }
         }
         
+        /*calculates the sum of the games price*/
         $total = 0.0;
         if(count($games) > 0) {
             foreach($games as $game) {
@@ -48,6 +52,7 @@ class Cart {
         echo $template->render(["games" => $games, "total" => $total]);
     }
     
+    /*makes the reservation of a game*/
     public function reservation($get) {
         $user_id = $_SESSION['id'];
         $game_id = $get['id'];
@@ -78,6 +83,7 @@ class Cart {
         header ('location: /cart');
     }
     
+    /*cancels the reservation of a game*/
     public function cancel($get) {
         $id = $_SESSION['id'];
         $reserved   =   $this->entityManager

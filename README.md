@@ -21,6 +21,14 @@ Backend :
 BDD :
 * MySQL
 
+## Test des fonctionnalités
+
+Pour tester les fonctionnalités, vous pouvez utiliser le compte avec les informations suivantes :
+
+* pseudonyme : Testeur
+* adresse mail : le-testeur@orange.fr
+* mot de passe : Testeur68
+
 ## Fonctionnalités
 
 ### Page d'accueil

@@ -18,6 +18,7 @@ class Catalogue {
         $this->entityManager = $entityManager;
     }
     
+    /*gets all the editors from the database*/
     public function getEditors() {
         $editors    =   $this->entityManager
                         ->getRepository(Game::class)
@@ -32,6 +33,7 @@ class Catalogue {
         return $editors;
     }
     
+    /*gets all the developers from the database*/
     public function getDevelopers() {
         $developers =   $this->entityManager
                         ->getRepository(Game::class)
@@ -46,6 +48,7 @@ class Catalogue {
         return $developers;
     }
     
+    /*gets all the platforms from the database*/
     public function getPlatforms() {
         $platforms  =   $this->entityManager
                         ->getRepository(Game::class)
@@ -60,6 +63,7 @@ class Catalogue {
         return $platforms;
     }
     
+    /*gets all the genres from the database*/
     public function getGenres() {
         $genres     =   $this->entityManager
                         ->getRepository(Genre::class)
@@ -94,12 +98,14 @@ class Catalogue {
         echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);
     }
     
+    /*displays the result of a research done using the search bar*/
     public function search($get) {
         $editors = $this->getEditors();
         $developers = $this->getDevelopers();
         $platforms = $this->getPlatforms();
         $genres = $this->getGenres();
-                        
+        
+        /*title option*/ 
         if(array_key_exists('title', $get)) {
             $word = $get["title"];
             $games  =   $this->entityManager
@@ -114,6 +120,8 @@ class Catalogue {
                              ->getQuery()
                              ->getResult();
         }
+        
+        /*editor option*/ 
         else if(array_key_exists('editor', $get)) {
             $word = $get["editor"];
             $games  =   $this->entityManager
@@ -128,6 +136,8 @@ class Catalogue {
                              ->getQuery()
                              ->getResult();
         }
+        
+        /*developer option*/ 
         else if(array_key_exists('developer', $get)) {
             $word = $get["developer"];
             $games  =   $this->entityManager
@@ -142,6 +152,8 @@ class Catalogue {
                              ->getQuery()
                              ->getResult();
         }
+        
+        /*platform option*/ 
         else if(array_key_exists('platform', $get)) {
             $word = $get["platform"];
             $games  =   $this->entityManager
@@ -156,6 +168,8 @@ class Catalogue {
                              ->getQuery()
                              ->getResult();
         }
+        
+        /*genre option*/ 
         else if(array_key_exists('genre', $get)) {
             $word = $get["genre"];
             $game   =   $this->entityManager
@@ -185,7 +199,7 @@ class Catalogue {
         echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);
     }
     
-    //editor option
+    /*editor option (filter)*/
     public function editorFilter($word) {
         $game   =   $this->entityManager
                          ->getRepository(Game::class)
@@ -202,7 +216,7 @@ class Catalogue {
         return $game;
     }
     
-    //developer option
+    /*developer option (filter)*/
     public function developerFilter($word) {
         $game   =   $this   ->entityManager
                             ->getRepository(Game::class)
@@ -219,7 +233,7 @@ class Catalogue {
         return $game;
     }
     
-    //platform option
+    /*platform option (filter)*/
     public function platformFilter($word) {
         $game   =   $this   ->entityManager
                             ->getRepository(Game::class)
@@ -236,7 +250,7 @@ class Catalogue {
         return $game;
     }
     
-    //genre option
+    /*genre option (filter)*/
     public function genreFilter($word) {
         $game   =   $this    ->entityManager
                              ->getRepository(Game::class)
@@ -262,9 +276,10 @@ class Catalogue {
         return $games;
     }
     
-    //released period option
+    /*release date period option (filter)*/
     public function releasedFilter($word) {
         switch($word) {
+            
             case "<0" :
                 $game   =   $this ->entityManager
                                   ->getRepository(Game::class)
@@ -337,7 +352,7 @@ class Catalogue {
         return $game;
     }
     
-    //price option
+    /*price option (filter)*/
     public function priceFilter($word) {
         switch($word) {
             case "<25" :
@@ -399,6 +414,7 @@ class Catalogue {
         return $game;
     }
     
+    /*merges two arrays without duplicates*/
     public function merge_unique($array1, $array2) {
         $game = $array1;
         foreach($array2 as $elt) {
@@ -409,6 +425,7 @@ class Catalogue {
         return $game;
     }
     
+    /*creates a new array composed of the common values of two arrays*/ 
     public function intersect($array1, $array2) {
         $game = array();
         foreach($array1 as $elt) {
@@ -419,7 +436,13 @@ class Catalogue {
         return $game;
     }
     
+    /*filter function*/
     public function filter($get) {
+        $editors = $this->getEditors();
+        $developers = $this->getDevelopers();
+        $platforms = $this->getPlatforms();
+        $genres = $this->getGenres();
+        
         $games = array(); $temps = array(); $i = 0;
         foreach($get as $key => $option) {
             
@@ -431,7 +454,7 @@ class Catalogue {
                 $i += 1;
             }
             
-            //developer option
+            /*developer option*/
             else if($key == "developer") {
                 if($i == 0) {
                     foreach($option as $developer) {
@@ -454,7 +477,7 @@ class Catalogue {
                 }
             }
             
-            //platform option
+            /*platform option*/
             else if($key == "platform") {
                 if($i == 0) {
                     foreach($option as $platform) {
@@ -477,7 +500,7 @@ class Catalogue {
                 }
             }
             
-            //genre option 
+            /*genre option*/
             else if($key == "genre") {
                 if($i == 0) {
                     foreach($option as $genre) {
@@ -500,7 +523,7 @@ class Catalogue {
                 }
             }
             
-            //released period option
+            /*released period option*/
             else if($key == "released") {
                 if($i == 0) {
                     foreach($option as $released) {
@@ -523,7 +546,7 @@ class Catalogue {
                 }
             }
             
-            //price option
+            /*price option*/
             else if($key == "price") {
                 if($i == 0) {
                     foreach($option as $price) {
@@ -550,46 +573,6 @@ class Catalogue {
                 $games = NULL;
             }
         }
-        
-        $editors    =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g.editor')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.editor', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
-                        
-        $developers =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g.developer')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.developer', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
-                            
-        $platforms  =   $this->entityManager
-                        ->getRepository(Game::class)
-                        ->createQueryBuilder('Game')
-                        ->select('g.platform')
-                        ->from('Website\Models\Game', 'g')
-                        ->orderBy('g.platform', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
-                            
-        $genres     =   $this->entityManager
-                        ->getRepository(Genre::class)
-                        ->createQueryBuilder('Genre')
-                        ->select('g.name')
-                        ->from('Website\Models\Genre', 'g')
-                        ->orderBy('g.name', 'ASC')
-                        ->distinct()
-                        ->getQuery()
-                        ->getResult();
                         
         $template = $this->twig->load("catalogue.twig");
         echo $template->render(["editors" => $editors, "developers" => $developers, "platforms" => $platforms, "genres" => $genres, "games" => $games]);

@@ -15,18 +15,4 @@ $(document).ready(function() {
       $target.removeClass("visible").addClass("invisible");
     }
   });
-
-  /*set the min and max of the price range, and show its current status*/
-  $(function() {
-    $("#slider-range").slider({
-      max: 70,
-      min: 0,
-      range: true,
-      values: [0, 70],
-      slide: function(event, ui) {
-        $("#range").val("Entre " + ui.values[0] + " et " + ui.values[1] + "€");
-      }
-    });
-    $("#range").val("Entre " + $("#slider-range").slider("values", 0) + " et " + $("#slider-range").slider("values", 1) + "€");
-  });
 });
