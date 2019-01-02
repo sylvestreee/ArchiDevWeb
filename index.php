@@ -40,19 +40,19 @@ try {
         case "catalogue" :
           $catalogueController = new Website\Controllers\catalogue();
           
-          /*if the user only wants to see the catalogue*/
+          /*display of all games in the catalogue*/
           if($method == NULL) {
             $catalogueController->index();
           }
           else {
             switch($method) {
               
-              /*use of the navbar*/ 
+              /*display of the catalogue after a research via the search bar*/ 
               case "search" :
                 $catalogueController->search($_GET);
                 break;
                 
-              /*use of the filter options*/
+              /*display of the catalogue after a filtering via filter options*/
               case "filter" :
                 $catalogueController->filter($_GET);
                 break;
@@ -70,6 +70,8 @@ try {
           
           /*test if the game exists or not*/
           if($gameController->exist($_GET)) {
+            
+            /*display of the product page of the game*/
             $gameController->index($_GET);
           }
           else {
@@ -81,6 +83,7 @@ try {
         case "log" :
           $logController = new Website\Controllers\log();
           
+          /*display of the log in page*/
           if($method == NULL) {
             $logController->index(); 
           }
@@ -88,7 +91,7 @@ try {
           else {
             switch($method) {
               
-              /*connection to an account*/
+              /*if an user wants to connect to his account*/
               case "connection" :
                 
                 /*an user can only connect if he's not already connected*/
@@ -100,7 +103,7 @@ try {
                 }
                 break;
                 
-              /*disconnection from an account*/
+              /*if an user wants to disconnect from his account*/
               case "disconnection" :
                 
                 /*an user can only disconnect if he's connected*/
@@ -126,15 +129,15 @@ try {
           if(empty($_SESSION['id'])) {
             $signController = new Website\Controllers\sign();
             
+            /*display of the account creation page*/
             if($method == NULL) {
               $signController->index();
             }
             
             else {
-              
               switch($method) {
                 
-                /*registration of a new account*/
+                /*if an user registrated a new account*/
                 case "registration" :
                   $signController->registration($_POST);
                   break;
@@ -170,6 +173,7 @@ try {
           if(!empty($_SESSION['id'])) {
             $accountController = new Website\Controllers\account();
             
+            /*display of the an user's account informations modification page*/
             if($method == NULL) {
               $accountController->index();
             }
@@ -178,7 +182,7 @@ try {
               
               switch($method) {
                 
-                /*update account informations*/
+                /*if an user updated his account informations*/
                 case "update" :
                   $accountController->update($_POST);
                   break;
@@ -201,6 +205,7 @@ try {
           if(!empty($_SESSION['id'])) {
             $cartController = new Website\Controllers\cart();
             
+            /*display of an user's cart*/
             if($method == NULL) {
               $cartController->index();
             }
@@ -208,12 +213,12 @@ try {
             else {
               switch($method) {
                 
-                /*add a game to the cart*/
+                /*if an user added a game to his cart*/
                 case "reservation" :
                   $cartController->reservation($_GET);
                   break;
                   
-                /*delete a game from the cart*/
+                /*if an user deleted a game from his cart*/
                 case "cancel" :
                   $cartController->cancel($_GET);
                   break;
