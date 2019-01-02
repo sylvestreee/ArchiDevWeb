@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    
+    $('input').on('keypress', function(e) {
+    return e.which !== 13;
+    });
+    
     $(document).on('click', '.dropdown-menu li a', function() {
         $(this).parents('.dropdown').find('.btn').html($(this).text());
         $(this).parents('.dropdown').find('.btn').val($(this).data('value'));

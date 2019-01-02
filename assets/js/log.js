@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  
   /*reacts to any kind of inputs modification (add or delete)*/
   $(document).on('input', '.log', function() {
     var input = $(this);
